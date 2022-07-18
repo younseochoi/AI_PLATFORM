@@ -1,0 +1,16 @@
+package mysqljd;
+
+public class ConnectionTest {
+
+	public static void main(String[] args) {
+		try {
+			//0. 설치한 mysql driver 호출
+			Class.forName("com.mysql.jdbc.Dirver");
+			System.out.println("드라이버 호출");
+			
+		}catch(Exception e) {
+			
+		}
+	}
+
+}

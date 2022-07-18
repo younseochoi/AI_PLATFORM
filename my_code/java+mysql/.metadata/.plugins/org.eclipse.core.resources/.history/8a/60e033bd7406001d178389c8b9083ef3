@@ -1,0 +1,11 @@
+package mysqljd;
+
+public class SelectTest9 {
+
+	public static void main(String[] args) {
+		SelectTest8 s = new SelectTest8();
+		//키보드입력 월은 여기서 매개변수로 전달 
+		s.test(); //여러메인 클래스 호출 공유 
+	}
+
+}

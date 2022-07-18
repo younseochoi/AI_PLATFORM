@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/Users/choiyoonseo/Desktop/AI_PLATFORM/java+mysql/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1123885918.index
+3331864397.index
+3624890274.index
+2110383698.index
+1855091989.index

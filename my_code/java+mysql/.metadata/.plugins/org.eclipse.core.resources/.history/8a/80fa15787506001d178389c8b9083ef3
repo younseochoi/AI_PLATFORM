@@ -1,0 +1,66 @@
+package mysqljd;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.Scanner;
+
+public class SelectTest8 {
+	
+	void test(String input) {
+		Connection con = null;
+		try {
+			//0. 설치한 mysql driver 호출
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("드라이버 호출");
+			//1. db 연결
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empdb","emp2","emp2");
+			System.out.println("연결 성공");
+
+			/* 키보드로 입력 
+			 * 제외할 월 : 01-12사이값 입력 (06)
+			 * ==> 입사월별 급여 총합구하되 위에 입력받은 월은 제외
+			 * 입사월 급여 총합 */
+			
+//			String query = "select date_format(hire_date,'%m') 입사월 ,sum(salary) '급여 총합' from employees "
+//					+ "where date_format(hire_date,'%m') != '"+input+"' group by date_format(hire_date,'%m') order by date_format(hire_date,'%m')";
+			String query = "select date_format(hire_date,'%m') ,sum(salary) '급여 총합' from employees "
+					+ "where date_format(hire_date,'%m') != '"+input+"' group by date_format(hire_date,'%m') order by date_format(hire_date,'%m')";
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				String arg1 = rs.getString(1);
+				String arg2 = rs.getString(2);
+//				System.out.println(arg1+" :: "+arg2);
+			}
+			rs.close();
+		}catch(ClassNotFoundException e) {
+			System.out.println("미설치이거나 classpath 미등록 또는 드라이버명 오타확인 ");
+		}catch(SQLException e) {
+			System.out.println("db연결 정보 잘못확인 ");
+			e.printStackTrace();
+		}finally {
+			try {
+				//4 연결해제 
+				con.close(); // mysql 연결 허용 최대치 - 100여개
+				System.out.println("연결해제 성공"); 
+			}catch(SQLException e) {
+				
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		SelectTest8 s = new SelectTest8();
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("제외할 월 : ");
+		String input = sc.next();
+		s.test(input);
+	
+	}
+
+}

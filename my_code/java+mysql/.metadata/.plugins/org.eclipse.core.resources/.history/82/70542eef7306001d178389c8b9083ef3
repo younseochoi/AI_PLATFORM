@@ -1,0 +1,17 @@
+package mysqljd;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.Scanner;
+
+public class SelectTest7 {
+
+	public static void main(String[] args) {
+		//다른 메소드 호출 
+	}
+
+}

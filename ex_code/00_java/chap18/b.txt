@@ -1,0 +1,47 @@
+1라인 : package chap18;
+2라인 : 
+3라인 : import java.io.File;
+4라인 : import java.io.IOException;
+5라인 : import java.text.SimpleDateFormat;
+6라인 : import java.util.Scanner;
+7라인 : 
+8라인 : public class FileClassTest {
+9라인 : 
+10라인 : 	public static void main(String[] args) throws IOException {//개발자 개입하지 않고 자바 내장 처리
+11라인 : 		Scanner scan = new Scanner(System.in);
+12라인 : 		String name = scan.next();
+13라인 : 		//name 을 File 객체로 생성
+14라인 : 		File f = new File(name);//   c:~/src/chap18/FileClassTest.java
+15라인 : 		if(f.exists()) {
+16라인 : 			System.out.println("존재합니다");
+17라인 : 			if(f.isFile()) {//파일
+18라인 : 				//크기 경로 읽기 쓰기 마지막수정
+19라인 : 				System.out.println("파일크기(byte단위)=" + f.length());
+20라인 : 				System.out.println("전체경로=" + f.getCanonicalPath());
+21라인 : 				System.out.println("파일읽기여부=" + f.canRead());
+22라인 : 				System.out.println("파일쓰기여부=" + f.canWrite());	
+23라인 : 				long time = f.lastModified();
+24라인 : 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 E, a hh:mm:ss");
+25라인 : 				String timeString = sdf.format(time);
+26라인 : 				//2022‎년 ‎7‎월 ‎8‎일 ‎금요일, ‏‎오후 1:17:53
+27라인 : 				System.out.println("최종수정시각=" + timeString);
+28라인 : 			}
+29라인 : 			else {//디렉토리
+30라인 : 				String [] details = f.list();
+31라인 : 				System.out.println("==========================");
+32라인 : 				for(String d : details) {
+33라인 : 					System.out.println(d);
+34라인 : 				}
+35라인 : 				System.out.println("==========================");
+36라인 : 			}// inner else
+37라인 : 		}//outer if end
+38라인 : 			
+39라인 : 		else {
+40라인 : 			System.out.println(name + " 이름의 파일이나 디렉토리는 없습니다");
+41라인 : 			// a.txt파일(0byte) /디렉토리(리스트x) 생성해라
+42라인 : 			System.out.println(f.createNewFile());
+43라인 : 		}
+44라인 : 	}
+45라인 : 
+46라인 : }
+47라인 : 
