@@ -1,0 +1,365 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import dto.MemberDTO;
+
+//member 테이블에 대한 CRUD 
+// jdbc 수행코드 
+// 키보드입력/ 웹브라우저입력 / 명령행 매개변수 입력 - dto 형태 전달받아서 
+public class MemberDAO {
+	//insert . update, delete, read
+	//CRUD
+	public int insertMember(MemberDTO dto) {
+		int result = 0;
+		Connection con = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			String sql = "insert into member values(?,?,?,?,?, now())";
+			PreparedStatement pt = con.prepareStatement(sql);
+			pt.setString(1, dto.getId());// jdbc driver - setString 데이터 '' 자동 
+			pt.setInt(2, dto.getPassword());
+			pt.setString(3,  dto.getName());
+			pt.setString(4,  dto.getPhone());
+			pt.setString(5, dto.getEmail());
+			result = pt.executeUpdate();
+			System.out.println("(insertMember 내부)삽입행의 갯수=" + result);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				
+			}catch(SQLException e) {
+				
+			}
+		}
+		return result;
+		
+	}
+	
+	public int updateMember(MemberDTO dto,int option) {
+		int result = 0;
+		Connection con = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			
+			String sql = "select count(*) from member where id = ?";
+			PreparedStatement pt = con.prepareStatement(sql);
+			pt.setString(1, dto.getId());
+			ResultSet rs = pt.executeQuery();
+			
+			rs.next();
+			int count = rs.getInt(1);
+			if(count ==0) {
+				System.out.println("존재하지 않는 id 입니다.");
+				return -1;
+			}
+			//1. 암호 2. 이름 3. 폰번호 4. 이메일
+			
+			String sql2 = "update member set ";
+			if(option ==1) {
+				sql2+="password = "+dto.getPassword();
+			}else if(option ==2) {
+				sql2+="name = "+"'"+dto.getName()+"'";
+			}else if(option ==3) {
+				sql2+="phone = "+"'"+dto.getPhone()+"'";
+			}else {
+				sql2+="email = '"+dto.getEmail()+"'";
+			}
+			sql2+=" where id = ?";
+			System.out.println(sql2);
+			PreparedStatement pt2 = con.prepareStatement(sql2);
+			pt2.setString(1,dto.getId());
+			
+			result = pt2.executeUpdate();
+			System.out.println("(updateMember 내부)업데이트 행의 갯수=" + result);
+			return 0;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				
+			}catch(SQLException e) {
+				
+			}
+		}
+		return result;
+		
+	}
+	
+	public int deleteMember(String id, int password) {
+		int result = 0;
+		Connection con = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			
+			String sql = "select password from member where id = ?";
+			PreparedStatement pt = con.prepareStatement(sql);
+			pt.setString(1, id);
+			ResultSet rs = pt.executeQuery();
+			
+			
+			while(rs.next()) {
+				int user_pw = rs.getInt(1);
+				if(user_pw == password) {
+					String sql2 = "delete from member where id = ? and password = ?";
+					PreparedStatement pt2 = con.prepareStatement(sql2);
+					pt2.setString(1, id);
+					pt2.setInt(2, password);
+					result = pt2.executeUpdate();
+					break;
+				}
+			}
+			
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+	return result;
+	
+}
+
+	public MemberDTO selectOneMember(String id, int password) {
+		Connection con = null;
+		MemberDTO dto = new MemberDTO();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			
+			String sql = "select count(*) from member where id=?";
+			PreparedStatement pt0 = con.prepareStatement(sql);
+			pt0.setString(1, id);
+			ResultSet rs0 = pt0.executeQuery();
+			rs0.next();
+			int exist = rs0.getInt(1);
+			if(exist ==0) { //존재하는 아이디 없음 
+				dto.setId("None");
+				return dto;
+			}
+			
+			String sql1 = "select password from member where id = ?";
+			PreparedStatement pt = con.prepareStatement(sql1);
+			pt.setString(1, id);
+			ResultSet rs = pt.executeQuery();
+			
+		
+			
+			while(rs.next()) {
+				
+				int user_pw = rs.getInt(1);
+				if(user_pw == 0) { //존재하는 아이디 없음 . 
+					return null;
+				}
+				else if(user_pw == password) {
+					String sql2 = "select * from member where id=?";
+					PreparedStatement pt2 = con.prepareStatement(sql2);
+					pt2.setString(1, id);
+					ResultSet rs2 = pt2.executeQuery();
+					while(rs2.next()) {
+						dto.setId(rs2.getString("id"));
+						dto.setPassword(rs2.getInt("password"));
+						dto.setName(rs2.getString("name"));
+						dto.setPhone(rs2.getString("phone"));
+						dto.setEmail(rs2.getString("email"));
+						dto.setRegdate(rs2.getString("regdate"));
+					}
+					break;
+				}
+			}
+			
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+	return dto;
+	}
+
+	public ArrayList<MemberDTO> selectAllMemberP(int page) {
+		Connection con = null;
+		
+		ArrayList<MemberDTO> dto_arrlist = new ArrayList();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			
+			String sql = "select * from member limit ?";
+			PreparedStatement pt = con.prepareStatement(sql);		
+			pt.setInt(1, page);
+			ResultSet rs = pt.executeQuery();
+			
+	
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getInt("password"));
+				dto.setName(rs.getString("name"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto_arrlist.add(dto);
+			}
+			System.out.println();
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+		
+		return dto_arrlist;
+		
+	}
+
+	
+	public ArrayList<MemberDTO> selectAllMember() {
+		Connection con = null;
+		
+		ArrayList<MemberDTO> dto_arrlist = new ArrayList();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			
+			String sql = "select * from member";
+			PreparedStatement pt = con.prepareStatement(sql);			
+			ResultSet rs = pt.executeQuery();
+			
+	
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getInt("password"));
+				dto.setName(rs.getString("name"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto_arrlist.add(dto);
+			}
+			System.out.println();
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+		
+		return dto_arrlist;
+		
+	}
+	
+	public ArrayList<MemberDTO> selectSearchMember(String keyword) {
+		Connection con = null;
+		
+		ArrayList<MemberDTO> dto_arrlist = new ArrayList();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			keyword = keyword.strip();
+			keyword = "%"+keyword+"%";
+			System.out.println(keyword);
+			String sql = "select * from member where id like ? or name like ? or phone like ? or email like ?";
+			PreparedStatement pt = con.prepareStatement(sql);	
+			pt.setString(1, keyword);
+			pt.setString(2, keyword);
+			pt.setString(3, keyword);
+			pt.setString(4, keyword);
+			ResultSet rs = pt.executeQuery();
+			
+	
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getInt("password"));
+				dto.setName(rs.getString("name"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto_arrlist.add(dto);
+			}
+			System.out.println();
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+		
+		return dto_arrlist;
+		
+	} 
+	
+	public int getTotalMember() {
+		Connection con = null;
+		int result=0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/memberdb", 
+					"emp2", "emp2");//emp2 계정은 모든 db 사용 권한
+			String sql = "select count(*) from member";
+			PreparedStatement pt = con.prepareStatement(sql);	
+			ResultSet rs = pt.executeQuery();
+			
+			rs.next();
+			result = rs.getInt(1);
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			
+		}catch(SQLException e) {
+			
+		}
+	}
+		return result;
+		
+	}
+}

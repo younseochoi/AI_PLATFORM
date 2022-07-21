@@ -1,0 +1,15 @@
+package view;
+
+import java.util.Scanner;
+
+public class MemberSelectView2 implements view {
+
+	@Override
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("페이지 번호 입력 : ");
+		String page= sc.next();
+	}
+
+}

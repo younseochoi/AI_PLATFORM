@@ -1,0 +1,21 @@
+package view;
+
+import java.util.Scanner;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+
+public class MemberSelectView3 implements view {
+
+	@Override
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("검색어 :");
+		String keyword = sc.next();
+		
+		MemberDAO dao = new MemberDAO();
+		MemberDTO dto = new MemberDTO();
+		dto= dao.selelctSearchMember(keyword);
+	}
+
+}

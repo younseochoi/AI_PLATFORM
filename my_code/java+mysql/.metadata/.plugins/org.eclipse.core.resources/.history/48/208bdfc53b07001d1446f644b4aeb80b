@@ -1,0 +1,24 @@
+package view;
+
+import java.util.Scanner;
+
+import dao.MemberDAO;
+
+public class MemberSelectView implements view {
+
+	@Override
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 : ");
+		String id = sc.next();
+		System.out.println("암호 : ");
+		int password = sc.nextInt();
+		
+		MemberDAO dao = new MemberDAO();
+		dao.selectOneMember(id,password);
+		
+		MemberDTO dto = new MemberDTO();
+		
+	}
+
+}

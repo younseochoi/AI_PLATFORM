@@ -1,0 +1,10 @@
+package dto;
+
+public class MemberDTO {
+	String id;
+	int password;
+	String name;
+	String email;
+	String phone;
+	String regdate;
+}

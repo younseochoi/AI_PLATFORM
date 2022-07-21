@@ -1,0 +1,10 @@
+package view;
+
+public class MemberDeleteView implements view {
+
+	@Override
+	public void input() {
+		
+	}
+
+}

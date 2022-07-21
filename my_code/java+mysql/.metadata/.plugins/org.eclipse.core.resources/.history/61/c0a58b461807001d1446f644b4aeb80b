@@ -1,0 +1,15 @@
+package main;
+
+import java.util.Scanner;
+
+public class MemberMain {
+
+	public static void main(String[] args) {
+		//MEMBER DAO 호출 
+		//MEBER DTO 객체생성 - 저장
+		//키보드 입력 -db 저장 o
+		Scanner sc = new Scanner(System.in);
+		System.out.println("이름입력 : ");
+	}
+
+}

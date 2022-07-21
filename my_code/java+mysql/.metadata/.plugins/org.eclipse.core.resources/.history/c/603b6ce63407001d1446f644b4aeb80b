@@ -1,0 +1,26 @@
+package view;
+
+import java.util.Scanner;
+
+import dao.MemberDAO;
+
+
+public class MemberDeleteView implements view {
+
+	@Override
+	public void input() {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 : ");
+		String id = sc.next();
+		System.out.println("암호 : ");
+		int password = sc.nextInt();
+		
+		MemberDAO dao = new MemberDAO();
+		int result = dao.deleteMember(id, password);
+		if(result ==1 ) {
+			System.out.println("회원탈퇴 처리되셨습니다.");
+		}
+	}
+
+}

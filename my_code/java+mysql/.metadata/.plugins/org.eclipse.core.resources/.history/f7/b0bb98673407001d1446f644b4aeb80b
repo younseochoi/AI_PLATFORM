@@ -1,0 +1,17 @@
+package view;
+
+import java.util.Scanner;
+
+public class MemberDeleteView implements view {
+
+	@Override
+	public void input() {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 : ");
+		String id = sc.next();
+		System.out.println("암호 : ");
+		int option = sc.nextInt();
+	}
+
+}

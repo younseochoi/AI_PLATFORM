@@ -1,0 +1,11 @@
+package view;
+
+public class MemberDeleteView implements view {
+
+	@Override
+	public void input() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

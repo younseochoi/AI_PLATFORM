@@ -1,0 +1,68 @@
+package main;
+
+import java.util.Scanner;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+import view.MemberInsertView;
+import view.MemberUpdateView;
+
+public class MemberMain {
+
+	public static void main(String[] args) {
+		//MEMBER DAO 호출 
+		//MEBER DTO 객체생성 - 저장
+		//키보드 입력 -db 저장 o
+		/*
+		 * 회원 관리 프로그램을 시작합니다
+		 * 1. 회원가입
+		 * 2. 회원정보 수정
+		 * 3. 회원 탈퇴
+		 * 4. 내정보 조회
+		 * 5. 회원 리스트 조회
+		 * 6. 종료
+		 * 원하는 메뉴의 번호를 입력하세요 : 
+		 *  
+		 *  */
+		while(true) {
+			System.out.println("=============회원 관리 프로그램을 시작합니다===============");
+			System.out.println("1. 회원가입");
+			System.out.println("2. 회원정보수정");
+			System.out.println("3. 회원탈퇴");
+			System.out.println("4. 내정보 조회");
+			System.out.println("5. 회원 리스트 조회");
+			System.out.println("6. 종료");
+			
+			Scanner sc = new Scanner(System.in);
+			int menu =  sc.nextInt();
+			if(menu == 6) {
+				System.exit(0);
+			}else if(menu ==1) {
+				MemberInsertView view = new MemberInsertView();
+				view.input();
+				
+			}else if(menu ==2) {
+				MemberUpdateView view = new MemberUpdateView();
+				view.input();
+				/* 아이디 : xxxx 
+				 * 수정항목 : 암호|이름|폰번호|이메일 
+				 * 수정값 : ㅌㅌㅌ 
+				 * MeberDAO 의updateEmp(MemberDto dto ) 호출 
+				 * */
+			}
+			
+		}
+		
+//		
+//		MemberDTO dto  = new MemberDTO();
+//		dto.setId(id);
+//		dto.setPassword(password);
+//		dto.setName(name);
+//		dto.setPhone(phone);
+//		dto.setEmail(email);
+//		
+//		MemberDAO dao = new MemberDAO();
+//		dao.insertMember(dto);
+	}
+
+}

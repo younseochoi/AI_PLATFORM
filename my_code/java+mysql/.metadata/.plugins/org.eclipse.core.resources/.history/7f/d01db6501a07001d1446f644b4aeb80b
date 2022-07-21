@@ -1,0 +1,24 @@
+package main;
+
+import java.util.Scanner;
+
+public class MemberMain {
+
+	public static void main(String[] args) {
+		//MEMBER DAO 호출 
+		//MEBER DTO 객체생성 - 저장
+		//키보드 입력 -db 저장 o
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 입력 : ");
+		String id = sc.next();
+		System.out.println("암호 입력 : ");
+		int password = sc.nextInt();
+		System.out.println("이름 입력 : ");
+		String name = sc.next();
+		System.out.println("폰번호 입력 : ");
+		String phone = sc.next();
+		System.out.println("이메일 입력 : ");
+		String email = sc.next();
+	}
+
+}

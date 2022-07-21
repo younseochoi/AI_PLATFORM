@@ -1,0 +1,27 @@
+package view;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+
+public class MemberSelectView3 implements view {
+
+	@Override
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("검색어 :");
+		String keyword = sc.nextLine();
+		
+		ArrayList <MemberDTO>dto_list = new ArrayList();
+		
+		MemberDAO dao = new MemberDAO();
+		dto_list= dao.selectSearchMember(keyword);
+		
+		for(MemberDTO dto : dto_list) {
+			System.out.println(dto);
+		}
+	}
+
+}

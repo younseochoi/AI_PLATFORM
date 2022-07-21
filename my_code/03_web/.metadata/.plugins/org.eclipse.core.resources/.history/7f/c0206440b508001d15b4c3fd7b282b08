@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!-- html5 사용할거야! html5 버전 추가 기능 쓸거야 -->
+<html>
+<head>
+<!--안드로이드나 패드브라우저 basic.html 결과   -->
+<meta charset="UTF-8">
+<title>제목입니다.</title>
+</head>
+<body>
+<!-- 
+1. 주석처리 
+2. html모든 작성은 대소문자 구분하지 않음 
+	java(구분) ,sql, html (미구분)
+3. <태그(역할)시작> 내용 </태그 종료>	
+4. style : 속성 이름 / color = red : 속성값 '속성값' "속성값" -> 다 가능 
+
+ -->
+<h1 style = "color:red">제목 1</h1>
+<h3 style = color:blue>제목 3</h3>
+<h6 style = 'color:green'>제목 6</h6>
+제목이 아닌 글씨입니다1.<br>
+제목이 아닌 글씨입니다2. <br>
+제목이 아닌 글씨입니다3.<br>
+
+<!-- html+css 역할, 문법 + javascript 언어  -->
+<!-- <script>alert("확인하세요!"); /* 대소문자 구문 */  </script> -->
+<h3>용어 정리</h3> 
+<hr>
+<p>
+&amp;amp;는 '&'를 표현합니다.<br>
+&amp;nbsp; 는 공백을 표현합니다.<br>
+&amp;gt; 는 '>'  , &amp;lt; 는 '<' <br>
+네트워크 &nbsp;&nbsp;&nbsp; – 집 모든 컴퓨팅 도구 연결 <br>
+              학교나 사무실 건물 내부 모든 컴퓨팅 도구 연결<br>
+집이랑 건물 연결 ===> 인터넷
+<br><br>
+약속 표준 프로토콜 – 컴퓨터 통신 언어
+</p>
+<hr>
+<p>
+1> 이미지+동영상+텍스트--> 텍스트 이상 표현
+2> 클릭 --> 다른 내용 추가 더 많이 표현
+3> world wide web -> www --> web --> http
+hyper text 표현 프로토콜 --> http
+인터넷 클라이언트/서버 컴퓨터 --> http
+http://서버주소:port
+ http://localhost:8080</p>
+ <hr>
+<p>html5 
+HTML – HYPER TEXT MARKUP LANGUAGE( 변수 , 조건문, 반복문, 클래스 , db x)
+http  서버 클라이언트 표현 언어</p>
+<a href="http://www.daum.net">여기를 클릭하면 </a>다음 사이트로 이동합니다. <br>
+<a href="https://lc.multicampus.com/kdt2020s/#/login">여기를 클릭하면 </a> 멀티 mlp 사이트로 이동합니다. <br>
+<a href="basic.html">여기를 클릭하면 </a> 현재서버의 현재 경로 basic.html로 이동합니다. <br>
+<a href="link/a.html">여기를 클릭하면 </a> 현재서버의 link/a.html로 이동합니다. <br>
+<a href="http://localhost:8080/html/basic.html">여기를 클릭하면 </a> 현재서버의 현재 경로(/html) basic.html로 이동합니다. <br>
+<a href="/html/basic.html">여기를 클릭하면 </a> 현재서버의 현재 경로 basic.html로 이동합니다. <br>
+
+</body>
+</html>

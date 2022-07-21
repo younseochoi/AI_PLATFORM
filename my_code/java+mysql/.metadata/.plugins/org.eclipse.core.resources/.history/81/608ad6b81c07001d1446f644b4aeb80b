@@ -1,0 +1,22 @@
+package view;
+
+public class MemberInsertView {
+	
+	public void input() {
+		
+	}
+}
+
+public class MemberUpdateView {
+	
+	public void input() {
+		
+	}
+}
+
+public class MemberDeleteView {
+	
+	public void input() {
+		
+	}
+}

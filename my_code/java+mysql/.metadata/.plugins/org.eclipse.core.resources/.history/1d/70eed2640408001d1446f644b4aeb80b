@@ -1,0 +1,17 @@
+import java.util.HashMap;
+import java.util.Set;
+
+public class test {
+
+	public static void main(String[] args) {
+		HashMap map = new HashMap();
+		map.put("홍길동", new Integer(90));
+		map.put("홍길동", new Integer(100));
+
+		Set<String> key = map.keySet();
+		for(String name : key) {
+		System.out.print("이름 : " + name + " , 점수 : " + map.get(name));
+		}
+	}
+
+}

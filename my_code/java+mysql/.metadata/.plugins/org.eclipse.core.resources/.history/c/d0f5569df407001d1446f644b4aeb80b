@@ -1,0 +1,9 @@
+package practice01;
+
+public class ProductTest {
+
+	public static void main(String[] args) {
+		ProductDTO dto = new ProductDTO();
+	}
+
+}

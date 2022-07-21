@@ -1,0 +1,10 @@
+package view;
+
+public class MemberSelectView2 implements view {
+
+	@Override
+	public void input() {
+		System.out.print("페이지 번호 입력 : ");
+	}
+
+}

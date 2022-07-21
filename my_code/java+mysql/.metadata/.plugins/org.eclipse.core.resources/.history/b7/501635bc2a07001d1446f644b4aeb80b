@@ -1,0 +1,25 @@
+package view;
+
+import java.util.Scanner;
+
+public class MemberUpdateView implements view {
+
+	@Override
+	public void input() {
+		/* 아이디 : xxxx 
+		 * 수정항목 : 암호|이름|폰번호|이메일 
+		 * 수정값 : ㅌㅌㅌ 
+		 * MeberDAO 의updateEmp(MemberDto dto ) 호출 
+		 * */
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 : ");
+		String id = sc.next();
+		System.out.println("수정항목 : 1. 암호 2. 이름 3. 폰번호 4. 이메일 ");
+		int option = sc.nextInt();
+		System.out.println("수정값 : ");
+		String updateValue = sc.next();
+		
+		
+	}
+
+}

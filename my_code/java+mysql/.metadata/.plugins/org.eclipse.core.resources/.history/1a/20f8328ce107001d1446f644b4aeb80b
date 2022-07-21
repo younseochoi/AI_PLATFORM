@@ -1,0 +1,11 @@
+package view;
+
+public class MemberSelectView3 implements view {
+
+	@Override
+	public void input() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

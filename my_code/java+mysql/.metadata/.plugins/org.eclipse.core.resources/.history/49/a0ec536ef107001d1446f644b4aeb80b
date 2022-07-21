@@ -1,0 +1,42 @@
+package view;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import dao.MemberDAO;
+import dto.MemberDTO;
+
+public class MemberSelectView2 implements view {
+
+	@Override
+	public void input() {
+		
+		MemberDAO dao = new MemberDAO();
+		int totalCount = dao.getTotalMember();
+		int recordPerPage = 4;
+		int totalPage;
+		if(totalCount%recordPerPage==0) {
+			totalPage = totalCount/recordPerPage;
+		}else {
+			totalPage = totalCount/recordPerPage+1;
+		}
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("페이지 번호 입력 : (1 - " + totalPage+" 까지 가능)");
+		String page= sc.next();
+		if(page.equals("*")) {
+			ArrayList<MemberDTO> dto_arrlist = dao.selectAllMember();
+			
+			for(MemberDTO dto : dto_arrlist) {
+				System.out.println(dto);
+			}
+		}else {
+			ArrayList<MemberDTO> dto_arrlist = dao.selectAllMemberP(Integer.parseInt(page));
+			
+			for(MemberDTO dto : dto_arrlist) {
+				System.out.println(dto);
+			}
+		}
+	}
+
+}

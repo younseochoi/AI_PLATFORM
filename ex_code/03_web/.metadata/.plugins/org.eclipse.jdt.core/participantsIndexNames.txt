@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+/Users/choiyoonseo/Desktop/AI_PLATFORM/ex_code/03_web/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1586552802.index
+/html/src/main/java

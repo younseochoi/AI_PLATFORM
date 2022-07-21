@@ -1,0 +1,58 @@
+package practice02;
+
+import java.util.Date;
+
+public class BookDTO {
+	/*bookNo char(10) not null primary key,
+    booTitle varchar(30) not null,
+	bookAuthor varchar (20),
+    bookYear date,
+    bookPrice int,
+    bookPublisher varchar(10)*/
+	
+	String bookNo;
+	String booTitle;
+	String bookAuthor;
+    Date bookYear;
+    int bookPrice;
+    String bookPublisher;
+    
+	public String getBookNo() {
+		return bookNo;
+	}
+	public void setBookNo(String bookNo) {
+		this.bookNo = bookNo;
+	}
+	public String getBooTitle() {
+		return booTitle;
+	}
+	public void setBooTitle(String booTitle) {
+		this.booTitle = booTitle;
+	}
+	public String getBookAuthor() {
+		return bookAuthor;
+	}
+	public void setBookAuthor(String bookAuthor) {
+		this.bookAuthor = bookAuthor;
+	}
+	public Date getBookYear() {
+		return bookYear;
+	}
+	public void setBookYear(String bookYear) {
+		Date date= new Date();
+		this.bookYear = date(bookYear,1,1);
+	}
+	public int getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(int bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+	public String getBookPublisher() {
+		return bookPublisher;
+	}
+	public void setBookPublisher(String bookPublisher) {
+		this.bookPublisher = bookPublisher;
+	}
+    
+}

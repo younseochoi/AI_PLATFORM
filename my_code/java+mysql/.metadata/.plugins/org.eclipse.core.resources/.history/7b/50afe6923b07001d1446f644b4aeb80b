@@ -1,0 +1,14 @@
+package view;
+
+import java.util.Scanner;
+
+public class MemberSelectView implements view {
+
+	@Override
+	public void input() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("아이디 : ");
+		System.out.println("암호 : ");
+	}
+
+}

@@ -1,0 +1,14 @@
+package practice01;
+
+public class ProductTest {
+
+	public static void main(String[] args) {
+		/*100 노트북 1200000 2021 삼성
+200 아이패드 500000 2022 애플
+200 마우스 15000 2021 LG*/
+		ProductDTO pdto1 = new ProductDTO(100, "노트북", 1200000, "2021", "삼성");
+		ProductDTO pdto2 = new ProductDTO(200, "아이패드", 500000, "2022", "애플");
+		ProductDTO pdto3 = new ProductDTO(200, "마우스", 15000, "2021", "LG");
+	}
+
+}

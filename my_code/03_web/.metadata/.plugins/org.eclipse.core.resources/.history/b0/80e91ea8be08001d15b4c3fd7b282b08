@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>playlist</title>
+</head>
+<body>
+<b>
+<ul type="disc">
+	<li>게시판</li>
+	<li>카페</li>
+	<li>뉴스
+		<ol>
+			<li>날씨 속보</li>
+			<li>코로나 속보</li>
+			<li>축구 속보</li>
+		</ol>
+	</li>
+	
+</ul>
+</b>
+<hr>
+<h3>JPOP-PLAYLIST</h3>
+<ul type="circle">
+	<li>역몽 - kingnu</li>
+	<li>일도 - kingnu</li>
+	<li>pretender - dandism</li>
+	<li>laughter - official dandism</li>
+</ul>
+<hr>
+<ol type="i">
+	<li>역몽 - kingnu</li>
+	<li>일도 - kingnu</li>
+	<li>pretender - official dandism</li>
+	<li>laughter - official dandism</li>
+</ol>
+</body>
+</html>
