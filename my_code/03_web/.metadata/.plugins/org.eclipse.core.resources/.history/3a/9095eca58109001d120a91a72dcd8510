@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border=1>
+	<tr><th>상품 등록 화면</th></tr>
+	<tr>
+		<td>html
+			<img src = "images/html5.jpg" width="80" height="80">
+			를 이용한 상품 등록 페이지 입니다.
+		</td>
+	</tr>
+	<tr><td>상품코드</td><td><input type=text name="pdtcode" maxlength="10"></td></tr>
+</table>
+</body>
+</html>

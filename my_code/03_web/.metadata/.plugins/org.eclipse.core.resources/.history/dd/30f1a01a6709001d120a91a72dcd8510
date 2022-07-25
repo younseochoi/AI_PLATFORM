@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>폼태그 연습 </h1>
+<form action="a.jsp">
+	아이디 입력 : <input type = 'text' name="id" size='5' maxlength='3'><br>
+	비밀번호 입력 : <input type = 'password' name='pw' value='기본값'> <br>
+	관리자 여부 : <input type='hidden' name="admin" value= true> <br>
+	성별 : <input type='radio' name="gender" value= "남자"> male
+			<input type='radio' name="gender" value= "여자"> female<br>
+	취미 : <input type ='checkbox' name="hobby" value = "music"> 음악감상 
+			<input type ='checkbox' name="hobby" value = "movie"> 영화보기
+			<input type ='checkbox' name="hobby" value = "it"> it
+			<input type ='checkbox' name="hobby" value = "none"> 안한다 <br>
+			
+	파일 업로드 : <input type='file' name ="uploadfile"><br>		
+	<input type = 'submit' value= "전송"> <!-- 버튼, 기능내장, action 속성파일로 전송기능 -->
+	<input type = 'reset' value ="취소"> <!-- 버튼, 기능내장, 입력내용 지우고 현재 파일에 머물러있음. -->
+	<input type= 'button' value="아무것도안함"> <!-- 버튼, 기능내장 x ,기능 사용자 정의 (자바스크립트) -->
+	
+</form>
+<!-- 키보드 입력하면 입력내용을 id 변수에 저장해 a.jsp 파일로 전송 -->
+</body>
+</html>

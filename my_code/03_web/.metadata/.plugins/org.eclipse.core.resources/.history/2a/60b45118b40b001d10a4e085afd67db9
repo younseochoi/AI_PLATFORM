@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./sample.css">
+<style type="text/css">
+/* 	h1{color:green;} */
+</style>
+</head>
+<body>
+	<h1 style="color:red;">제목 텍스트 </h1>
+	<p>문단 텍스트</p>
+	<h1>제목 텍스트2 </h1>
+	<h1>제목 텍스트3 </h1>
+</body>
+</html>

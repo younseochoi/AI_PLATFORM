@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>폼태그 연습 </h1>
+<form action="a.jsp">
+	<input type = 'text' name="id" size='5' maxlength='3'>
+	<input type = 'submit' value= "전송">
+	<input ttype = 'reset' value ="취소'>
+	
+</form>
+<!-- 키보드 입력하면 입력내용을 id 변수에 저장해 a.jsp 파일로 전송 -->
+</body>
+</html>

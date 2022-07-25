@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1{display: inline;}
+	p:first-child{ font-size:10px;}
+	p:nth-child(2){ font-size:20px;}
+	p:nth-child(3){ font-size:30px;}
+	p:last-child{ font-size:40px;}
+</style>
+</head>
+<body>
+	<h1>제목1</h1>
+	<h1>제목2</h1>
+	<p>첫번째 줄</p>
+	<p>두번째 줄</p>
+	<p>세번째 줄</p>
+	<p>네번째 줄</p>
+</body>
+</html>

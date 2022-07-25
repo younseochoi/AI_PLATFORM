@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1,p,img{
+		border:20px solid lime;
+		border-radius:40px;
+		border-shadow:red 10px;
+		margin: 10px; /* 전후 다른태그들과의 간격 = 외부간격 */
+		padding: 10px; /* 태그 내부 컨텐츠와의 간격 = 내부간격   */
+		width:300px;
+		height:300px;
+		display:inline-block; /* inline : width 속성 무시, 컨텐츠 크기만큼  */
+	}
+	
+	/* 사각형 형태 박스모델로 취급 
+		태그 height +margin*2 + padding*2 + border-width *2
+	*/
+	
+</style>
+</head>
+<body>
+<h1>제목</h1>
+<p>본문</p>
+<img src="../images/google.png">
+<img src="../images/iphone.png">
+</body>
+</html>

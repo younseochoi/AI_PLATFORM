@@ -107,9 +107,25 @@
 	</tr>
 	<tr><th colspan="2">로그인</th></tr>
 </table>
+
 <hr>
-<table border="1">
-	
-</table>
+
+<form action = "loginprocess.jsp">
+<fieldset>
+	<legend> 로그인양식 </legend>
+	<table border=1>
+		<caption>로그인 입력</caption>
+		<tr>
+			<th>아이디 입력</th>
+			<td><input type="text" name="id"></td>
+			<td rowspan="2"><input type="submit" value= "로그인"><input type="reset" value= "초기화"></td>
+		</tr>
+		<tr>
+			<th>암호 입력</th>
+			<td><input type="password" name= "pw"></td>
+		</tr>
+	</table>
+</fieldset>
+</form>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h1,p,img{
+		border:20px solid lime;
+		margin: 50px; /* 전후 다른태그들과의 간격 = 외부간격 */
+		padding: 50px; /* 태그 내부 컨텐츠와의 간격 = 내부간격   */
+		width:300px;
+	}
+	
+	/* 사각형 형태박스모델로 취급 */
+</style>
+</head>
+<body>
+<h1>제목</h1>
+<p>본문</p>
+<img src="../images/google.png">
+</body>
+</html>

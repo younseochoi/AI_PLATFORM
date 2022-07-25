@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- html5 
+추가태그 audio , video 
+input 태그 추가 type - 모든 브라우저 동일 동작 (아직 불완전) -동작 브라우저마다 다르다.  
+ -->
+ <form action="html5.jsp">
+ 색상선택 : <input type="color" name="col"><br>
+ 날짜선택 : <input type="date" name="da"><br>
+ 이메일 : <input type="email" name="em"><br>
+ 홈페이지 : <input type="url" name="ur"><br>
+ 폰번호 : <input type="tel" name="te"><br>
+ 숫자 : <input type="number" name="nu" step="10" min=0 max=100><br>
+ 범위 : <input type="range" name="ra"><br>
+ <input type="submit" value="버튼이름">
+ </form>
+</body>
+</html>
+
+<!-- http://localhost:8080/html/html5.jsp?
+col=%237f3434
+&
+da=2022-07-08
+&
+em=cys42%40gmail.com  %40 -> @ 
+&
+ur=http%3A%2F%2Flocalhost%3A8080%2Fhtml%2Fformtag3.html
+&
+te=01012341234 세계의 폰번호 양식이 다양하기 때문에 사실상 아무런 효과 없음 
+&
+nu=90
+&
+ra=36 -->
+

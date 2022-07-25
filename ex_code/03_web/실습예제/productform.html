@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <style>
+tr:nth-child(2n+1) {background-color: silver;}
+tr:last-child {text-align: center;}
+</style>
+-->
+</head>
+<body>
+	<form action="productinsert.jsp">
+		<table border=3>
+		<tr>
+	<th colspan="2"> 상품 등록 화면 </th></tr>
+		
+		<tr><td colspan=2>
+		html5 <img src="images/html5.jpg" width=50 height=50> 를 이용한 상품 등록 페이지입니다
+		</td></tr>
+		<tr><td>상품코드</td><td><input type=text name="code"> </td></tr>
+		<tr><td>상품명</td><td><input type=text name="name"></td></tr>
+		<tr><td>가격</td>
+		<td>
+		<input type=radio name="price" value=1000 > 1000
+		<input type=radio name="price" value=2000 > 2000
+		<input type=radio name="price" value=3000 > 3000
+		<input type=radio name="price" value=4000 > 4000
+		</td>
+		</tr>
+		<tr><td>재고수량</td><td><input type=number value=10  ></td></tr>
+		<tr><td>분류</td><td>
+		<input type=checkbox name="class" value=가전 > 가전
+		<input type=checkbox name="class" value=의류 > 의류
+		<input type=checkbox name="class" value=식품 > 식품
+		<input type=checkbox name="class" value=의식주 > 의식주		
+		</td></tr>
+		<tr><td colspan=2><input type=submit value="상품등록" ></td></tr>
+		</table>
+	</form>
+</body>
+</html>

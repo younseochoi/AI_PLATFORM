@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div style="color: green;">
+	<h1>제목1</h1>
+	<p>본문11</p>
+	<p>본문12</p>
+	<p>본문13</p>
+	<p>본문14</p>
+</div>
+<div style="color:blue; border: 2px solid blue;">
+	<h1>제목2</h1>
+	<p>본문2</p>
+	<img alt="경로확인" src="images/google.png">
+</div>
+
+</body>
+</html>
