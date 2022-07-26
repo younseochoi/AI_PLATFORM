@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="sample.js"></script> -->
+<script>
+	var i = 10;
+	var k = 30;
+	//var a ; /* hoising 간주  */
+	var b = "<br>";
+	document.writeln(k+b); /* 브라우저 바디 출력 문장 - 브라우저 줄바꿈 <br> */
+	document.writeln(typeof(k)+b);
+	k="javascript";
+	document.writeln(k+b);
+	document.writeln(typeof(k)+b);
+	
+	a="a변수";
+	document.writeln(a+b);
+	
+	a="a변수 수정";
+	document.writeln(a+b);
+	
+	//리액트 view, node.js - 자바스크립트 신규 라이브러리 - const let
+	/* emca 6추가 키워드 -let 먼저 변수선언 + 값할당 필수 o | var 먼저 변수선언 + 값할당 순서 필수 x */
+	let a2 = "a2변수 초기화";
+	a2 = "a2변수수정";
+	document.writeln(a2+b);
+	
+	/* emca 6추가 키워드 - const 한번 선언한 값 수정 불가능  */
+	const a3 = "a3변수";
+	document.writeln(a3+b);
+	
+	const a4 = `멀티캠퍼스는 기업교육 시장의 First Mover로서,
+		20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며
+		비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.`;
+	document.writeln(a4+b);
+	
+	var a5 = 1;
+	var a6 = 2;
+	var a7 = 3;
+	
+	var a8 = `${a5}+${a6}+${a7}의 결과는 ${a5+a6+a7}입니다.`;
+	document.writeln(a8+b);
+</script>
+</head>
+<body>
+
+</body>
+</html>

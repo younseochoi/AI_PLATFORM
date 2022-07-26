@@ -14,7 +14,7 @@ body{
 	border-radius: 20px;
 	color:green;
 	font-size: 42px ;
-	margin:0 auto ;
+	margin: 0 auto ; /* width가 필요함 */
 	box-shadow: -5px -5px 5px red;
 	text-shadow: 5px 5px 5px green;
 	text-align: center;
@@ -35,6 +35,14 @@ td a{
 #page-num h3{
 	font-size: 24px;
 
+}
+@media screen and (max-width:999px){
+	body{
+		background-color:white; 
+	}
+	#title{
+		display:none;
+	}
 }
 </style>
 </head>
@@ -102,5 +110,6 @@ td a{
 	<a href="boardlist.html">4</a> &nbsp;
 	<a href="boardlist.html">5</a> &nbsp;
 </div>
+<a href="boardwrite.html">글쓰기</a>
 </body>
 </html>
