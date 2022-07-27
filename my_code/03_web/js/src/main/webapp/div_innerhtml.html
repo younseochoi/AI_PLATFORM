@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	width:100px;
+	height: 100px;
+	background-color: green;
+}
+</style>
+</head>
+<body>
+<input type=text id="word" size=30 value="초깃값"> <br>
+<textarea id ="memo" rows="10" cols="50">여기에 입력하는 값은 input type=text와 마찬가지로 value로 읽어올 수 있습니다.</textarea><br>
+<select id="select">
+	<option>1</option>
+	<option>2</option>
+	<option selected="selected">three</option>
+	<option>사</option>
+	<option>오</option>
+</select><br>
+<input type=radio id="gender1" name="gender" value="남자"> male
+<input type=radio id="gender2" name="gender" value="여자"> female
+
+<input type = button id ="test" value="테스트"> 
+<div id="result1"></div>
+<h1 id="result2">제목</h1>
+<a href="#" id=result3>링크</a>
+<script>
+document.getElementById('test').onclick = function(){
+	//innerHTML 읽기 
+	//alert(document.getElementById('result1').innerHTML);
+	//alert(document.getElementById('result2').innerHTML);
+	//alert(document.getElementById('result3').innerHTML);
+	//alert(document.getElementById('word').value);
+	//var text = document.getElementById('word').value;
+	
+	//VALUE 읽기 
+	//var text = document.getElementById('memo').value;
+	//var text = document.getElementById('gender1').value;
+	//var text = document.getElementById('gender2').value;
+	var text = document.getElementById('select').value;
+	document.getElementById('result1').innerHTML = text;
+	document.getElementById('result2').innerHTML = text;
+	document.getElementById('result3').innerHTML = text;
+}
+</script>
+</body>
+</html>

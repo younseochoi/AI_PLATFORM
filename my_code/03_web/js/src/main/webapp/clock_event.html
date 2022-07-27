@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+ <input id= "clock" type=button value="시계">  <!-- 1 -->
+<input id = "stop" type=button value="중단">
+<div id="here">여기에 시간을 출력합니다.</div>
+
+</body>
+<script>
+	var timer;
+	document.getElementById("clock").onclick = function(){	
+		timer = setInterval(function(){
+			document.getElementById("here").innerHTML =new Date().toLocaleString();
+		}, 1000);
+	}
+	
+	document.getElementById("stop").onclick = function(){	
+		clearInterval(timer);
+	}
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var b = "<br>";
+document.writeln(10/3+b);
+document.writeln(parseInt(10/3)+b);
+document.writeln(parseInt("3.33333")+b);
+document.writeln(parseInt("abc")+b); // NaN (not a number)
+document.writeln(parseInt("123abc")+b);// NaN (not a number) 문자가 나오기 전까지 숫자로바꿔줌 
+document.writeln(parseFloat("3.14")+1+b);
+document.writeln(typeof(parseFloat("3.14"))+b);
+document.writeln(typeof parseFloat("3.14")+b);
+document.writeln(true+true+b); //2 1(true) +논리값 
+document.writeln(1+ undefined+b); // NaN (not a number)
+document.writeln(1+ null + b); // null -> 0
+
+let str1 = "java script"; //string 
+let str2 = new String("java script"); //object
+document.writeln( typeof str+b); 
+document.writeln(typeof str2 + b); 
+document.write((str2 instanceof String) + b); // instanceof 연산자랑 +연산자 (이게더 우선순위높아 오류 )
+document.write((str2.constructor == String) + b);
+
+document.write('str1의 문자열 갯수=' + str1.length + b);
+document.write('str1에서 src위치=' + str1.indexOf('scr') + b);
+document.write('str1에서 대문자변경=' + str1.toUpperCase() + b);
+document.write('str1에서 첫문자=' + str1.charAt(0)+","+str1[0] + b);
+// str1[0] = "k"; 오류 
+
+//str1.equals(str2);
+document.write("str2 == str2"+(str1 == str2)+b); //값 동일
+document.write("str2 === str2"+(str1 === str2)+b); //값, 타입 동일
+document.write("100 == \"100\""+( 100 == "100")+b); //값 동일
+document.write("100 === \"100\""+( 100 === "100")+b); //값, 타입 동일 
+
+let result1 = typeof 100 ;
+document.write((result1 == 'number' && 100 == '100') +b); // 값, 타입 동일 
+document.write((null == undefined)+b); // 값동일 true
+document.write((null === undefined)+b); // 값, 타입 동일  false
+
+let str3 = "Java Script";
+let contain = str3.indexOf('Scr')>=0 ? "포함" : "미포함";
+document.write(contain+b);
+
+let a=1, b2=2, c=3;
+let str4="delete 연습";
+delete str4;
+document.write(str4+b);
+
+let test = "alert(10);";
+eval(test);
+</script>
+</body>
+</html>

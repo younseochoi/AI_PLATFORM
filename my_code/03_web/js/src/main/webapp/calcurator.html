@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	const num1 = parseInt(prompt("숫자 입력")); //십 ,10
+	const operator = prompt("연산자 입력");
+	const num2 = parseInt(prompt("숫자 입력"));
+	
+	
+	if(isNaN(num1)||isNaN(num2)){ // 10ten ten10 -> true ,오직 숫자로 된것은 false 
+		document.write("정수만 입력하세요.<br>");
+	}else{
+
+		if(operator == '+'){
+			document.write(num1+operator+num2+" = "+ (num1+num2)+"입니다." );
+		}else if(operator == '-'){
+			document.write(num1+operator+num2+" = "+ (num1-num2)+"입니다." );
+		}else if( operator == '*'){
+			document.write(num1+operator+num2+" = "+ (num1*num2)+"입니다." );
+		}else if(operator == '/'){
+			document.write(num1+operator+num2+" = "+ (num1/num2)+"입니다." );
+		}else{
+			const con = confirm("잘못된 연산자입니다. ");
+			if(con){
+				document.write(num1+"+"+num2+" = "+ (num1+num2)+"입니다." );
+			}else{
+				document.write("다시 연산 내용 입력하세요." );
+			}
+		}
+	}
+</script>
+</body>
+</html>
