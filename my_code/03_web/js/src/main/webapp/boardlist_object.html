@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	onload = start;
+	let board = [];
+	
+	function start(){
+		document.getElementById('save').onclick= function(){
+			let seq = document.getElementById('seq').value;
+			let title = document.getElementById('title').value;
+			let contents = document.getElementById('contents').value;	
+			/* document.write(seq +":"+title+":"+contents); */
+			board.push(new Board(seq,title,contents));
+			document.getElementById('list').innerHTML = board.length+"개 게시물 입력 결과 출력";
+		}
+		
+		document.getElementById('output').onclick= function(){
+			document.getElementById('list').innerHTML =  board.length+"개 게시물 입력 결과 출력<br>"+
+				'<table border=1>'+
+			'<tr><th>번호</th><th>제목</th><th>내용</th></tr>';
+			
+			for(s in board){
+				alert(document.getElementById('list').innerHTML);
+				document.getElementById('list').innerHTML += "<table><tr><th>1</th><th>test1</th><th>tedst23</th></tr><table>";
+					
+			}
+			document.getElementById('list').innerHTML +='</tbody></table>';	
+		}
+		
+	}	
+	
+	
+	
+	function Board(seq, title, contents){
+		this.seq = seq;
+		this.title  = title;
+		this.contents = contents;
+		this.getSeq = function(){
+			return this.seq;
+		}
+		this.getTitle = function(){
+			return this.title;
+		}
+		this.getContents = function(){
+			return this.contents;
+		}
+}
+	
+	
+		
+</script>
+</head>
+<body>
+<form action="#">
+	번호:<input type=text id="seq" value="">
+	제목:<input type=text id="title" value="">
+	내용:<input type=text id="contents" value="">
+	<input type=button id="save" value="게시물저장">
+	<div id="list"> 0개 게시물 입력 결과 출력
+		
+	 </div>
+	<input type=button id="output" value="게시물조회">
+</form>
+<!-- 
+1. save 버튼 클릭하면 seq, title, contents 입력값 가져온다
+예) 1 제목1 내용1 버튼 클릭하면
+2. Board 생성자 함수 정의해서 1번값 Board 객체 생성
+3. boardlist 배열에 저장하고 
+list 위치에 게시물 1개 저장되었습니다 출력
+
+
+4. output 버튼 클릭하면
+list 위치에 5개 게시물 입력 결과 출력
+ -->
+</body>
+</html>

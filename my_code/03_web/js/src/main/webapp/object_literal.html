@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+html 태그<br>
+<script>
+
+	//메소드 = 객체 내부에 기능 정의 함수 구조 
+	//함수 = 객체 외부에 기능 정의 함수 
+	var salary = 200000;
+	var emp1 = {
+			id:100,
+			name:'홍길동',
+			salary:45000.00,
+			test :function(salary){
+				this.salary += window.salary ; 
+				document.write("객체 내부의 함수입니다.<br>");
+				document.write(this.id+" : "+this.name+" : "+this.salary+"<br>");	
+				return this.salary;
+			}
+	}
+	alert(emp1.test(this.salary)); // ===? 
+	//emp1.test(this.salary); // window salary 
+	emp1.salary+=5000; //값 수정 
+	emp1.dept = "인재개발부"; //프로퍼티 추가 
+	delete emp1.hiredate; //무시 
+	delete emp1.dept;
+	
+	if('dept' in emp1){
+		document.write(emp1.id+" : "+emp1.name+" : "+emp1.salary+" : "+emp1.dept);	
+	} else{
+		document.write(emp1.id+" : "+emp1.name+" : "+emp1.salary);
+	}
+	
+	for(v in emp1){
+		document.write("<h3>"+v+" : "+emp1[v]+"</h3>"); //emp1.v -> undefined 
+	}
+	/* emp.id === emp[id] */
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* canvas{
+	width: 600px;
+	height: 400px;
+} */
+</style>
+<script>
+onload = function(){
+	var mycanvas = document.getElementById("mycanvas");	
+	var ctx = mycanvas.getContext('2d');
+	//사각형
+	ctx.strokeStyle = "red"; // stroke red
+	ctx.fillStyle = "yellow" ; // fill yellow
+	ctx.lineWidth = 4;
+	ctx.strokeRect(50, 50, 100, 100); //x,y, w, h
+	ctx.fillRect(200, 50, 100, 100); //x,y, w, h
+	
+	//삼각형 - 라인 연결 
+	ctx.beginPath();
+	ctx.moveTo(60,10); //x,y로 이동
+	ctx.lineTo(110,100); //선을 그어라.
+	ctx.lineTo(10,100);
+	ctx.closePath();
+	ctx.stroke();
+	
+	//텍스트
+	ctx.font="40px serif";
+/* 	ctx.strokeText("Hello Canvas Text",300,200);
+	ctx.fillText("Hello Canvas Text",300,300); */
+	
+	//이미지 
+	var myimage = new Image();
+	
+	//실제 파일 찾아 메모리에 이진수 이미지 객체 로딩 
+	myimage.src = "/html/images/html5.jpg";
+	//ctx.drawImage(myimage, 300,300);
+	myimage.onload= function (){ //이미지 객체가 만들어지면 그려라 .
+		ctx.drawImage(myimage,0,0, mycanvas.width/3,mycanvas.height/3);
+		var copyimage = ctx.getImageData(100, 100, 50,50 ); // 이미지  왼 100, 위 100 떨어진 곳에서 가로 50, 새로 50 민큼 복사 
+		ctx.putImageData(copyimage, 300,300); //붙여넣기 
+		
+	}
+}
+
+</script>
+</head>
+<body>
+<canvas id="mycanvas" width="600px" height="400px" style = "border:2px solid pink;"></canvas>
+
+</body>
+</html>

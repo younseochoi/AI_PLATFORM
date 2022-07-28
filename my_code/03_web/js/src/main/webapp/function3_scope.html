@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//var b= 'global'; 
+
+//함수내부에서 var 키워드없이 선언하면 전역변수로 취급 
+/* function a(){
+	b="global에서 local로 변경"; //global -> 변수 hoisting
+	var c= 'a 함수의 local';
+	document.write("<h1>"+b+"</h1>");
+	document.write("<h1>"+c+"</h1>"); //ok
+	
+}
+a();
+document.write("<h1>"+b+"</h1>");
+document.write("<h1>"+c+"</h1>"); // error */
+
+function a(){
+	let b="global에서 local로 변경"; //global -> 변수 hoisting
+	let c= 'a 함수의 local';
+	document.write("<h1>"+b+"</h1>");
+	document.write("<h1>"+c+"</h1>"); //ok
+	
+}
+a();
+document.write("<h1>"+b+"</h1>");// error
+document.write("<h1>"+c+"</h1>"); // error
+</script>
+</body>
+</html>

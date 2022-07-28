@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function Emp (id, name, salary,indate){
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+		this.indate = indate;
+		this.test = function(salary){
+			this.salary += salary ; 
+			document.write("객체 내부의 함수입니다.<br>");
+			document.write(this.id+" : "+this.name+" : "+this.salary+ " : "+this.indate+"<br>");	
+			return this.salary;
+		};
+};
+
+var emp1 = new Emp(100,'홍길동',99000.00,new Date().toLocaleString());
+var emp2 = new Emp(200,'박길동',98000.00 ,new Date().toLocaleString());
+emp1.test(1000);
+emp2.test(1000);
+
+emp1.bonus = 10000;
+emp1['title'] = "과장";
+
+if('bonus' in emp1 && 'title' in emp1){
+	document.write("<h3>"+emp1.bonus+" : "+emp1.title +"</h3>")
+}
+if('bonus' in emp2 && 'title' in emp2){
+	document.write("<h3>"+emp2.bonus+" : "+emp2.title +"</h3>")
+}
+delete emp1.title;
+if('bonus' in emp1 && 'title' in emp1){
+	document.write("<h3> 삭제 :: "+emp1.bonus+" : "+emp1.title +"</h3>")
+}
+</script>
+</body>
+</html>

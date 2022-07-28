@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+//모든 자바스크립트 내부에서 사용 가능 변수 - 전역변수 	=global var
+/* var emp1 = {
+				id:100,
+				name:'홍길동',
+				salary:45000.00,
+				
+		}; */
+	/* f1(); //함수 hoisting 가능 	 */
+	/* function f1(){ //정의 
+		
+		var emp1 = { //지역변수 = local 
+				id:100,
+				name:'홍길동',
+				salary:45000.00,
+				
+		};
+	
+		document.write('<h3>f1실행</h3>');
+		document.write('<h3>'+emp1.name+'</h3>');
+	}
+	f1(); // 실행  //자바 메인메소드 호출처럼 자바스크립트 함수도 호출 해줘야함. 
+	document.write('<h3>전역의 문장은 함수호출 없이 실행합니다.</h3>');
+	 */
+	 
+	//바디 문서 로딩 완료 "자동 " 실행 
+	window.onload = function(){
+		//테스트 버튼 클릭시 자동실행 
+		document.getElementById('test').onclick = function(){
+			alert("예. 됩니다.");
+		} 
+	}
+	 
+	setTimeout(function(){
+		alert("hihi");
+	},1000); 
+
+</script>
+
+<input type= button id="test" value="호출되나용?">
+</body>
+</html>
