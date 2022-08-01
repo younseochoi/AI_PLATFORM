@@ -57,17 +57,24 @@
 		toString: function(){ return this.id + " : "+this.name; }}];
 	d[0] = 100;
 	
+	// 1. 인덱스 순차적으로 데이터 출력 
 	 for(var i =0;i<d.length;i++){
 			document.write("<h3>  d 출력 : "+d[i]+"</h3>");
 		}
 
 	 document.write("<hr>");
+	 // 2. 배열 값 출력 (undefined 출력 x)
 	for(e in d){
 			document.write("<h3> d 출력 : "+e+" = "+d[e]+"</h3>");
 		}
 	
+	
+	//3. 배열조회 - join 메소드는 구분자 내장 반복문 (undefined 출력)
 	document.write("<hr>");
 	document.write(d.join('<br>')); //10 , 3.14 , true, 
+	
+	// 4. es6배열조회 메소드 -forEach(undefined 출력 x)
+	d.forEach(function(value){document.write("<h3> 하하핳"+value+"</h3>")});
 	
 	//var arr = [1,2,3]; //배열 리터럴 
 	var arr = new Array(2,3,4,5); //[2,3,4,5]

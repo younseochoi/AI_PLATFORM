@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var b = "<br>";
+document.write(10 / 3 + b);
+document.write( parseInt(10 / 3) + b);
+document.write( parseInt("3.3333333") + b);
+document.write( parseInt("abc") + b);//NaN(not a number)
+document.write( parseInt("123abc") + b);//123
+
+document.write( parseFloat("3.14") + 1 + b);//4.14
+document.write( typeof(parseFloat("3.14"))  + b);
+document.write( typeof parseFloat("3.14")  + b);
+
+document.write( true+false  + b);// 1<-true + 논리값
+document.write( 1 + undefined  + b);//NaN(not a number) 
+document.write( 1 + null  + b);// null -> 0
+
+let str1 = 'java script';//string
+let str2 = new String("java script");//object
+
+ document.write(typeof str1  + b);//string
+document.write(typeof str2  + b);//object
+document.write( (str2 instanceof String) + b );//instanceof 연산자 우선 
+document.write( (str2.constructor == String) + b );//==  연산자 우선
+
+document.write( 'str1의 문자열갯수=' + str1.length + b );
+document.write( 'str1 에서 scr 위치=' + str1.indexOf('scr') + b );
+document.write( 'str1 대문자변경=' + str1.toUpperCase() + b );
+document.write( 'str1 첫문자=' + str1.charAt(0)  + "," + str1[0] + b );
+//str[0] = 'k'; 오류
+
+//str1.equals(str2) ; 메소드 존재x
+
+document.write( "str1 == str2 비교결과: " + (str1 == str2) + b); // 값 동일
+document.write( "str1 === str2 비교결과: " + (str1 === str2) + b); //타입, 값 동일
+
+document.write( "100 === \"100\" 비교결과: " + (100 === "100") + b); //타입, 값 동일
+document.write( "100 == \"100\" 비교결과: " + (100 == "100") + b); //값 동일
+
+let result1 = typeof(100);
+
+document.write( (result1 == 'number' && 100 == "100")  + b); 
+
+document.write( (null == undefined)  + b); //값 없다
+
+let str3 = "Java Script";
+let contain = str3.indexOf("scr")>=0?"포함":"미포함";
+document.write( contain + b);
+
+let a=1 , b2=2 , c=3;
+let str4 = "delete연습";
+//delete new in 객체
+document.write( str4 + b);
+
+//eval() 
+//let test="alert(10);";
+//eval(test);
+
+</script>
+</body>
+</html>

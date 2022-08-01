@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>새로 오픈합니다.</h1>
+<p>새로운 페이지를 열었습니다.</p>
+<div id="test"></div>
+<button id="toparent">부모로 전송</button>
+<script>
+	document.getElementById("toparent").onclick = function(){
+		window.opener.document.getElementById('fromchild').innerHTML = "자식에서 부모로 데이터 전달"; //현재 내창을 열게 해준 부모 
+		window.opener.document.getElementById('fromchild').style = "color:orange"; //현재 내창을 열게 해준 부모 
+	};
+</script>
+</body>
+</html>

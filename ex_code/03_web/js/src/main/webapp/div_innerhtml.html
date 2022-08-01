@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {width:100px; height:50px; background-color: green;}
+</style>
+</head>
+<body>
+<input type=text id="word" size=30 value="초기값">
+<textarea id="memo" cols=50 rows=10 >
+ 입력값 
+</textarea>
+<select id="select">
+ <Option> 1 </Option>
+ <Option> 이 </Option>
+ <Option  selected="selected"> three </Option>
+ <Option> 4 </Option>
+ <Option> 오 </Option> 
+ </select>
+<input type=radio id="gender1" name="gender" value="남자"> male
+<input type=radio id="gender2" name="gender" value="여자"> female
+
+<input type=button id="test" value="테스트" >
+
+<div id="result1"></div>
+<h1 id="result2"> 제목 </h1>
+<a href="#" id="result3"> 링크 </a>
+
+<SCRIPT>
+
+document.getElementById("test").onclick = function(){
+	//innerHTML 읽기
+	//alert(document.getElementById("result1").innerHTML);
+	//alert(document.getElementById("result2").innerHTML);
+	//alert(document.getElementById("result3").innerHTML);
+	
+	// VALUE 읽기
+	//alert(document.getElementById("word").value);
+	//var text = document.getElementById("word").value;
+	//var text = document.getElementById("memo").value;
+	//var text = document.getElementById("gender2").value;
+	var text = document.getElementById("select").value;
+	
+	//innerHTML 쓰기
+	document.getElementById("result1").innerHTML = text;
+	document.getElementById("result2").innerHTML = text;
+	document.getElementById("result3").innerHTML = text;
+};
+</SCRIPT> 
+</body>
+</html>

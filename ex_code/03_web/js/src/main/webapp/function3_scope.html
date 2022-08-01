@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//var b = "global";   var const let
+//함수 내부에서 var 키워드 없이 선언하면 전역변수로 취급
+
+/*function a(){
+	b = "global에서 local로 변경";
+	var c = "a함수의 local";
+	document.write("<h3>a=>" + b + "</h3>");
+	document.write("<h3>a=>" + c + "</h3>");//ok	
+}
+
+a();
+document.write("<h3>" + b + "</h3>");
+document.write("<h3>" + c + "</h3>");//error
+*/
+
+function a(){
+	let b = "global에서 local로 변경";
+	let c = "a함수의 local";
+	document.write("<h3>a=>" + b + "</h3>");
+	document.write("<h3>a=>" + c + "</h3>");//ok	
+}
+
+a();
+document.write("<h3>" + b + "</h3>");//error
+document.write("<h3>" + c + "</h3>");//error
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+//  숫자 문자열( new String(), Math) 논리값 날짜Date객체
+function clock(){
+var now = new Date();
+//document.write("<h3 style='color:red'>" + now + "</h3>");
+//document.write("<h3 style='color:green'>" + now.toString() + "</h3>");
+document.write("<h3 style='color:blue'>" + now.toLocaleString() + "</h3>");
+//document.write("<h3 style='color:purple'>" + now.toLocaleDateString() + "</h3>");
+//document.write("<h3 style='color:pink'>" + now.toLocaleTimeString() + "</h3>");
+}
+
+var timer = setInterval(clock , 1000);
+//clearInterval(timer);
+setTimeout(function() {clearInterval(timer);}, 10000);
+
+
+
+</script>
+</body>
+</html>

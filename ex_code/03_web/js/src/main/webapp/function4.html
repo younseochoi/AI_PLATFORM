@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var b="<br>";
+//1. 함수 선언식 정의 - 호출 리턴결과 출력
+ function a (b) {
+	if( typeof(b) == 'number' ) return b * b; 
+	else return b;
+}
+ document.write(a(10) + b);
+ document.write(a("십") + b);
+ 
+ 
+ //2. 함수 변수값 정의 - 호출 리턴결과 출력 
+ {
+ let c = function (d) { return d + d; }
+ document.write("{}내부"+c(10) + b);
+ document.write(c("javascript") + b);
+ document.write(c + b);
+ }
+ //2-2. 
+ //document.write("{}외부"+c(10) + b);//실행불가
+ 
+ //3. 자바스크립트 함수를 변수처럼 취급. number, string, boolean, undefined, function 
+ document.write(typeof(c) + b);
+ 
+ // 함수내부 지역변수처럼 함수 포함
+ function outer (){
+	 document.write(inner() + b); //호출
+	 function inner(){ return "inner"; }//지역함수선언
+ }
+ 
+ outer();
+ //inner(); error
+ //outer().inner(); error
+ 
+ 
+ // 함수의 리턴결과로 함수를 리턴
+  function return_f1 (){
+	 return function (){ return "inner"; }
+ }
+ 
+ var return_f2 = return_f1();
+ if(typeof(return_f2) == 'function'){
+ 	document.write(return_f2() + b); //리턴값 함수 실행 결과 출력
+	}
+ else{
+	 document.write(return_f2 + b);//리턴값 함수이면 구현부 소스, 리턴값 함수 아니라면 변수값 출력
+ }
+ 
+ /*
+ // 함수의 매개변수=로 함수를 선언
+ function arg_f1(a){ //a타입 모른다. 전달받아야 알 수 있다.
+// a 함수 실행 결과 
+  if( typeof(a) == 'function') {a();}
+  else {alert(a); }
+ }
+ 
+ function arg_f2(){
+	 alert("arg_f2함수 실행합니다.");
+ }
+ 
+ //arg_f1(arg_f2);
+ arg_f1(10);
+ */
+ 
+ /*
+ setTimeout(function(){}, 1000);
+ 
+ function setTimeout(a, b){
+	 b 정수 시간 (1/1000초) 경과 이후에
+	 a 함수 실행
+	 sleep(b);
+	 a();
+ }
+ 
+ */
+ 
+ //이벤트처리 함수 내부에 함수 전달
+ 
+ /*
+ //정의 1번만 호출 = 즉시 실행 함수
+ (function() {alert("test");}) ();
+ (function(a) {alert("test");}) (10);
+ (function(a, b) {alert("test");}) (10, function(){});
+ */
+ 
+ //매개변수 다른 함수 3개 정의 실행
+ function arg_f3(){ alert("동일 내용 출력");}
+ function arg_f4(a){
+	 alert(a.id + ":" + a.name + "==> a 매개변수에 따라 실행 내용 다름");
+	}
+ function arg_f5(a, b, c){alert("3개 매개변수에 따라 실행 내용 다름");}
+ 
+ //arg_f3(10);//실행ok
+ //arg_f4();//실행ok. a 매개변수 undefined 취급
+ //arg_f5(1,2,3);
+
+ //arg_f4([1,2,3]);//실행ok. a 매개변수 배열
+ 
+// var b = {id:1, name:'홍길동'};
+// arg_f4(b);
+
+ //매개변수 갯수와 타입
+ function arg_f6(a){ //함수로 전달하는 매개변수값 모아놓은 배열. 키워드. 
+	 if(arguments.length >= 1 && arguments[0] instanceof Array && a.length >= 1){
+		 alert(a[0]);
+	 }
+	 
+ }
+ 
+  //arg_f6(); //매개변수 없다
+  //arg_f6(1, 2); // 1개. 숫자
+  //arg_f6([1,5,10]);// 1개. 배열
+  arg_f6(1,2,3,4,5); //5개. 숫자
+  arg_f6([]);
+ 
+//1.화살표함수 구현부는 일반 함수와 동일
+var func = ()=>{return 10*10;}
+document.write(func() + b);
+
+//2. 매개변수 추가 화살표함수
+var func2 = (x)=>{return x*x;}
+document.write(func2(5) + b);
+document.write(func2(10) + b);
+document.write(func2(15) + b);
+
+//3. 매개변수 1개면 () 생략, return 1문장 구현 {},return 생략 가능
+var func3 = x=> x*x;
+document.write(func3(5) + b);
+
+//4. 화살표함수 정의 동시에 실행
+document.write( (x=> x*x)(5) + b);
+
+
+</script>
+
+</body>
+</html>
+
+
+
+

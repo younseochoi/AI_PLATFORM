@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//모든 자바 스크립트 내부 사용 가능 변수 = 전역변수=global var.
+/*var emp1 = {
+		id : 100 ,
+		name : "홍길동",
+		salary : 45000.00
+	};
+*/	
+
+/*
+f1();//사용자 호출 실행
+function f1(){//정의
+	var emp1 = {
+			id : 100 ,
+			name : "홍길동",
+			salary : 45000.00
+		};//지역변수 = local 
+	document.write("<h3>f1실행</h3>");
+	document.write("<h3>" + emp1.name + "</h3>");
+}
+
+
+document.write("<h3>전역의 문장은 함수호출없이 실행합니다</h3>");
+*/
+
+//바디 문서 로딩 완료 "자동" 실행 
+window.onload = function(){
+	//test 버튼 클릭 "자동" 실행 
+	document.getElementById("test").onclick = function(){
+		alert("됩니다");
+	}
+}
+
+//1초후 타이머 "자동" 실행 
+setTimeout(function(){alert("타이머에 의해 호출 ");}, 1000);
+
+</script>
+<input type=button id="test" value="함수호출되나요" >
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var su1 = prompt("정수 입력하세요");// 십, 10ten, ten120
+var op = prompt("연산자(+-*/ 중 한개) 입력하세요");
+var su2 = prompt("정수 입력하세요");
+
+if(isNaN(su1) || isNaN(su2)){
+	document.write("정수만 입력하세요<br>")
+}
+
+else{
+	var su1Int = Number(su1);
+	var su2Int = Number(su2); // 10십, 이십 --> x
+	if( op === "+"){
+		//var result = su1 + op + su2 + "=" + (su1Int + su2Int);
+		var result = `${su1} ${op} ${su2} = ${su1Int + su2Int} `;
+	}
+	else if( op === "-"){
+		var result = su1 + op + su2 + "=" + (su1Int - su2Int);
+	}
+	else if( op === "*"){
+		var result = su1 + op + su2 + "=" + su1Int * su2Int;
+	}
+	else if( op === "/"){
+		var result = su1 + op + su2 + "=" + parseInt(su1Int / su2Int);
+	}
+	else{
+		var c = confirm("잘못된 연산입니다.");
+		if(c == true){
+			var result = su1 + "+" + su2 + "=" + (su1Int + su2Int);
+		}
+		else{
+			var result = "다시 연산 내용 입력하세요.";
+		}
+	}
+	document.write(result + "<br>");
+} //else 
+</script>
+</body>
+</html>

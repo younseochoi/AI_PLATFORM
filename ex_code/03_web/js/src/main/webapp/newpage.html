@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>새로 오픈합니다</h1>
+<p>새로운 페이지를 열었습니다</p>
+<div id="test"> </div>
+<button id="toparent">부모로전송</button> 
+<script>
+document.getElementById("toparent").onclick = function(){
+	window.opener.document.getElementById("fromchild").innerHTML = "자식이 보냅니다.";
+	window.opener.document.getElementById("fromchild").style = "color:blue";
+}
+</script>
+</body>
+</html>

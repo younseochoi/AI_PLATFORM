@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	var seq = document.getElementById("seq");
+	var title = document.getElementById("title");
+	var contents = document.getElementById("contents");
+	var list = document.getElementById("list");
+	var save = document.getElementById("save");
+	var output = document.getElementById("output");
+	var clickcount = 0;
+	
+	var boardlist = [];
+	/*
+	function Board (seq, title, contents){
+		this.seq = seq;
+		this.title = title;
+		this.contents = contents;
+	}*/
+	
+	save.onclick = function(){
+		clickcount++;
+		if(clickcount > 5){
+			list.innerHTML = "더이상 게시물 저장 불가능합니다.";
+		}
+		else{
+			//var board = new Board(seq.value, title.value, contents.value);
+			var board = {seq : seq.value , title : title.value, contents : contents.value};
+			
+			boardlist.push(board);
+			list.innerHTML = "게시물 " + clickcount + " 개 저장되었습니다";
+		}
+		
+	}
+	
+	output.onclick = function(){
+	/*	var fiveboard = '<ul>';
+		for(var i = 0; i < boardlist.length; i++){
+			fiveboard += "<li>" + boardlist[i].seq +":<a href='#'>" + boardlist[i].title + "</a> :" + boardlist[i].contents+"</li>"; 
+		}
+		fiveboard += "</ul>";
+		list.innerHTML = fiveboard; */
+		list.innerHTML = '<ul>';
+		for(var i = 0; i < boardlist.length; i++){
+			list.innerHTML += "<li>" + boardlist[i].seq +":<a href='#'>" + boardlist[i].title + "</a> :" + boardlist[i].contents+"</li>"; 
+		}
+		list.innerHTML += "</ul>"; 
+	}
+};
+
+</script>
+</head>
+<body>
+번호:<input type=text id="seq" >
+제목:<input type=text id="title">
+내용:<input type=text id="contents">
+<input type=button id="save" value="게시물저장">
+<div id="list"> 5개 게시물 입력 결과 출력 </div>
+<input type=button id="output" value="게시물조회">
+<!-- 
+1. save 버튼 클릭하면 seq, title, contents 입력값 가져온다
+예) 1 제목1 내용1 버튼 클릭하면
+2. Board 생성자 함수 정의해서 1번값 Board 객체 생성
+3. boardlist 배열에 저장하고 
+list 위치에 게시물 1개 저장되었습니다 출력
+
+
+4. output 버튼 클릭하면
+list 위치에 5개 게시물 입력 결과 출력
+ -->
+
+
+
+</body>
+</html>

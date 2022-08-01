@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+onload = function() {
+	var mycanvas = document.getElementById("mycanvas");
+	var ctx = mycanvas.getContext('2d');
+	//사각형
+	ctx.strokeStyle="red";
+	ctx.fillStyle="yellow";
+	ctx.lineWidth = 5;
+	ctx.strokeRect(50, 50 , 100, 100);//x,y,width,height 
+	ctx.fillRect(200, 50 ,100, 100);//x,y,width,height 
+	
+	//라인 연결
+	ctx.beginPath();
+	ctx.moveTo(60, 10);//이동
+	ctx.lineTo(110, 100);//선
+	ctx.lineTo(10, 100);//선
+	ctx.closePath();
+	ctx.stroke();
+	
+	//텍스트
+	// ctx.font="40px serif";
+	// ctx.strokeText("Hello CanvasTest" , 300, 200);
+	// ctx.fillText("Hello CanvasTest" , 300, 300);
+	 
+	 //이미지
+	 var myimage = new Image();
+	 myimage.src="/html/images/html5.jpg";//실제파일
+	 // 실제파일 찾아서  메모리로 이진수 이미지객체 로딩
+	 //ctx.drawImage(myimage, 300, 300);
+	 //버튼.oncick = function()
+	 //window.onload = function()
+	 myimage.onload = function(){
+		 ctx.drawImage(myimage, 0, 0, mycanvas.width/3, mycanvas.height/3);
+		 var copyimage = ctx.getImageData(100, 100, 50, 50);//이미지의 x=100, y=100 위치부터 가로 50, 세로 50 이미지일부복사
+		 ctx.puImageData(copyimage, 300, 300);//붙여넣기
+	 }
+}
+
+</script>
+</head>
+<body>
+
+<canvas id="mycanvas" width=600 height=400 style="border : 2px solid pink" >
+</body>
+</html>

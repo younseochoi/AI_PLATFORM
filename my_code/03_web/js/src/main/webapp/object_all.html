@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var product = {
+		code :'001-001',
+		title : '컴퓨터',
+		price : 450000.55,
+		amount : 10,
+		setPrice: function(price){
+			this.price += price; 
+		},
+		toString : function(){
+			return "상품 정보는 "+this.code+" : "+this.title+" : "+this.price;
+		}
+};
+product.detail = '2021년도 모델입니다.';
+product.setPrice(10000);
+document.write(product+"<br>");
+function Product(code , title, price ,amount){
+	this.code =code;
+	this.title =  title;
+	this.price = price;
+	this.amount = amount;
+	this.setPrice =  function(price){
+		this.price += price; 
+	};
+	this.toString = function(){
+		return "상품 정보는 "+this.code+" : "+this.title+" : "+this.price+" : "+this.amount+" : "+this.detail;
+	};
+}
+var p1 = new Product('001-110','삼성모니터',450000,30);
+if('detail' in p1){/* false */}
+document.write( ('detail' in p1) + "<br>");
+
+p1.detail = '2022년도 모델입니다.';
+if('detail' in p1){/* true */}
+document.write( ('detail' in p1) + "<br>");
+
+delete p1.detail;
+if('detail' in p1){/* false */}
+document.write( ('detail' in p1) + "<br>");
+p1.setPrice(100000);
+document.write(p1);
+</script>
+</body>
+</html>

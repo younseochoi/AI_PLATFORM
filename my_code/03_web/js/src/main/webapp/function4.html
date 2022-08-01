@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	
+	var b = "<br>";
+
+	// 1. 함수선언식 정의 - 호출 리턴결과 출력 
+	function a (b) {
+		if(typeof b == 'number') return b*b;
+		else return b;
+		}
+	document.write(a(5)+b);
+	document.write(a("10")+b); //문자만 넣으면 NaN, 숫자만 있는 경우는 자동으로 정수로 바뀜 
+	
+	// 2. 함수 변수 값 정의 - 호출 리턴결과 출력 
+	let c = function (d) {return d+d;}
+	document.write(c(10)+b);
+	document.write(c("javascript")+b);
+	document.write(c+b); // c 함수 내부 소스 코드 보여줌 .
+	
+	// 3. c대입함수 실행. 자바스크립트 함수 변수 취급 function 
+	document.write(typeof c+b);
+	
+	document.write("<hr>");
+	
+	// 4. 함수 내부 지역함수 포함	
+	function outer(){
+		document.write(inner()+b); // 호출 
+		function inner(){ return "inner"; } //지역함수 선언 
+	}
+	outer();
+	//inner(); //error
+	//outer().inner(); //error 
+	
+	// 6. 함수의 리턴결과로 함수를 리턴 
+	function return_f1(){
+		return function(){ return "inner"; } //지역함수 선언 
+	}
+	var return_f2 = return_f1();
+	// return_f2();
+	if(typeof return_f2 == 'function'){
+		document.write(return_f2()+b); // 리턴값 함수 실행 결과 출력 
+	}else document.write(return_f2+b); //함수 구현부 소스 출력 
+	
+	
+	
+	// 5. 함수의 매개변수로 함수 선언 
+	function arg_f1(a){ //a 타입 전달 받아야 알 수 있다. 지금은 모른다. 
+		if(typeof a == 'function') a(); //a 함수 실행 결과 
+		else alert(a);
+	}
+	function arg_f2(){ //a 타입 전달 받아야 알 수 있다. 지금은 모른다. 
+		alert('arg_f2 함수 실행합니다.');
+	}
+	arg_f1(arg_f2); // 이거 질문하자 .
+	arg_f1(10); // type error 
+	
+/* 	//function setTimeout(a , b ){
+		sleep(b);
+		a();
+	// } */
+	
+	//매개변수 다른 함수 3개 정의 실행 
+	/* function arg_f3(){ alert(' f3 동일 내용 출력');}
+	function arg_f4(a){ alert(a+'f4 매개변수에 따라 출력내용 다름');}
+	function arg_f5(a,b,c){ alert('f5 3개 매개변수에 따라 출력내용 다름');}
+	
+	arg_f3(10); // 실행 ok 
+	arg_f4(); //실행 ok, a 매개변수 undefined
+	arg_f5(1,2,3);
+	
+	arg_f4([1,2,3]);
+	var b = {id : 200, name:"홍길동"};
+	//alert(b.id);
+	arg_f4(b);  */
+	
+	
+	//매개변수 다른 함수 3개 정의 실행 - 강사님 코드 
+	 function arg_f3(){ alert("동일 내용 출력");}
+	 function arg_f4(a){
+		 alert(a.id + ":" + a.name + "==> a 매개변수에 따라 실행 내용 다름");
+		}
+	 function arg_f5(a, b, c){alert("3개 매개변수에 따라 실행 내용 다름");}
+	 
+	 //arg_f3(10);//실행ok
+	 //arg_f4();//실행ok. a 매개변수 undefined 취급
+	 //arg_f5(1,2,3);
+
+	 //arg_f4([1,2,3]);//실행ok. a 매개변수 배열
+	 
+	 //var b = {id:1, name:'홍길동'};
+	 //arg_f4(b);
+	 
+	 //매개변수 갯수
+	 function arg_f6(a){ //함수로 전달한 매개변수값모아놓은 배열 .키워드.
+		 if(arguments.length >=1 &&  arguments[0] instanceof  Array) alert(a[0]);
+	 	
+	 }
+	 
+	 arg_f6(); //매개변수 x
+	 arg_f6(1,2); //1개 숫자
+	 arg_f6([1,4,5]); //1개 배열 
+	 arg_f6(1,2,3,4,5,6); //5개 숫자. 
+	 
+	 
+/* 	 function func() {
+			return 10*10;
+		} */
+		
+	//1. 화살표 함수 구현부는 일반함수와 동일 	
+	var func= ()=> { return 10*10;}
+	document.write(func()+b);
+	
+	//2. 매개변수 추가 화살표 함수 
+	var func2 = (x)=> { return x*x;}
+	document.write(func2(5)+b);
+	
+	//3. 매개변수 1개면 ( ) 생략, return 1문장 구현 { }, return 생략 
+	var func3 = x =>  x*x; //매개변수 하나면( ) 생략, 리턴문도 하나라면 { return } 생략가능 
+	document.write(func3(5)+b);
+	
+	//4. 화살표 정의 동시에 실행 
+	document.write((x =>  x*x)(6)+b);
+</script>
+</body>
+</html>

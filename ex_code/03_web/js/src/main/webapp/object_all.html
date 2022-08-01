@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+//1. 객체 값 저장 표현 
+var product={
+		code : "001-100",
+		title : "삼성컴퓨터",
+		price : 45000.55,
+		amount : 10,
+		setPrice: function(price){ // -10000
+			this.price = this.price + price;
+		},
+		toString : function(){
+			return "상품정보=" + this.code + ":" + this.title + ":" + this.price;
+		}
+}//product 객체 정의-생성 end 
+
+product.detail = "2021년도 모델입니다.";
+delete product.detail;
+product.setPrice(10000);
+document.write(product + "<br><hr>");
+
+//2. 생성자 함수 정의 - 객체 생성
+function Product (code, title, price, amount){
+	this.code = code;
+	this.title = title;
+	this.price = price;
+	this.amount = amount;
+	this.setPrice = function(price){ // -10000
+		this.price = this.price + price;
+	}
+	this.toString = function(){
+		return "상품정보=" + this.code + ":" + this.title + ":" + this.price ;
+	}
+}//product 생성자 정의(아직 객체 생성x)
+
+var p1 = new Product("001-100", "삼성모니터", 45000, 10);//객체생성
+document.write( ('detail' in p1) + "<br>");//f
+
+p1.detail = "2021년도 모델입니다.";
+document.write( ('detail' in p1) + "<br>");//t
+
+delete p1.detail;
+document.write( ('detail' in p1) + "<br>");//f
+
+p1.setPrice(10000);
+document.write(p1 + "<br>");
+
+</script>
+</body>
+</html>

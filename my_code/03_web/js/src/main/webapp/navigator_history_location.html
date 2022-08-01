@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>브라우저 정보 객체</h1>
+<script>
+	document.write("<h3>웹브라우저의 제조사 "+navigator.appCodeName + "</h3>");
+	document.write("<h3>웹브라우저의 제조사 "+navigator.userAgent + "</h3>");
+	document.write("<h3>웹브라우저의 제조사 "+navigator.platform + "</h3>");
+	
+	if(navigator.userAgent.indexOf('Chrome')>=0){
+		/* 크롬브라우저 autoplay 속성 사용방지 */
+	}else if(navigator.userAgent.indexOf('Edg')>=0){
+		/* 엣지 브라우저 autoplay 속성 사용방지  */
+	}else if(navigator.userAgent.indexOf('Trident')>=0){
+		/* ie 브라우저 */
+	}
+	
+</script>
+
+	<a href="javascript:history.go(-1)">이전으로 가기 (뒤로가기 버튼)</a>
+	<a href="javascript:history.back()">이전으로 가기 (뒤로가기 버튼)</a>
+	<a href="javascript:history.forward()">앞으로 가기 (앞으로가기 버튼)</a>
+	<a href="javascript:history.go(1)">앞으로 가기 (앞으로가기 버튼)</a>
+	<input type=button id="move" value="이동">
+	<script>
+	document.getElementById("move").onclick  = function(){
+		//멀티캠퍼스 홈페이지 이동 
+	location.href = "https://lc.multicampus.com/kdt2020s/#/connect/LCB20220615100094197?cpsGrpId=CGRP202206171098420";	
+	}
+	
+	</script>
+	
+	<form action = "a.jsp" id="f">
+		<!-- //<input type .. -->
+		<input type="submit" value="전송">
+	</form>
+	<script>
+		document.ElementById('f').onsubmit =  function(){}; 
+	</script>
+	
+	
+</body>
+</html>

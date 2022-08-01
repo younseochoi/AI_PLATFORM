@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input id="clock" type=button value="시계"  >
+<input id="stop" type=button value="중단"  >
+<div id="here" >이벤트처리결과 변경 </div>
+
+<script>
+
+//let timer ;
+//var timer;//간주
+document.getElementById("clock").onclick = function(){
+	timer = setInterval(function(){ 
+		document.getElementById("here").innerHTML = new Date().toLocaleString();
+	} , 1000);
+}
+
+document.getElementById("stop").onclick = function(){
+	clearInterval(timer);
+}
+
+/*
+var emp1 = {
+		 id : 100 ,
+		name : "이사원" ,
+		salary : 456000.99
+};
+
+emp1.dept = "인사부";//추가
+alert("id" in emp1);
+if("id" in emp1){// 변수 존재 여부 확인
+	delete emp1.id; //삭제
+	alert("id" in emp1);
+}
+*/
+
+/*
+function a(){
+	b="local";
+	var c= "local2";
+	alert(b);
+	alert(c);
+}
+a();
+alert(b);
+alert(c);
+*/
+function a2(){
+	let b="local";
+	let c= "local2";
+	alert(b);
+	alert(c);
+}
+a2();
+alert(b);
+alert(c);
+
+
+</script>
+
+</body>
+</html>

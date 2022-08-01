@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+/*1.함수 정의 -> 사용자 호출 
+ 2. 함수 정의 -> 특정 이벤트 발생 자동 호출 
+ 3. 시간 간격마다/ 시간 경과 후 */
+
+
+function  f1(){ 
+	 document.write("<h3>f1호출</h3>");  
+}
+function f2(){
+	var a=10, b=20;
+	return a+b; //"a + " +
+	 "	b = c입니다. ";
+}
+function f3(a, b){
+	return a+b;
+}
+function f4(a, b){
+	if(!isNaN(a) && !isNaN(b)){
+		return a*b;
+	}
+	else{
+		return a+b;
+		
+	}
+}
+f1();
+var result2 = f2();
+document.write("<h3>"+result2+"</h3>");
+document.write("<h3>"+ f3(10,20) +"</h3>");//덧셈 ok
+document.write("<h3>"+ f3("십", "이십") +"</h3>");//문자열결합 ok
+document.write("<h3>"+ f4("십", "이십") +"</h3>");
+
+document.write("<h3> f4의 타입 = "+ typeof(f4) +"</h3>");//function
+document.write("<h3> f4의 타입 = "+ typeof(f4("십", "이십")) +"</h3>");//string
+document.write("<h3> f4의 타입 = "+ typeof(f4(10, 20)) +"</h3>");//number
+
+document.write("<h3> f4의 타입 = "+ f4 +"</h3>");//function소스내용/실행결과x
+
+//함수 - 유명의 함수(=함수 선언식)/ 익명 함수( 1.이벤트발생시자동 2. 타이머자동 3.정의동시 1번사용자호출)
+(function(){
+	document.write("<h3> 무명의 함수입니다. </h3>");
+})();
+
+//함수도 변수의 일종이다 - 함수 리터럴로 
+var myfunc = function(){
+	document.write("<h3> 변수처럼 사용하는 함수입니다. </h3>");
+}
+myfunc();
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

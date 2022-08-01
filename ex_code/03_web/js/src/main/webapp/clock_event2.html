@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function displayclock(){
+	//document.getElementById("here").innerHTML = "";
+	setInterval(function(){ 
+		var now = new Date();
+		//html태그 body 구성 요소 없어지고 새로운 body 아래 내용 출력
+		document.write("<h3 style='color:blue'>" + now.toLocaleString() + "</h3>");
+	} , 1000);
+}
+
+
+</script>
+
+<input id="clock" type=button value="시계" onclick='displayclock()' >
+<input id="stop" type=button value="중단" onclick='stopclock()' >
+<div id="here" ></div>
+
+
+<script>
+
+</script>
+</body>
+</html>

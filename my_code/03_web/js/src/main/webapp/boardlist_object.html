@@ -18,16 +18,20 @@
 		}
 		
 		document.getElementById('output').onclick= function(){
-			document.getElementById('list').innerHTML =  board.length+"개 게시물 입력 결과 출력<br>"+
+			let str = board.length+"개 게시물 입력 결과 출력<br>"+
 				'<table border=1>'+
 			'<tr><th>번호</th><th>제목</th><th>내용</th></tr>';
+			/* document.getElementById('list').innerHTML =  board.length+"개 게시물 입력 결과 출력<br>"+
+				'<table border=1>'+
+			'<tr><th>번호</th><th>제목</th><th>내용</th></tr>'; */
 			
 			for(s in board){
-				alert(document.getElementById('list').innerHTML);
-				document.getElementById('list').innerHTML += "<table><tr><th>1</th><th>test1</th><th>tedst23</th></tr><table>";
+				
+				str += "<tr><th>"+board[s].seq+"</th><th>"+board[s].title+"</th><th>"+board[s].contents+"</th></tr>";
 					
 			}
-			document.getElementById('list').innerHTML +='</tbody></table>';	
+			str +='</table>';	
+			 document.getElementById('list').innerHTML = str;
 		}
 		
 	}	
@@ -38,15 +42,7 @@
 		this.seq = seq;
 		this.title  = title;
 		this.contents = contents;
-		this.getSeq = function(){
-			return this.seq;
-		}
-		this.getTitle = function(){
-			return this.title;
-		}
-		this.getContents = function(){
-			return this.contents;
-		}
+		
 }
 	
 	
@@ -60,7 +56,8 @@
 	내용:<input type=text id="contents" value="">
 	<input type=button id="save" value="게시물저장">
 	<div id="list"> 0개 게시물 입력 결과 출력
-		
+		<div id="innerlist">
+		</div>
 	 </div>
 	<input type=button id="output" value="게시물조회">
 </form>

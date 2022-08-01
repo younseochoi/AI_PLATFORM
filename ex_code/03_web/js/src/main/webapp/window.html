@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	var childwindow; 
+	document.getElementById("open").onclick = function(){
+		childwindow = window.open("newpage.html", "new page", 
+				"width=400 , height=400, top=100, left=150,resizable=yes, location=yes");
+		//body 로딩 완료 대기
+		childwindow.onload = function(){
+			childwindow.document.getElementById("test").innerHTML =
+				"<h3>부모에서 추가하여 전송합니다.</h3>";
+			childwindow.document.getElementById("test").style = "color:green";		
+		}
+		
+	}
+	document.getElementById("close").onclick = function(){
+		childwindow.close();
+	}
+}
+</script>
+</head>
+<body>
+<input type=button value="새창열기" id="open">
+<input type=button value="새창닫기" id="close">
+<div id="fromchild"></div>
+</body>
+</html>

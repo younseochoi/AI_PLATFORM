@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type=button value="위치추적시작" id="start">
+<input type=button value="위치추적종료" id="stop">
+<div id=result></div>
+
+<script>
+/* 1. 위치추적 가능 기기 - 폰(기지국+gps) / 패드(gps) / 유선네트워크 ip - 매핑 주소 정보 
+ * 2. 보안 - 브라우저 - 위치 추적 허용 옵션 설정
+ */
+var watchid;
+document.getElementById("start").onclick = function(){
+	watchid = navigator.geolocation.watchPosition(success, fail);
+	document.getElementById("result").innerHTML = "<H3>위치추적을 시작합니다.</H3>";
+}
+
+document.getElementById("stop").onclick = function(){
+	navigator.geolocation.clearWatch(watchid);
+	document.getElementById("result").innerHTML = "<H3>위치추적을 중단합니다.</H3>";
+}
+
+function success(myposition){// 위치정보객체(위도필수 경도필수 고도옵션 )- 북위 37도 동경 127-8
+	var lat = myposition.coords.latitude;
+	var lon = myposition.coords.longitude;
+	document.getElementById("result").innerHTML = "나의 위도=" + lat + ", 나의 경도=" + lon;
+	//새창열고 구글맵 내위치 표시
+	//http://maps.google.com?q=위도,경도
+	window.open("http://maps.google.com?q=" + lat + "," + lon , "위치정보", 
+			"width=800, height=600, resizable=yes");
+}
+
+function fail(error){//오류정보객체
+	document.getElementById("result").innerHTML = "오류발생=" + error.code + " 번 " + error.message;
+}
+
+</script>
+</body>
+</html>

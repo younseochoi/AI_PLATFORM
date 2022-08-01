@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>브라우저 정보 객체</h1>
+<script>
+document.write("<h3>웹브라우저 제조사 = " + navigator.appCodeName + "</h3>");
+document.write("<h3>웹브라우저 제조사 = " + navigator.userAgent + "</h3>");
+document.write("<h3>웹브라우저 제조사 = " + navigator.platform + "</h3>");
+
+if(navigator.userAgent.indexOf("Chrome") >= 0){
+	/*크롬브라우저  */}
+else if(navigator.userAgent.indexOf("Edg") >= 0){
+	/*엣지브라우저 */
+}else if(navigator.userAgent.indexOf("Trident") >= 0){
+	/*ie 브라우저  */
+}
+</script>
+
+<a href="javascript:history.go(-1)">이전으로 가기(뒤로버튼)</a>
+<a href="javascript:history.back()">이전으로 가기(뒤로버튼)</a>
+<a href="javascript:history.forward()">앞으로 가기(앞으로버튼)</a>
+<a href="javascript:history.go(1)">앞으로 가기(앞으로버튼)</a>
+
+<input type=button value="이동" id="move">
+<script>
+document.getElementById("move").onclick = function(){
+	location.href = "http://multicampus.co.kr";
+}
+</script>
+
+<!-- 
+<form id="f">
+<input ...
+<input type=submit value="전송" > 
+</form>
+
+<script>
+document.getElementById("f").onsubmit = function(){
+	location.href = "http://multicampus.co.kr";
+	
+}
+</script>
+
+ -->
+
+</body>
+</html>
+
+
