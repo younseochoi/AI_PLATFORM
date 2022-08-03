@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="event3.js"></script> <!-- test3() 사용가능  -->
+<!-- <script>
+function test(){
+	alert(1);
+}
+function test2(){
+	alert(2);
+}
+function start(){
+	document.querySelector("#click").onclick = test; //클릭하면 test() 호출 
+	document.querySelector("#click").onclick = test2; //클릭하면 test2() 호출 
+}
+window.onload = start;
+
+
+</script> -->
+<script>
+function test(){
+	alert(1);
+}
+function test2(){
+	alert(2);
+}
+function test4(){
+	document.querySelector("#click").removeEventListener('click',test,false) ;
+	//document.querySelector("#click").removeEventListener('click',test2,false) ;
+	//document.querySelector("#click").removeEventListener('click',test3,false) ;
+}
+function start(){
+	document.querySelector("#click").addEventListener('click',test,false) ;
+	document.querySelector("#click").addEventListener('click',test2,false) ;
+	document.querySelector("#click").addEventListener('click',test3,false) ;
+	
+	document.querySelector("#noclick").addEventListener('click',test4,false) ;
+}
+window.addEventListener('load',start,false);
+</script>
+</head>
+<body>
+<!-- <input type = button value="클릭" id= "click" onclick ="test()"> -->
+<input type = button value="클릭" id= "click">
+<input type = button value="클릭해보면 앎 " id= "noclick">
+
+</body>
+</html>

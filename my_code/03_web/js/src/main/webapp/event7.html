@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 id="length">100</h1>
+<h2>글자까지 입력가능합니다.</h2>
+<textarea rows="5" cols="50" id="contents"></textarea>
+<input type=button value="새로입력">
+
+<!-- 1. keyevent - textarea 태그에 키 입력시마다 h1 - xx h2 - 글자 남았습니다 출력한다. 
+이 때 남은 글자수 0이면 textarea에 더이상 입력 불가능하도록 처리한다. (setAttribute - readonly 속성 이용) 
+2. clickevent - 새로 입력 버튼 클릭시 textarea 입력내용 삭제하고 
+textarea readonly 속성 삭제한다(removeAttribute) -->
+<script>
+	/* var length = document.querySelector("#length").innerHTML ;
+	alert(length);
+	var contents = document.querySelector('#contents').innerHTML;*/
+	var button = document.querySelector("input[type=button]");
+	var textarea = document.querySelector("textarea");
+	var h1_count = document.querySelector("h1");
+	var h2_msg = document.querySelector("h2");
+	
+	var total_len = parseInt(h1_count.innerHTML);
+	textarea.onkeypress = function(){
+		var current_len = textarea.value.length;
+		var remain_len = total_len - current_len; //남아있는 글자수(입력가능) 
+		h1_count.innerHTML = remain_len;
+		h2_msg.innerHTML = "글자 남았습니다.";
+		if(remain_len == 0){
+			textarea.setAttribute("readonly","readonly");
+			h2_msg.innerHTML = "더이상 입력 불가능합니다."; 
+			h2_msg.style.color="red";
+		}
+	}
+	button.onclick = function(){
+		textarea.value = ""; //리셋 
+		textarea.removeAttribute("readonly");
+		h2_msg.style.color="black";
+		textarea.focus();
+	}
+</script>
+</body>
+</html>

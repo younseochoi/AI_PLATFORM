@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쇼핑목록</title>
+</head>
+<body>
+	<h1>쇼핑 목록</h1>
+	<p id="mart">마트에서 사야할 목록</p>
+	<ul id="buy" class="list">
+		<li>두부</li>
+		<li>계란</li>
+		<li>라면</li>
+	</ul>
+	<p>마트에서 사야할 목록2</p>
+	<p>마트에서 사야할 목록3</p>
+	
+<script>
+/* var  p = document.getElementById("mart");
+document.write(p.innerHTML); //TEXT NODE값 읽어와라  */
+
+/* var p_array = document.getElementsByTagName("p");
+document.write(p_array.length); // 3 */
+
+/* var ul_array = document.getElementsByClassName("list");
+document.write(ul_array.length);
+document.write(ul_array[0].innerHTML); */
+
+/* // 두부 읽어오는 방법 1 
+var li_array = document.getElementsByTagName("li");
+document.write(li_array[0].innerHTML); */
+
+//두부 읽어오는 방법 2 
+var ul = document.getElementById("buy");
+var ul_child_array = ul.childNodes;
+document.write(ul_child_array.length);
+
+for(var i = 0; i<ul_child_array.length; i++){
+	if(ul_child_array[i].nodeType==1){
+		document.write(ul_child_array[i].innerHTML);
+	}
+}
+</script>	
+</body>
+</html>

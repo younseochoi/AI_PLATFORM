@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복합이벤트 연결예제</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	$('div#box').css({
+		height : '100px',
+		width : '100px',
+		backgroundColor: 'black'
+	});
+	
+	/* //mouseover , mouseenter , mouselive , click
+	$('div#box').on('click',function(){
+		$(this).css('background-color','red');
+	}); //click on end
+	
+	$('div#box').on('mouseenter',function(){
+		$(this).css('background-color','orange');
+	}); //click on end
+	
+	$('div#box').on('mouseleave',function(){
+		$(this).css('background-color','yellow');
+	}); //click on end */
+	
+	//한개의 on 함수로 
+	$('div#box').on({
+		click: function(event){
+			$(this).html(event.type);
+			$(this).css('background-color','red');},
+		mouseenter:	function(event){
+			$(this).html(event.type);
+			$(this).css('background-color','orange');},
+		mouseleave: function(event){
+			$(this).html(event.type);
+			$(this).css('background-color','yellow');}
+		
+	});
+	
+	$('a').on('click',function(e){
+		e.preventDefault(); //기본동작 멈춰 
+		$('div#box').html('클릭해도 아무 소용없습니다.'); //확인 사항있을 때 사용하기 좋음 .ex) 아이디 있는지 없는지 
+	});
+	
+}); //ready end
+</script>
+</head>
+<body>
+<div id="box"></div>
+<a href="login.jsp?id">a.html 링크 </a>
+</body>
+</html>

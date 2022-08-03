@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	// jquery 없던 태그 생성 + 있던 태그생성
+	$('h1#first').css("width","300px");
+	$('h1#first').css("border","2px solid orange");
+	
+	$('h1#first').click(test1);
+	
+	 $('h1#first').on('click',function(){
+		 $('div#last').css("width","500px");
+		 $('div#last').css("border","2px solid pink");
+		 $('div#last').append("on 메소드 쓴 결과 ==>"+$('h1#first').text());
+	 }); 
+	 
+	 $('input:button').on('click',function(){
+		 //$('h1:first').off('click'); //두개 함수 실행 x
+		 $('h1:first').off('click',test1); //실행 안할 함수 고르기 
+	 });//on end
+	 
+	 function test1(){
+			$('div#last').append("click 메소드 쓴 결과 ==>"+$('h1#first').text());
+		}
+}); //ready end
+</script>
+</head>
+<body>
+<h1 id="first">클릭해주세요.</h1>
+<input type=button value="이벤트 멈춥니다.">
+<div id="last"></div>
+</body>
+</html>

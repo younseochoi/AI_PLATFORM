@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+window.addEventListener('load',function(e){
+	var count =0;
+	document.querySelector("#phone").addEventListener('keydown',
+		function(e){
+			/*
+			1. 숫자로만 구성 
+			if(e.keyCode>=48 && e.keyCode<=57){
+				document.querySelector("#output").innerHTML = e.key+" = 적합"; //0 :48, 9:57	
+				document.querySelector("#output").style.color = "green";
+			}else{
+				document.querySelector("#output").innerHTML = e.key+" = 부적합"; //0 :48, 9:57	
+				document.querySelector("#output").style.color = "red";
+			} */
+			/* 
+			2. 11개 구성, 010 시작 
+				count++;
+			if(count == 11 && document.querySelector('#phone').value.indexOf("010") == 0){
+				document.querySelector("#output").innerHTML = document.querySelector('#phone').value ; //0 :48, 9:57	
+				document.querySelector("#output").style.color = "green";
+			}else{
+				document.querySelector("#output").innerHTML ="올바르지않습니다."; //0 :48, 9:57	
+				document.querySelector("#output").style.color = "red";
+			} */
+			
+			var regex = /^010[0-9]{3,4}[0-9]{4}$/;
+			var phone =document.querySelector('#phone').value;
+			if(phone.match(regex) == null){
+				document.querySelector("#output").innerHTML ="올바르지않습니다."; //0 :48, 9:57	
+				document.querySelector("#output").style.color = "red";
+			}else{
+				document.querySelector("#output").innerHTML = this.value ; //0 :48, 9:57	
+				
+				// document.querySelector('#phone').value 
+				// e.target.value
+				// this.value
+				document.querySelector("#output").style.color = "green";
+			}
+			//alert(phone.match(regex)); //matching -> phone 변ㄴ수 리턴 / not matching null 리턴 
+		}
+		,false) ;
+},false);
+
+</script>
+<!-- input 태그
+id 속성 -- css style 처리 ,현재 id 속성 태그 위치, DOM 처리 #id 
+name속성 -- form action 파일전송할 때 변수명 dom -->
+<form action="a.jsp">
+<!-- 폰번호입력 : <input type=text id="phone" name="phone">
+폰번호입력 : <input type=tel id="phone" name="phone" pattern ="010[0-9]{3,4}[0-9]{4}"> -->
+폰번호입력 : <input type=text id="phone" name="phone">
+<div id="output">입력내용을 확인할 수 있습니다.</div>
+<input type=submit value="전송">
+</form>
+</body>
+</html>

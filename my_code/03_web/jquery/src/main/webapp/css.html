@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('div').css('color','red');
+	$('div').css('color',function(index){
+		/* if(index%3 == 0){
+			return 'red';
+		}else if(index%3 == 1){
+			return 'blue';
+		}else if(index%3 ==2){
+			return 'green';
+		} */
+		/* else{
+			return 'pink';
+		} */
+		
+		var array = ['red','orange','yellow','green','blue','navy','purple'];
+		return array[index%7];
+	});
+});
+</script>
+</head>
+<body>
+<div>1번째</div>
+<div>2번째</div>
+<div>3번째</div>
+<div>4번째</div>
+<div>5번째</div>
+<div>6번째</div>
+<div>7번째</div>
+<div>8번째</div>
+<div>9번째</div>
+<div>10번째</div>
+<div>11번째</div>
+<div>12번째</div>
+<div>13번째</div>
+<div>14번째</div>
+
+</body>
+</html>

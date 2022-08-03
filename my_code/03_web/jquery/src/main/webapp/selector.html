@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	//css selector 복습 
+	/* document.getElementById("a");
+	document.querySelector("#a")style.backgroundColor;
+	$("#second").css("color","red"); */
+	
+	//$("h1").css("color","red");
+	//$(".red").css("color","red");
+	//$("h1 a").css("color","red"); //포함 관계 > or 공백
+	///$("h1, td").css("color","red"); //태그 복수개 선택 
+	//$("h1#second").css("color","red"); //h1이면서 id=second
+	//$("h1 #second").css("color","red"); //h1 태그포함되었고 id =second 
+	//$("h1.red").css("color","red");//CLASS red이면서 h1태그 
+	
+	/* //input type text 
+	$("input:text").css("color","red");
+	$("input[type=button]").css("color","red");//버튼 1만 바뀜 
+	$("button").css("color","red"); //버튼 2만 바뀜  */
+	
+	/* //태그범위 : 조건해당 필터링 
+	$("input[type^=te]").css("color","red"); //te로 시작하는 input type 
+	$("input[type$=l]").css("color","pink"); //l로 끝나는 input type
+	$("input[type*=e]").css("color","green"); // e를 포함하는 input type */ 
+	
+	//$("input:checked").css("color","red"); //input type =radio /checkbox checked
+	
+	//$("th").css("color","red");
+	//$("th:first").css("color","orange"); //jquery  첫번째등장하는 th읽어라 
+	//$("th:first-child").css("color","orange"); // css +jquery. th의 부모태그를 찾아서 그 부모의 첫번째 태그가 th이여야한다.
+	//$("th:last").css("color","orange");
+	
+	//$("th:last-child").css("color","orange");	
+	//$("tr:even td").css("color","orange"); //짝수번째 td태그 evne 0, 2, 4,6,8
+	//$("tr:odd td").css("color","pink"); //홀수번째 td태그 
+	
+	//$("tr:nth-child(3n) td").css("color","orange");
+	$("tr:eq(3) td").css("color","blue"); //인덱스3 인거 
+	$("tr:gt(3) td").css("color","green"); //인덱스 3보다 큰거 
+	$("tr:lt(3) td").css("color","gold"); //인덱스 3보다 작은
+	
+	alert($("tr:eq(3) td").css("color"));
+	/* $("select option:selected").css //radio checkbox 속성 
+	$("select option[selected=selected]").css */
+});
+</script>
+</head>
+<body>
+<h1 class="red"> 제목1 </h1>
+<h1 id="second"> 제목2</h1>
+<h1> <a href="a.html"> 링크1 </a></h1> <!--  a태그 기본 이벤트핸들러 내장(자동이동+글씨 파랑색 밑줄+배경색지정x)  -->
+<a class="red" href="b.html"> 링크2 </a><br>
+<input type=text value="기본문자열"><br>
+<input type=password value="기본암호"><br>
+<input type=tel value="기본"><br>
+<input type=url value="http://"><br>
+<input type=email value="a@b.com"><br>
+<input type=button value="버튼"><br>
+<button>버튼2</button>
+<table>
+<tr><th>번호</th><th>제목</th><th>내용</th><th>작성자</th></tr>
+<tr><td>1</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>2</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>3</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>4</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>5</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>6</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+<tr><td>7</td><td>제목1</td><td>내용1</td><td>작성자1</td></tr>
+</table>
+</body>
+</html>

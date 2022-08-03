@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1{
+	width:500px;
+	height: 200px;
+	border: 2px solid aqua;
+}
+a{
+	width:200px;
+	height: 100px;
+	border: 2px solid navy;
+}
+</style>
+</head>
+<body>
+<h1 id="outer">
+<a href="test.html" id="inner">이동</a>
+</h1>
+<script>
+document.querySelector("a").onclick = function(e){
+	alert("1 a태그로 이벤트 전파"); //자식 태그이벤트 처리 먼저 - 이벤트 부모태그로 전달 
+	e.preventDefault();
+	//부모로 이벤트 전파시키기 싫다
+	e.stopPropagation();
+}; // 3. + 기본 동작 링크 이동 취소 
+
+document.querySelector("h1").onclick = function(){
+	alert("2 h1태그로 이벤트 전파");
+};
+</script>
+</body>
+</html>

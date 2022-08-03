@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("img:first").attr("src","/html/images/drinks.jpg"); // 'src' setter
+	$("img").attr('width','100px');
+	$("img").attr('height','100px');
+	$('img:first').attr('alt','주스 사진이였습니다만.');
+	
+	$("img:last").attr({ //setter 2 
+		src : "/html/images/americano.jpg",
+		alt : "커피사진",
+		width : '200px',
+		height : '200px'
+	});
+	
+	//getter 
+	//첫번째 출력 이미지 url 알고싶다. 
+	//alert($('img:first').attr('src'));
+	//$('img:last').attr('src',$('img:first').attr('src')); //이미지 복사 
+	
+	//alert($('img').attr('src')); //getter 용도. 선택자 여러개 선택시 첫번째 태그만 가져온다.
+	//alert($('img').length);
+	
+/* 	//방법 1
+	for(var i = 0;i<$('img').length;i++){
+		alert($('img:eq('+i+')').attr('src'));
+	}
+	// img type -> Array
+ */	
+ 
+	//방법 2 반복문 내장 함수 방법 2
+	$('img').each(function(index){
+		//alert($('img:eq('+index+')').attr('src'));
+		//alert(index+"번째 이미지의 src = "+ this.src);
+		
+		//this java script 객체를 $(this) jquery 객체로 변환 
+		alert(index+"번째 이미지의 src = "+ $(this).attr('src'));
+	}); 
+	
+	/* $('img').each(function(i,element){
+		
+	}); */
+	
+	//img:first src 속성제거 
+	$('img:first').removeAttr('src');
+	
+	//모든 img src 속성제거 
+	$('img').removeAttr('src');
+	
+	
+});// ready end
+</script>
+</head>
+<body>
+<img>
+<img>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--1.  입력양식 제공 2. 다른 서버 파일 전송  -->
+<!-- a.jsp?hobby=music&hobby=movie&hobby=cook&hobby=study&time=16 -->
+<form action="a.jsp">
+<input type=checkbox name="hobby" value="music"> 음악감상 <br>
+<input type=checkbox name="hobby" value="movie"> 영화감상 <br>
+<input type=checkbox name="hobby" value="cook"> 요리 <br>
+<input type=checkbox name="hobby" value="study"> 공부 <br>
+
+<input type=radio name="time" value="12"> 12시 <br>
+<input type=radio name="time" value="15"> 15시 <br>
+<input type=radio name="time" value="16"> 16시 <br>
+<input type=radio name="time" value="18"> 18시 <br>
+
+<input type=submit value="전송">
+</form>
+<script>
+var hobby_array = document.getElementsByName("hobby");
+for(var i = 0 ; i< hobby_array.length;i++){
+	document.write(hobby_array[i].value);
+}
+// input type submit value 출력 
+var submit = document.querySelector("input[type=submit]");
+document.write(submit.value+"<br>");
+
+//input type checkbox 마지막 value 출력 
+var check = document.querySelector("input[type=checkbox]:nth-child(7)"); //처음 하나 
+var check_array = document.querySelectorAll("input[type=checkbox]");
+document.write(check.value);
+document.write(check_array[check_array.length-1].value+"<br>");
+
+check_array[0].value = "일본음악감상";
+document.write(check_array[0].value);
+if(check_array[0].hasAttribute("value")){
+	check_array[0].removeAttribute("value");
+}
+document.write(check_array[0].hasAttribute("value")); //false
+</script>
+
+<h1>제목</h1>
+<div>div 태그 </div>
+<img src="a.jpg">
+<input type=text>
+<script>
+	//document.querySelector("h1").innerHTML = "변경 제목";
+	//document.querySelector("div").innerHTML = "<h3>div 태그 수정</h3>";
+	
+	//document.querySelector("h1").textContent = "변경 제목";
+	//document.querySelector("div").textContent = "<h3>div 태그 수정</h3>";
+	 
+	// 태그 생성 - 문서 추가하라 출력 
+	var h3 = document.createElement('h3'); // <h3></h3> 형태 생성 
+	var h3_text = document.createTextNode("div 태그 수정수");
+	h3.setAttribute("id","aaa");
+	h3.appendChild(h3_text); // <h3>div 태그 수정수</h3>
+	
+	// 이전 div 태그 내용 삭제후 추가 - 이전 삭제 
+	document.querySelector("div").innerHTML = "";
+	document.querySelector("div").appendChild(h3); //<div> <h3>div 태그 수정수</h3></div>
+	//document.querySelector("div").insetBefore(h3,);
+	
+	//appendChlid 이미 존재하는 태그로 하면 이동효과 
+	document.querySelector("body").appendChild(document.querySelector('h1')); 
+	
+	document.querySelector("body").replaceChild(document.querySelector('h1'),document.querySelector('img'));
+	
+	//img 태그 제거 
+	//document.querySelector("body").removeChild(document.querySelector('img'));
+	
+	var h1 = document.querySelector('h1');
+	//document.querySelector('h1').style = "color:red; background-color:pink";
+	h1.style.color="red";
+	h1.style.width = "500px";
+	h1.style.backgroundColor = "pink";
+	h1.style.borderColor = "green";
+	h1.style.borderWidth = "2px";
+	h1.style.borderStyle = "solid";
+	</script>
+</body>
+</html>

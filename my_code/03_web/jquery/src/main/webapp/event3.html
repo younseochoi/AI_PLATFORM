@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('table, td').css('border','2px solid black'); //외곽 
+	$('td:eq(4)').attr('colspan','2');
+	//등록버튼 가운데 정렬 
+	/*  1. 사용자 명 입력 - 기존 회원 이름과 중복되지 않아야함. 
+		2. 과정명 입력하면 subjectlist에 존재해야한다.
+		3-1. 1,2 모두 만족 -> submit 기본동작 수행 (가만히 냅둡)
+		3-2. 1만족 못할시 alert('중복된 사용자입니다.') submit 기본동작 막기
+		3-3. 2만족 못할시 alert('해당과정은 운영하지 않습니다.') submit 기본동작 막기
+	*/
+	
+	var userlist = ['김회원','박학생','이회원','최회원'];
+	var subjectlist = ['ai','빅데이터','풀스택','안드로이드','웹'];
+	
+	$('form').on('submit',function(e){
+		
+		/* var input_name1 = $('#name').attr('value'); 
+		//undefined why? 
+				attr('value')는 <input type=text name="name" id="name" value="이자바">형태처럼 
+				미리 html 태그에 value 속성이 정의되어 있으면 사용 가능합니다. */
+		
+		var input_name = $('#name').val();
+		
+		var flag = true;
+		//1
+		for(var i =0;i<userlist.length;i++){
+			if(input_name == userlist[i]){
+				alert('중복된 사용자입니다.');
+				e.preventDefault(); //3-2
+				flag =false;
+				break;
+			}
+		}
+		
+		//2
+		var flag2 = true;
+		var input_subject =  $('#subject').val();
+		for(var i =0;i<subjectlist.length;i++){
+			if(input_subject == subjectlist[i]){
+				flag2= false;
+				break;
+			}
+		}
+		
+		if(flag2){ // 일치하는 과정 없다.
+			alert('해당과정은 운영하지 않습니다.');
+			e.preventDefault(); //3-3
+		}
+		
+	});
+	
+});
+</script>
+</head>
+<body>
+<form action="userinform.jsp">
+	<table>
+		<tr><td>사용자 이름</td><td> <input type=text name="name" id="name" value=""></td></tr>
+		<tr><td>과정명</td><td><input type="text" name="subject" id="subject"></td></tr>
+		<tr><td><input type=submit value="등록"></td></tr>
+	</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('h1, h3').addClass('a');
+	$('h1').addClass('box');
+	$('h1').removeClass('a');
+	$('h1').css('1개 css',"");
+});
+</script>
+<style>
+.a{
+	color:red;
+	background-color: yellow;
+}
+.box{
+	width: 300px;
+	height: 200px;
+	border: 2px solid pink;
+}
+</style>
+</head>
+<body>
+<h1 class="a box" >클래스 속성을 제어합니다.</h1>
+<h2>addclass 함수를 공부합니다. </h2>
+<h3>removeClass 함수도 잇쇼니 공부합니다.</h3>
+
+<!-- <h1 class="a">클래스 속성을 제어합니다.</h1>
+<h2 class="a">addclass 함수를 공부합니다. </h2>
+<h3 class="a">removeClass 함수도 잇쇼니 공부합니다.</h3>
+
+<h1 class="box">클래스 속성을 제어합니다.</h1>
+<h2 class="box">addclass 함수를 공부합니다. </h2>
+<h3 class="box">removeClass 함수도 잇쇼니 공부합니다.</h3> -->
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="loginform" action="server.jsp">
+아이디 : <input type=text id="id" name="id" required>
+암호1 <input type=password id ="pw1" name="pw">
+암호2 <input type=password id ="pw2" name="pw">
+<input type=submit value="로그인">
+</form>
+<script>
+document.querySelector("#loginform").addEventListener('submit', 
+		function(e){
+			//alert(document.querySelector('#id').value); // null , undefined , ''
+			/* if(document.querySelector('#id').value=''){
+				alert('아이디 필수입력');
+				e.preventDefault();
+			} */
+			if(document.querySelector('#pw1').value == document.querySelector('#pw2').value){
+				alert("submit 가능");
+				
+			}//if
+			else{
+				alert("submit 불가능");
+				e.preventDefault(); //이벤트 기본 취소 
+				/* e.target.action = "";
+				this.action = ""; */
+			}
+		},//function
+		false);
+
+//false : 자식이벤트를 부모로 전파 
+//true :부모이벤트를 자식한테 전파 
+</script>
+</body>
+</html>

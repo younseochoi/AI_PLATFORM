@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+/* $ ('#contents').html("<input type=password value=`123`>" );
+$('#contents').text("<input type=password value=`123`>" ); */
+$('#contents').html($('#contents').html()+"<input type=password value=`1234`>" );
+$('#contents').append("<input type=password value=`123`>" );
+alert($('#contents').html());
+
+$('#contents').html(""); //태그와 문자열 내용 삭제 
+$('#contents').css("color",""); // 기본속성으로 설정 . css 제거 
+
+/* $('input:text').attr('value'); //input type text value 가져오기
+$('input:text').val();
+//document.querySelector('input[type=text].value') */
+});
+</script>
+</head>
+<body>
+<div id=contents>
+<input type=text value="jquery"><br>;
+<!-- <input type=text value="jquery"><br>; -->
+</div>
+</body>
+</html>
