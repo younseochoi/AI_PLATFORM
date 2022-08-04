@@ -8,6 +8,7 @@
 $(document).ready(function(){
 	$('table, td').css('border','2px solid black'); //외곽 
 	$('td:eq(4)').attr('colspan','2');
+	$('td:eq(4)').css('text-align','center');
 	//등록버튼 가운데 정렬 
 	/*  1. 사용자 명 입력 - 기존 회원 이름과 중복되지 않아야함. 
 		2. 과정명 입력하면 subjectlist에 존재해야한다.
@@ -35,6 +36,8 @@ $(document).ready(function(){
 				alert('중복된 사용자입니다.');
 				e.preventDefault(); //3-2
 				flag =false;
+				$('input:text:first').val('');
+				$('input:text:first').focus();
 				break;
 			}
 		}
@@ -52,6 +55,8 @@ $(document).ready(function(){
 		if(flag2){ // 일치하는 과정 없다.
 			alert('해당과정은 운영하지 않습니다.');
 			e.preventDefault(); //3-3
+			$('#subject').val('');
+			$('#subject').focus();
 		}
 		
 	});

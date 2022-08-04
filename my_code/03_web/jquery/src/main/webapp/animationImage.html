@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	var img_ar = [
+        '0.png', '1.png', '2.png', '3.png', '4.png',
+        '5.png', '6.png', '7.png', '8.png', '9.png',
+        '10.png', '11.png', '12.png', '13.png', '14.png' 
+        ];
+	//animate, setInterval 
+	var count = 0 ;
+	var timer;
+	$('#start').on('click',function(){
+		
+		if(timer != undefined){
+			clearInterval(timer);		
+		}
+		timer = setInterval(function(){
+			$('img').attr('src','animationimages/' + img_ar[count % img_ar.length]);
+			$('img').css('width','200px');
+			$('img').css('height','200px');
+			$('img').css('float','right');
+			count++;
+		},30);
+	});
+	
+	$('#stop').on('click',function(){
+		clearInterval(timer);		
+		
+	});
+});
+</script>
+</head>
+<body>
+<input type=button value="애니메이션시작" id="start">
+<input type=button value="애니메이션종료" id="stop">
+<img >
+</body>
+</html>

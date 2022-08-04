@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css 효과 : fade</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('h1:eq(0)').hide();
+	setTimeout(function(){$('h1:eq(0)').show();},'2000');
+	
+	$('h1:eq(1)').fadeIn(3000); //3초동안 서서히 보인다.
+	$('h1:eq(1)').fadeOut(3000);//3초동안 서서히 사라짐.
+	
+	$('h1:eq(2)').slideUp(3000);
+	$('h1:eq(2)').slideDown('slow');
+	
+	$('h1:eq(3)').css({
+		width: '500px',
+		backgroundColor: 'yellow'
+	});
+	//잠시 대기 
+	$('h1:eq(3)').delay(2000); //2초동안 중지 
+	$('h1:eq(3)').animate({
+		width: '1000px',
+		backgroundColor: 'orange' //jquery-ui 라이브러리 설치시 배경색 바뀜. 지금은 x
+	},2000); //0.5 초 동안 1000px변경 , 색깔 바꾸기 
+});
+</script>
+</head>
+<body>
+<h1>태그 보이기 감추기</h1>
+<h1>태그 페이드인/아웃하기</h1>
+<h1>태그 슬라이드 하기</h1>
+<h1>태그 애니메이션하기 </h1>
+</body>
+</html>

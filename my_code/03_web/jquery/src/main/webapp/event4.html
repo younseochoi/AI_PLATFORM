@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	var cnt=0;
+	$('#btnclick').on('click',function(){
+		$('#keyout').html(++cnt+"번 클릭했습니다.");
+		//$('#newbuttons').append("<input type=button value='새로만든 버튼'"+cnt+" id='btnadd'>");
+		//$('#newbuttons').prepend("<input type=button value='새로만든 버튼"+cnt+"'  id='btnadd'>");
+		$('#newbuttons').append("<input type=button value='새로만든 버튼"+cnt+"'  id='btnadd'>");
+		
+	});
+	
+	//스크립트 코드 실행 생성 "동적" 테그 =dom 파악 없었어요 이벤트처리 
+	/* $('div input:button').on('click',fucntion(){
+		$('#keyout').html($(this).val());
+	});
+	
+	$('#btnstop').on('click',function(){
+		$('#btnclick').off('click');
+		
+	}); */
+	$('#newbuttons').on('click','input:button',function(){
+		$('#keyout').html($(this).val());
+	});
+	
+	$('#btnstop').on('click',function(){
+		//$('#newbuttons').html('');
+		$('#newbuttons').empty(); //태그내부 자식들만 삭제 
+		//$('#newbuttons').remove(); //있던태그도 없어짐 +태그내부 자식들 삭제 
+		$('#btnclick').off('click');
+		
+	});
+	
+});
+</script>
+</head>
+<body>
+<input type=button value="클릭" id="btnclick">
+<input type=button value="중단" id="btnstop">
+<div id="newbuttons"><!-- 버튼 생성 - 추가 --></div>
+<div id="keyout"><!-- 메시지 출력 --></div>
+</body>
+</html>
