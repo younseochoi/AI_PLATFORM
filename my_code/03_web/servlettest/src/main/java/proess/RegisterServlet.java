@@ -2,6 +2,7 @@ package proess;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,12 @@ public class RegisterServlet extends HttpServlet {
 		out.print(subject[i]+" "); //입력하신id는ㅇㅇㅇ입니다. 
 		}
 		out.println("과목을 선택하셨습니다.</h1>");
+		//////////////////////////////////////////////////////
+		Enumeration<String> names =  request.getParameterNames();
+		while(names.hasMoreElements()) {
+			out.println(names.nextElement()+"<br>");
+		}
+		
 	}
 
 }

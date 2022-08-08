@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/jquery/js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('form').on('submit',function(e){
+		//alert(isNaN($('#num1').val())); //숫자일 때만 false
+		if(isNaN($('#num1').val())||isNaN($('#num2').val())){
+			$('div').html('숫자만 입력하세요.');
+			e.preventDefault();
+			
+		} 
+	});	
+	
+		$('input:button').on('click',function(){
+			//sumbit과 동일한 효과 
+			//location.href= "calc";
+			//$('form').attr('action','변경 url');
+			$('form').attr('method','get');
+			$('form').submit();
+		});
+	
+});
+</script>
+</head>
+<body>
+<form action="calc" method="post">
+	<input type=text name="num1" id="num1">
+	<select name="op">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+		<option>%</option>
+	</select> 
+	<input type=text name="num2" id="num2">
+	<input type=text name="user" value="요청자">
+	<input type=submit value="계산해주세요submit">
+	<input type=button value="계산해주세요button.">
+	<div></div>
+</form>
+	<h3><a href="calc?num1=10&op=%2B&num2=15">서블릿으로 이동(get)</h3>
+</body>
+</html>
