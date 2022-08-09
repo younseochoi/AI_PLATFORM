@@ -1,10 +1,7 @@
 INDEX VERSION 1.4+/Users/choiyoonseo/Desktop/AI_PLATFORM/my_code/03_web/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-4141661595.index
-3163449393.index
-3743114338.index
-2588834660.index
 4016699585.index
-164462415.index
+3163449393.index
 340940035.index
-1759425437.index
-1759425437.index
+2588834660.index
+1531417413.index
+3891102344.index
