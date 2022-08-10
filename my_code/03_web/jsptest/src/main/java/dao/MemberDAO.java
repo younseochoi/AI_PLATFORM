@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -132,4 +133,50 @@ public class MemberDAO {
 	
 	} //insert member end
 
+	
+
+	
+	public ArrayList<MemberDTO> selectAllMember() {
+		Connection conn = null;
+		ArrayList<MemberDTO> memberlist = new ArrayList<MemberDTO>();
+		
+		try {
+			//1.context.xml 파일 정의 내용 읽어올 준비
+			Context initContext = new InitialContext();
+			
+			//2. <Resource 이름 태그들  설정 읽어와
+			Context envContext = (Context)initContext.lookup("java:/comp/env");// java - component - environment파일
+			
+			//3. jdbc/mydb 설정 태그만 읽어와서 connection pooling 클래스 객체 생성
+			DataSource ds = (DataSource)envContext.lookup("jdbc/mydb");	
+			//4.
+			conn = ds.getConnection();
+			
+		String sql = "select * from member"; 
+		PreparedStatement pt = conn.prepareStatement(sql);
+		ResultSet rs = pt.executeQuery();
+		
+		while(rs.next()) {
+			MemberDTO dto = new MemberDTO();
+			dto.setId(rs.getString("id"));
+			//dto.setPassword(rs.getInt("password"));//insert(password, 0, repeat('*', 10)
+			dto.setName(rs.getString("name"));
+			dto.setPhone(rs.getString("phone"));
+			dto.setEmail(rs.getString("email"));
+			dto.setRegdate(rs.getString("regdate"));// date_format(regdate, '%Y%m%d") 
+			dto.getRegdate().substring(0, 10);
+			memberlist.add(dto);
+			
+		}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();//connectionpool로 반납(null..)
+			}catch(SQLException e) {   }
+		}
+		return memberlist;
+	}//SELECTALLMEMBER
+
+	
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	//사용자명 과정명 유효성 검사 만족하면 submit
+	});
+</script>
+</head>
+<body>
+<form action="register" >
+사용자명 <input type=text name="name"><br>
+과정명<!--  <input type=text name="subject" ><br>-->
+<select name="subject" multiple="multiple">
+	<option>ai</option>
+	<option>안드로이드</option>
+	<option>스프링</option>
+	<option>db</option>
+	<option>빅데이터</option>	
+	<option>보안</option>
+</select>
+
+
+<input type=submit value="등록">
+</form>
+</body>
+</html>

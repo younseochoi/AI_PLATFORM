@@ -31,7 +31,7 @@ $(document).ready(function(){
 	<% }else { // condition ==2 
 		if(role.equals("admin")) { %>
 			<h1><%=id %> 계정의 관리자님 로그인하셨습니다 </h1>
-			<ul><li> 모든 사용자 정보 조회 </li>
+			<ul><li> <a href="allmemberlist.jsp">모든 사용자 정보 조회 </a></li>
 			<li> 블랙리스트 관리 </li>
 			<li> 상품관리 </li></ul>		
 		<%}
