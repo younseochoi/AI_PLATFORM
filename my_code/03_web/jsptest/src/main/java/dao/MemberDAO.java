@@ -179,4 +179,62 @@ public class MemberDAO {
 	}//SELECTALLMEMBER
 
 	
+	public MemberDTO updateMember(MemberDTO dto) {
+		Connection conn= null;
+		int condition = 0; //update한 행의 개수 
+		MemberDTO user = new MemberDTO();
+		try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		 conn = DriverManager.getConnection
+				("jdbc:mysql://127.0.0.1:3306/memberdb", "emp2", "emp2");
+		 String sql = "update member set name = ?,phone = ? ,email=? where id = ? and password=?";
+		 PreparedStatement pt = conn.prepareStatement(sql);
+		 System.out.println("비밀번호+"+dto.getPassword());
+//		 pt.setString(1, dto.getId());
+//		 pt.setInt(2, dto.getPassword());
+		 pt.setString(1,dto.getName());
+		 pt.setString(2, dto.getPhone());
+		 pt.setString(3, dto.getEmail());
+		 pt.setString(4, dto.getId());
+		 pt.setInt(5, dto.getPassword());
+		 
+		 condition = pt.executeUpdate();
+		System.out.println(condition);
+		 if(condition >= 1) {
+			 String sql2 = "select id, password, name, phone, email, date_format(regdate,'%Y년도%m월%d일') regdate from member "
+			 		+ " WHERE id = ? ";
+			 pt = conn.prepareStatement(sql2);
+			// pt2.setInt(1, dto.getPassword());
+			 pt.setString(1, dto.getId());
+			 ResultSet rs = pt.executeQuery();
+			 
+			 if(rs.next()) {
+				System.out.println("여기까지 들어옴.");
+				 user.setId(rs.getString("id"));
+				 user.setPassword(rs.getInt("password"));
+				 user.setEmail(rs.getString("email"));
+				 user.setPhone(rs.getString("phone"));
+				 user.setName(rs.getString("name"));
+				 user.setRegdate(rs.getString("regdate"));
+			 }
+		 }
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			}catch(SQLException e) {
+				
+			}
+		}
+		 return user;
+	
+	} //update member end
+
+//	
+//	public static void main() {
+//		//단위테스트
+//	}
+
 }

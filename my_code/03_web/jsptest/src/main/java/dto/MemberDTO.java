@@ -50,6 +50,19 @@ public class MemberDTO {// id 저장값 컬럼 id에 자동 저장
 		return id+"회원님의 이름은 "+name+", 폰번호는 "+phone+", "
 				+ "이메일은 "+email+", 가입일은 "+regdate+" 입니다.";
 	}
+	
+	public MemberDTO() {}
+	
+	public MemberDTO(String id, int password, String name, String phone, String email, String regdate) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.regdate = regdate;
+	}
 
+	
 	
 }

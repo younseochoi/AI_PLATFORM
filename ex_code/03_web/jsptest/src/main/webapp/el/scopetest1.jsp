@@ -1,4 +1,3 @@
-<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,14 +13,16 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-
-<h1> admin.jsp 파일입니다. </h1>
-<H2><%=URLDecoder.decode(request.getParameter("name")) %> 관리자용 메뉴 </H2>
 <%
- String [] menu = (String[])request.getAttribute("menu");
- for(int i = 0; i < menu.length; i++){
-	 out.println("<h3>" + menu[i] + "</h3>");
- }
+//pageContext.setAttribute("a", "pagecontext공유");//현재
+//request.setAttribute("a", "request공유");//다른
+session.setAttribute("a", "session공유");//다른
+application.setAttribute("a" , "application공유");//다른
+
 %>
+
+<jsp:forward page="scopetest2.jsp" />
+
+
 </body>
 </html>

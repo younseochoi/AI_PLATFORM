@@ -7,6 +7,21 @@ public class MemberDTO {
 	String phone; //char(13) 
 	String email; // varchar(30) 
 	String regdate;
+	//기본생성자 수동정의 - jsp;useBean 
+	public MemberDTO(){ }
+	//매개변수 생성자 수동정의
+	public MemberDTO(String id, int password, String name, String phone, String email, String regdate) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.regdate = regdate;
+	}
+
+	
+	
 	
 	public String getId() {
 		return id;

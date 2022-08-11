@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,7 +36,9 @@ if(id != null){
 	}
 	request.setAttribute("menu", menu);
 	%>
-	<jsp:forward page="<%=file %>" /><!-- jsp 2.4버전 이후 --> 
+	<jsp:forward page="<%=file %>" >
+	<jsp:param name="name" value="<%=URLEncoder.encode(\"김회원\")%>" />
+	</jsp:forward>
 	
 <%}//outer if end
 else{

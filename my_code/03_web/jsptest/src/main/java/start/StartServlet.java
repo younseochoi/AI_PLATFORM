@@ -30,16 +30,17 @@ public class StartServlet extends HttpServlet {
 		}else if(menu.equals("memberlist")) {
 			MemberDAO dao = new MemberDAO();
 			rd = request.getRequestDispatcher("allmemberlist.jsp");
+			rd.forward(request,response);
 			
 		}else if(menu.equals("boardwriting")) {
 			rd = request.getRequestDispatcher("boardwrite.jsp");
+			rd.forward(request,response);
 		}else {
 			out.println("<h1>아직 준비되지 않은 메뉴입니다.</h1>");
 			out.println("<a href='allmemberlist.jsp'>가입 회원 명단 보기</a><br>");
 			out.println("<a href='boardwrite.jsp'>게시글 등록</a>");
 		}
 		
-		rd.forward(request,response);
 	}
 
 
