@@ -7,9 +7,9 @@ public class MemberDTO {
 	String phone; //char(13) 
 	String email; // varchar(30) 
 	String regdate;
-	//기본생성자 수동정의 - jsp;useBean 
+	//기본생성자 수동정의 - <jsp:useBean 기본생성자호출 
 	public MemberDTO(){ }
-	//매개변수 생성자 수동정의
+	//매개변수 생성자 수동정의 - <jsp:useBean 태그에서 사용 불가
 	public MemberDTO(String id, int password, String name, String phone, String email, String regdate) {
 		super();
 		this.id = id;
@@ -19,9 +19,6 @@ public class MemberDTO {
 		this.email = email;
 		this.regdate = regdate;
 	}
-
-	
-	
 	
 	public String getId() {
 		return id;

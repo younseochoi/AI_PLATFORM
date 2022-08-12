@@ -23,7 +23,7 @@ $(document).ready(function(){
 4번까지 못찾으면 공백처리<br>
 
 현재 페이지에서 전달=  ${a } <br>
-이동전 페이지에서 전달=  ${requestScope.a } <br>
+이동전 페이지에서 전s달=  ${requestScope.a } <br>
 세션에서 전달=  ${sessionScope.a } <br>
 어플리케이션에서 전달=  ${applicationScope.a } <br>
 </body>

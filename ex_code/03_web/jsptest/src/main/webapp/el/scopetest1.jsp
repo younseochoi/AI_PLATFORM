@@ -14,14 +14,15 @@ $(document).ready(function(){
 </head>
 <body>
 <%
-//pageContext.setAttribute("a", "pagecontext공유");//현재
-//request.setAttribute("a", "request공유");//다른
+pageContext.setAttribute("a", "pagecontext공유");//현재
+request.setAttribute("a", "request공유");//다른
 session.setAttribute("a", "session공유");//다른
 application.setAttribute("a" , "application공유");//다른
 
 %>
-
-<jsp:forward page="scopetest2.jsp" />
+<% pageContext.setAttribute("a","b"); %>
+${a }
+<%-- <jsp:forward page="scopetest2.jsp" /> --%>
 
 
 </body>
