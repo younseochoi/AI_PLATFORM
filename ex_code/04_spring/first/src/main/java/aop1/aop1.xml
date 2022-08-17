@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!-- 핵심관심 구현 클래스 객체 생성 -->
+<bean id="member" class="aop1.Member" />
+<bean id="board" class="aop1.Board" />
+
+<!-- 공통관심 구현 클래스 객체 생성 -->
+<bean id="common" class="aop1.Common" />
+
+<!-- aop : 공통관심객체 -->
+<aop:config>
+	<aop:pointcut expression="execution (public * *.Member.login(..))" id="pc"/>
+	<aop:aspect id="aopaspect" ref="common">
+<!-- 		<aop:before  method="a"  pointcut-ref="pc"   />
+		<aop:after method="b"  pointcut-ref="pc"  /> -->
+		<aop:around method="c"  pointcut-ref="pc" />
+	</aop:aspect>
+</aop:config>
+</beans>
+
+
+
+
+
+
+
