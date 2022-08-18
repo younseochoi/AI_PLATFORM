@@ -1,4 +1,4 @@
-<%@page import="springmvc.HelloDTO"%>
+<%@page import="nonspringmvc.HelloDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

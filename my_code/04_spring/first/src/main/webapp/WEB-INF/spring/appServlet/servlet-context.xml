@@ -21,8 +21,24 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="a.b.test" />
+	<!-- <context:component-scan base-package="a.b.test" /> -->
+	<context:component-scan base-package="annotation.springmvc" />
 	
+<!-- 	<beans:bean id="hello" class="springmvc.HelloController"/>
+	<beans:bean id="list" class="springmvc.ListController"/>
+	<beans:bean id="loginform" class="springmvc.LoginFormController"/>
+	<beans:bean id="loginresult" class="springmvc.LoginResultController" />  -->
 	
+	<!-- spring mvc HandlerMapping hello HelloController()객체 생성 -->
+	<!-- <beans:bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<beans:property name="mappings">
+			<beans:props>
+				<beans:prop key="/hello">hello</beans:prop>
+				<beans:prop key="/list">list</beans:prop>
+				<beans:prop key="/loginform">loginform</beans:prop>
+				<beans:prop key="/loginresult">loginresult</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean> -->
 	
 </beans:beans>
