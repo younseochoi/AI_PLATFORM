@@ -1,0 +1,24 @@
+<!-- 
+MemberMain 
+1>MemberDTO dto = new MemberDTO();
+dto.setId("");
+dto.setPassword(숫자);
+dto.setName("");
+dto.setPhone("");
+dto.setEmail("");
+2>service.registerMember(dto) 전달 호출
+
+3>service.registerMember(MemberDTO dto){  정의
+   List<MemberDTO> list = dao.oneMember(dto.getId());
+   if( linst == null || list.size() == 0) {
+   dao.insertMember(dto);
+   }
+   
+4> dao.insertMember(MemberDTO dto){ 정의
+  session.insert("insertmember", dto)
+  }  
+}
+-->
+<insert id="insertmember" parameterType="mybatis.MemberDTO" >
+ insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) 
+</insert>

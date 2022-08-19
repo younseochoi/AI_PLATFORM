@@ -18,6 +18,18 @@ public class MemberService2 implements MemberService {
 	if(dao.selectMember() == false) {
 		dao.insertMember();
 	}
+	
 }
 
+	@Override
+	public String registerMember(MemberDTO dto) {
+	if(dao.selectMember(dto) == false) {
+		dao.insertMember(dto);
+		return "회원가입되셨습니다. ";
+	}
+	else {
+		System.out.println("회원가입할 수 없습니다(중복 아이디)");
+		return "회원가입할 수 없습니다(중복 아이디)";
+	}
+	}
 }

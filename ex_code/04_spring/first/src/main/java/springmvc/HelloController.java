@@ -18,8 +18,9 @@ public class HelloController implements Controller {
 		dto.setMessage("컨트롤러가 jsp로 전달하는 모델입니다.");
 		
 		ModelAndView mv = new ModelAndView();
+		//request.setAttribute("model", dto);
 		mv.addObject("model", dto);
-		mv.setViewName("hello");
+		mv.setViewName("hello");//뷰경로,확장자포함x-설정파일
 		return mv;
 	}
 

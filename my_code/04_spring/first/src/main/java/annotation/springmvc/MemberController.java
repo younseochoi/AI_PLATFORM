@@ -23,10 +23,46 @@ public class MemberController {
 		return "memberhobby";
 	}
 	
+//	@PostMapping("/member")
+//	public ModelAndView end(@ModelAttribute("id") String id,@ModelAttribute("password") int password,@ModelAttribute("age") int age, @RequestParam("hobby") String[] hobby) {
+//		ModelAndView mv= new ModelAndView();
+//		if(age>=20) {
+//			mv.addObject("model", "성인입니다.");
+//		}else {
+//			mv.addObject("model", "미성년입니다.");
+//		}
+//		mv.setViewName("memberhobbyresult");
+//		
+////		for(String s : hobby) {
+////			System.out.println(s);
+////		}
+////		System.out.println(hobby.length);
+//		mv.addObject("hobby", hobby);
+//		return mv;
+//	}
+	
+//	@PostMapping("/member")
+//	public ModelAndView end(String id, int password,int age, String[] hobby) {
+//		ModelAndView mv= new ModelAndView();
+//		if(age>=20) {
+//			mv.addObject("model", "성인입니다.");
+//		}else {
+//			mv.addObject("model", "미성년입니다.");
+//		}
+//		mv.setViewName("memberhobbyresult");
+//		
+////		for(String s : hobby) {
+////			System.out.println(s);
+////		}
+////		System.out.println(hobby.length);
+////		mv.addObject("hobby", hobby);
+//		return mv;
+//	}
+
 	@PostMapping("/member")
-	public ModelAndView end(@ModelAttribute("id") String id,@ModelAttribute("password") int password,@ModelAttribute("age") int age, @RequestParam("hobby") String[] hobby) {
+	public ModelAndView end(@ModelAttribute("dto") MemberHobbyDTO dto) {
 		ModelAndView mv= new ModelAndView();
-		if(age>=20) {
+		if(dto.getAge()>=20) {
 			mv.addObject("model", "성인입니다.");
 		}else {
 			mv.addObject("model", "미성년입니다.");
@@ -37,7 +73,7 @@ public class MemberController {
 //			System.out.println(s);
 //		}
 //		System.out.println(hobby.length);
-		mv.addObject("hobby", hobby);
+//		mv.addObject("hobby", hobby);
 		return mv;
 	}
 	

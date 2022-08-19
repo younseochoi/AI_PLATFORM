@@ -21,5 +21,16 @@ public class MemberService2 implements MemberService{
 		}
 	}
 	
+	
+	@Override
+	public String registerMember(MemberDTO dto) {
+		if(dao.selectMember(dto)== false) {
+			dao.insertMember(dto);
+			return "회원가입 되셨습니다.";
+		}else {
+			return "회원가입실패(중복아이디)";
+		}
+		
+	}
 
 }

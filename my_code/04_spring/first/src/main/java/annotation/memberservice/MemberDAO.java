@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("dao")
 public class MemberDAO {
-	@Qualifier("dto2")
+	@Qualifier("dto1")
 	@Autowired
 	MemberDTO dto;
 //	1.Autowired 클래스타입 객체이면 자동전달
@@ -29,6 +29,20 @@ public class MemberDAO {
 	}
 	
 	public void insertEmployee() {
+		System.out.println(dto.getId()+" 신입사원으로 입사하셨습니다.");
+	}
+	
+	public boolean selectMember(MemberDTO dto) {
+		if(dto.getId().equals("spring")&&dto.getPassword() == 1111) {
+			return true; //정상적인 로그인 
+		}
+		return false;
+	}
+	public void insertMember(MemberDTO dto) {
+		System.out.println(dto.getId()+"회원님 정상적으로 회원가입되셨습니다.");
+	}
+	
+	public void insertEmployee(MemberDTO dto) {
 		System.out.println(dto.getId()+" 신입사원으로 입사하셨습니다.");
 	}
 }

@@ -20,9 +20,29 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan base-package="a.b.test" />
-	
-	
-	
+
+	<!-- <context:component-scan base-package="a.b.test" /> -->
+	<context:component-scan base-package="annotation.springmvc" />
+	<context:component-scan base-package="jdbc" />
+		
+<!-- spring mvc HandlerMapping hello-HelloController()객체생성 -->
+<!-- 
+	<beans:bean id="hello"  class="springmvc.HelloController" />
+	<beans:bean id="list"  class="springmvc.ListController" />
+	<beans:bean id="form"  class="springmvc.LoginFormController" />
+	<beans:bean id="result"  class="springmvc.LoginResultController" />
+				
+<beans:bean id="urlMapping"  
+class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
+	<beans:property name="mappings">
+		<beans:props>
+			<beans:prop key="/hello">hello</beans:prop>
+			<beans:prop key="/list">list</beans:prop>
+			<beans:prop key="/loginform">form</beans:prop>
+			<beans:prop key="/loginresult">result</beans:prop>
+		</beans:props>
+	</beans:property>
+</beans:bean>
+ -->	
+
 </beans:beans>

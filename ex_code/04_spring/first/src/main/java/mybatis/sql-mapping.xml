@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member" >
+	
+	<select id="memberlist" resultType="mybatis.MemberDTO">
+		select * from member  
+	</select>
+
+	<select id="membercount" resultType="int">
+		select count(*) from member   
+	</select>
+
+<!-- member 테이블에서 id 'id_spring1' 1개 있다 
+sessesion.selectOne("onemember" , "id_spring1");
+
+member 테이블에서 id 'id_spring1' 1~n개 있다 
+sessesion.selectList("onemember" , "id_spring1");
+-->
+<select id="onemember" resultType="mybatis.MemberDTO" parameterType="String" >
+    select * from member where id=#{a}
+</select>
+
+<!--  int[] a = {0, 5} -->
+<select id="paginglist" resultType="mybatis.MemberDTO"  >
+	select * from member order by regdate limit 
+	<foreach collection="array" item="num" separator=",">
+	#{num}
+	</foreach>
+</select>
+
+<!-- 
+MemberMain 
+1>MemberDTO dto = new MemberDTO();
+dto.setId("");
+dto.setPassword(숫자);
+dto.setName("");
+dto.setPhone("");
+dto.setEmail("");
+2>service.registerMember(dto) 전달 호출
+
+3>service.registerMember(MemberDTO dto){  정의
+   List<MemberDTO> list = dao.oneMember(dto.getId());
+   if( linst == null || list.size() == 0) {
+   dao.insertMember(dto);
+   }
+   
+4> dao.insertMember(MemberDTO dto){ 정의
+  session.insert("insertmember", dto)
+  }  
+}
+-->
+<insert id="insertmember" parameterType="mybatis.MemberDTO" >
+ insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) 
+</insert>
+
+
+
+</mapper>
+

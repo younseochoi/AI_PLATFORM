@@ -14,10 +14,18 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<h1> ${id } 회원님 ${age }살입니다.</h1>
+<h1> ${param.id } 회원님 ${param.age }살입니다.</h1>
 <h1>${model }</h1>
 <h1> 취미는
-<c:forEach items="${hobby }" var="hb">
+<c:forEach items="${paramValues.hobby }" var="hb">
+${hb }
+</c:forEach> 
+입니다.</h1>
+<hr>
+<h1> ${dto.id } 회원님 ${dto.age }살입니다.</h1>
+<h1>${model }</h1>
+<h1> 취미는
+<c:forEach items="${dto.hobby }" var="hb">
 ${hb }
 </c:forEach> 
 입니다.</h1>

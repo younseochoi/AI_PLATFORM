@@ -26,4 +26,14 @@
     <!--
     <Manager pathname="" />
     -->
+    
+    <Resource 
+    name="jdbc/mydb"  
+   	auth="Container"
+   	type="javax.sql.DataSource"
+   	driverClassName="com.mysql.cj.jdbc.Driver"
+   	url="jdbc:mysql://127.0.0.1:3306/memberdb"
+   	username="emp2"
+   	password="emp2"
+   	maxActive="5" maxIdle="3" maxWait="-1"    />
 </Context>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- mybatis db 연결정보 세팅 파일 -->
+<configuration>
+<!-- db연결정보 -->
+<environments default="mydb">
+	<environment id="mydb">
+		<transactionManager type="JDBC"/>
+		<dataSource type="POOLED">
+			<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+			<property name="url" value="jdbc:mysql://127.0.0.1:3306/memberdb"/>
+			<property name="username" value="emp2"/>
+			<property name="password" value="emp2"/>
+		</dataSource>
+	</environment>
+</environments>
+<!-- sql 파일 정의명 -->
+<mappers>
+	<mapper resource="mybatis/sql-maping.xml" />
+</mappers>
+</configuration>

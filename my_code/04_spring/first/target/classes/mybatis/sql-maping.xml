@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="member">
+	<select id="memberlist" resultType="mybatis.MemberDTO">
+		select*from member	
+	</select>
+	<select id="membercount" resultType="int">
+		select count(*) from member	
+	</select>
+	<select id="onemember" resultType="mybatis.MemberDTO" parameterType="String">
+		select * from member where id = #{id}	
+	</select>
+	<select id="paginglist" resultType="mybatis.MemberDTO" >
+		select * from member order by regdate limit
+		<foreach collection="array" item="num" separator=",">
+		#{num}
+		</foreach>
+	</select>
+	<insert id="insertmember" parameterType="mybatis.MemberDTO">
+		<!-- insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) -->
+		insert into member values(#{id},#{password},#{name},#{phone},#{email},#{regdate})
+	</insert>
+</mapper>

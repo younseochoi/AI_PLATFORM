@@ -10,7 +10,7 @@ public class MemberMain {
 		ApplicationContext factory = new ClassPathXmlApplicationContext("annotation/memberservice/member.xml");
 		
 		//2.
-		MemberService service = (MemberService) factory.getBean("service2");
+		MemberService service = (MemberService) factory.getBean("service1");
 		service.registerMember();
 		
 		
