@@ -3,23 +3,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="member">
-	<select id="memberlist" resultType="mybatis.MemberDTO">
+	<select id="memberlist" resultType="memberDTO">
 		select*from member	
 	</select>
 	<select id="membercount" resultType="int">
 		select count(*) from member	
 	</select>
-	<select id="onemember" resultType="mybatis.MemberDTO" parameterType="String">
+	<select id="onemember" resultType="memberDTO" parameterType="String">
 		select * from member where id = #{id}	
 	</select>
-	<select id="paginglist" resultType="mybatis.MemberDTO" >
+	<select id="paginglist" resultType="memberDTO" >
 		select * from member order by regdate limit
 		<foreach collection="array" item="num" separator=",">
 		#{num}
 		</foreach>
 	</select>
-	<insert id="insertmember" parameterType="mybatis.MemberDTO">
+	<insert id="insertmember" parameterType="memberDTO">
 		<!-- insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) -->
 		insert into member values(#{id},#{password},#{name},#{phone},#{email},#{regdate})
 	</insert>
+	<update id="updatemember" parameterType="memberDTO">
+		update member set name=#{name} , phone=#{phone}, email=#{email} where id=#{id}
+	</update>
+	<delete id="deletemember" parameterType="String">
+		delete from member where id=#{id}
+	</delete>
+	
 </mapper>

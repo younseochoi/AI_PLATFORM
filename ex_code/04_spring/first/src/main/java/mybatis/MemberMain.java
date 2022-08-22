@@ -1,6 +1,7 @@
 package mybatis;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,26 +16,29 @@ public class MemberMain {
 		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();//설정파일 읽을 준비
 		SqlSessionFactory factory = builder.build
 				( Resources.getResourceAsReader("mybatis/mybatis-config.xml") );
-		//db 연결
-		SqlSession session = factory.openSession();
-		
+		// db연결 datasource생성 + sql 실행 매핑xml  (sql -- XXDTO)
+		//db 연결 datasource생성. Connection 유사
+		SqlSession session = factory.openSession(true);//auto commit
+			
 		//  MEMBERLIST - 전체 리스트 + 회원수
 		MemberDAO dao = new MemberDAO();
 		dao.setSession(session);//sql 실행 
 		
 		MemberServiceImpl service = new MemberServiceImpl();
 		service.setDao(dao);//dao 일 시킨다
-		List<MemberDTO> list = service.memberlist();
+		
+		//전체리스트
+		/*List<MemberDTO> list = service.memberlist();
 		
 		for(int i = 0; i < list.size()-1; i++) {
 			System.out.println(list.get(i));
-		}
-		
-		System.out.println("총회원수 =" + list.get( list.size()-1 ).getPassword());
+		}*/
+		//총회원수
+		//System.out.println("총회원수 =" + list.get( list.size()-1 ).getPassword());
 		
 		//특정 멤버 조회
 		//키보드 입력 id 조회
-		Scanner key = new Scanner(System.in);
+	/*	Scanner key = new Scanner(System.in);
 		System.out.println("조회할 회원의 아이디를 입력하세요");
 		String id = key.next();
 		//MemberDTO dto = service.onemember(id);
@@ -42,8 +46,8 @@ public class MemberMain {
 		for(MemberDTO dto : list2) {
 			System.out.println(dto.getId() + ":" + dto.getName());
 		}
-		
-		System.out.println("============================================");
+	*/	
+		/*System.out.println("============================================");
 		//페이징처리
 		int[] limit= {0, 4};
 		List<MemberDTO> list3 = service.paginglist(limit);
@@ -51,6 +55,74 @@ public class MemberMain {
 			System.out.println(dto);
 		}
 		System.out.println("============================================");
+		*/
+		//insert
+/*		MemberDTO insertdto = new MemberDTO();
+		insertdto.setId("mybatis2");
+		insertdto.setPassword(1111);
+		insertdto.setName("홍길동");
+		insertdto.setPhone("01009870988");
+		insertdto.setEmail("hong@kil.con");
+		
+		int result = service.registerMember(insertdto);
+		System.out.println(result);
+		//session.commit();//방법1
+*/
+		
+		//수정
+/*		Scanner key = new Scanner(System.in);
+		System.out.println("수정할 회원의 아이디를 입력하세요");
+		String id = key.next();
+		List<MemberDTO> selectlist = service.onemember(id);//조회정보저장
+		// member 테이블 id 컬럼 pk 설정 x - 여러개 나올 수 있다.
+		
+		System.out.println("수정할 회원의 정보를 입력하세요(컬럼명=변경값의 형식으로 입력하세요)");
+		String updateInform = key.next();   //name email phone
+		
+		MemberDTO updatedto = new MemberDTO();
+		updatedto.setId(id);
+		String colName = updateInform.split("=")[0];
+		String colValue = updateInform.split("=")[1];
+		if(colName.equals("name")) {
+			updatedto.setName(colValue);//이름 수정
+			updatedto.setEmail(selectlist.get(0).getEmail());//이메일 원래값 
+			updatedto.setPhone(selectlist.get(0).getPhone());//폰번호 원래값 
+		}
+		else if(colName.equals("email")) {
+			updatedto.setEmail(colValue);
+			updatedto.setName(selectlist.get(0).getName());//이름 원래값
+			updatedto.setPhone(selectlist.get(0).getPhone());//폰번호 원래값
+		}
+		else if(colName.equals("phone")) {
+			updatedto.setPhone(colValue);
+			updatedto.setName(selectlist.get(0).getName());//이름 원래값
+			updatedto.setEmail(selectlist.get(0).getEmail());//이메일 원래값
+		}
+		
+		int result = service.updateMember(updatedto);
+		System.out.println(result);
+		// db 확인
+*/
+/*		
+		Scanner key = new Scanner(System.in);
+		System.out.println("수정할 회원의 아이디를 입력하세요");
+		String id = key.next();		
+		int result = service.deleteMember(id);
+		if(result == 0) {
+			System.out.println("가입조차 한 적이 없습니다. ");
+		}
+		else {
+			System.out.println("정상적으로 삭제처리되었습니다.");
+		}
+	*/	
+		
+		HashMap<String,String> map = new HashMap();
+		map.put("colname", "name");
+		map.put("searchword", "길동");
+		List<MemberDTO> list = session.selectList("searchmember", map );
+		for(MemberDTO dto :list) {
+			System.out.println(dto);
+		}
 		
 		
 		/*
@@ -65,15 +137,8 @@ public class MemberMain {
 		int count = session.selectOne("membercount");
 		System.out.println("총 회원수=" + count);*/
 		
-		//저장
-/*		MemberDTO dto = new MemberDTO();
-		dto.setId("mybatis2");
-		dto.setPassword("mybatis2");
-		dto.setName("홍길동");
-		dto.setPhone("019-0000-9999");
-		dto.setEmail("mybatis2@a.com");
-		int insertrow = service.insertmember(dto);
-		System.out.println(insertrow);*/
+
+		
 	}
 
 }

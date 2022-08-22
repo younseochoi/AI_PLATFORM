@@ -19,7 +19,7 @@ public class MemberDAO {
 		return session.selectOne("membercount");
 	}
 	
-	public List<MemberDTO> oneMember(String id){
+	public List<MemberDTO> oneMember(String id){//mybatis
 		return session.selectList("onemember", id);
 	}
 	
@@ -27,4 +27,19 @@ public class MemberDAO {
 		return session.selectList("paginglist", limit);
 	}
 	
+	public int insertMember(MemberDTO dto) {
+		return session.insert("insertmember", dto);
+	}
+	
+	public int updateMember(MemberDTO dto) {
+		return session.update("updatemember", dto);
+	}
+	public int deleteMember(String id) {
+		return session.delete("deletemember", id);
+	}
 }
+
+
+
+
+

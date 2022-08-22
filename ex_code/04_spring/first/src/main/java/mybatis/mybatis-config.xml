@@ -3,6 +3,11 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   <!-- mybatis db 연결정보 세팅 파일 -->
 <configuration>
+<!-- mybatis.MemberDTO  : memberdto -->
+<typeAliases>
+	<typeAlias type="mybatis.MemberDTO" alias="memberdto"/>
+</typeAliases>
+
 <!-- db 연결 정보에 따라 생성 -->
 	<environments default="mydb">
 		<environment id="mydb">

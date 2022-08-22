@@ -1,0 +1,14 @@
+MemberMybatisController
+1> 메소드
+url 매핑 - /membermybatissearchlist
+            item/searchword 파라미터로 전송
+조건 맞는 데이터만 검색
+memberlist.jsp 결과 리턴 
+
+MemberService / MemberServiceImpl/MemberDAO
+2>
+sql-mapping.xml 
+select * from member where ????? like '%' || #{searchword} || '%'
+<choose> 880p 참고 
+<when> 
+

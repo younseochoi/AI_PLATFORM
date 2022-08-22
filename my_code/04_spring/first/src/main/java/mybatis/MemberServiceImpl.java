@@ -35,6 +35,22 @@ public class MemberServiceImpl implements MemberService {
 			 return -1;
 		 }
 	}
+	
+	//회원정보 수정
+	@Override
+	public int updateMember(MemberDTO dto) {
+		List<MemberDTO> list = dao.oneMember(dto.getId());
+		if(list.size()>0) {
+			return dao.updateMember(dto);
+		}else {
+			return 0;
+		}
+	}
+	
+	@Override
+	public int deleteMember(String id) {
+		return dao.deleteMember(id);
+	}
 
 	
 	

@@ -22,8 +22,9 @@
 	</beans:bean>
 	
 	<!-- <context:component-scan base-package="a.b.test" /> -->
-	<context:component-scan base-package="annotation.springmvc" />
-	<context:component-scan base-package="jdbc" />
+	<!-- <context:component-scan base-package="annotation.springmvc" /> -->
+	<context:component-scan base-package="spring.mybatis"/>
+	<!-- <context:component-scan base-package="jdbc" /> -->
 	
 <!-- 	<beans:bean id="hello" class="springmvc.HelloController"/>
 	<beans:bean id="list" class="springmvc.ListController"/>

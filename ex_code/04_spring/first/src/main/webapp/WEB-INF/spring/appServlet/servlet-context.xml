@@ -22,8 +22,10 @@
 	</beans:bean>
 
 	<!-- <context:component-scan base-package="a.b.test" /> -->
-	<context:component-scan base-package="annotation.springmvc" />
-	<context:component-scan base-package="jdbc" />
+  <!-- <context:component-scan base-package="annotation.springmvc" /> -->
+  <!-- 	<context:component-scan base-package="jdbc" /> -->
+	<context:component-scan base-package="spring.mybatis" />
+	
 		
 <!-- spring mvc HandlerMapping hello-HelloController()객체생성 -->
 <!-- 

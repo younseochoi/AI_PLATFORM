@@ -85,23 +85,51 @@ public class MemberMain {
 //		<insert id="insertmember" parameterType="mybatis.MemberDTO" >
 //		 insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) 
 //		</insert>
-		MemberDTO dto = new MemberDTO();
-		dto.setId("yaamr");
-		dto.setPassword(1010);
-		dto.setName("batis");
-		dto.setEmail("batibati@my.com");
-		dto.setPhone("010-1010-1919");
-		dto.setRegdate("2022-08-19");
-		int result = service.registerMember(dto);
-		if(result >=1) {
-			System.out.println("정상적으로 등록하였습니다.");
-			System.out.println(result);
-		}else if(result == -1) {
-			System.out.println("중복 아이디가 존재합니다.");
-		}else {
-			System.out.println("등록실패");
-		}
-	
+//		MemberDTO dto = new MemberDTO();
+//		dto.setId("yaamr");
+//		dto.setPassword(1010);
+//		dto.setName("batis");
+//		dto.setEmail("batibati@my.com");
+//		dto.setPhone("010-1010-1919");
+//		dto.setRegdate("2022-08-19");
+//		int result = service.registerMember(dto);
+//		if(result >=1) {
+//			System.out.println("정상적으로 등록하였습니다.");
+//			System.out.println(result);
+//		}else if(result == -1) {
+//			System.out.println("중복 아이디가 존재합니다.");
+//		}else {
+//			System.out.println("등록실패");
+//		}
+		
+		System.out.println("수정할 아이디를 입력하세요.");
+		String input_id = sc.next();
+		List<MemberDTO> selectlist = service.oneMember(input_id);
+		System.out.println("수정할 회원정보를 입력하세요.(컬럼명 = 변경값의 형식)");
+		String updateInfrom = sc.next();
+		MemberDTO updatedto = new MemberDTO();
+		updatedto.setId(input_id);
+		String colname = updateInfrom.split("=")[0];
+		String colValue = updateInfrom.split("=")[1];
+		if(colname.equals("name")) {
+			updatedto.setName(colValue);
+			updatedto.setEmail(selectlist.get(0).getEmail());
+			updatedto.setPhone(selectlist.get(0).getPhone());
+		}else if(colname.equals("email")) {
+			updatedto.setEmail(colValue);
+			updatedto.setName(selectlist.get(0).getName());
+			updatedto.setPhone(selectlist.get(0).getPhone());
+		}else if(colname.equals("phone")) {
+			updatedto.setPhone(colValue);
+			updatedto.setEmail(selectlist.get(0).getEmail());
+			updatedto.setName(selectlist.get(0).getName());
 	}
+		int result = service.updateMember(updatedto);
+		System.out.println(result);
+		
+		System.out.println("삭제할 아이디를 입력하세요.");
+		input_id = sc.next();
+		int deleteresult = service.deleteMember(input_id);
 
+}
 }

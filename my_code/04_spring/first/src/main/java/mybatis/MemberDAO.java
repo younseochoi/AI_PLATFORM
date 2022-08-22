@@ -31,4 +31,12 @@ public class MemberDAO {
 		System.out.println(dto);
 		return session.insert("insertmember",dto);
 	}
+	
+	public int updateMember(MemberDTO dto) {
+		return session.update("updatemember",dto);
+	}
+	
+	public int deleteMember(String id) {
+		return session.delete("deletemember",id);
+	}
 }
