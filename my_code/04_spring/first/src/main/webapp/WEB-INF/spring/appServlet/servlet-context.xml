@@ -23,7 +23,9 @@
 	
 	<!-- <context:component-scan base-package="a.b.test" /> -->
 	<!-- <context:component-scan base-package="annotation.springmvc" /> -->
-	<context:component-scan base-package="spring.mybatis"/>
+	<!-- <context:component-scan base-package="spring.mybatis"/> -->
+	<context:component-scan base-package="board.spring.mybatis"/>
+	<!-- url 겹치면 안됨!!  -->
 	<!-- <context:component-scan base-package="jdbc" /> -->
 	
 <!-- 	<beans:bean id="hello" class="springmvc.HelloController"/>

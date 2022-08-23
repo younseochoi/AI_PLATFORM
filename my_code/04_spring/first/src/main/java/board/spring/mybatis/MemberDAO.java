@@ -1,4 +1,4 @@
-package spring.mybatis;
+package board.spring.mybatis;
 
 import java.util.HashMap;
 import java.util.List;
