@@ -30,4 +30,12 @@ public class BoardDAO {
 	public BoardDTO getOneBoard(int seq) {
 		return session.selectOne("board.getoneboard",seq);
 	}
+	
+	public int deleteBoard(int seq) {
+		return session.delete("board.deleteboard",seq);
+	}
+	
+	public int updateBoard(BoardDTO dto) {
+		return session.update("updateboard",dto);
+	}
 }

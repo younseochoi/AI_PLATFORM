@@ -58,4 +58,27 @@ public class BoardController {
 		mv.setViewName("board/detail");
 		return mv;
 	}
+	
+	@PostMapping("/boarddelete")
+	public String deleteProcess(int seq) {
+		int result = service.deleteBoard(seq);
+		return "redirect:/boardlist";
+	}
+	
+	@GetMapping("/boardupdate")
+	public  ModelAndView updateBoard(int seq) {
+		ModelAndView mv = new ModelAndView();
+		BoardDTO board = service.updateBoard(seq);
+		mv.addObject("updateform", board);
+		mv.setViewName("board/updateform");
+		return mv;
+	}
+	
+	@PostMapping("/boardupdate")
+	public  String updateBoard(BoardDTO dto) {
+		System.out.println(dto);
+		service.updateProcess(dto);
+	
+		return "redirect:/boardlist";
+	}
 }

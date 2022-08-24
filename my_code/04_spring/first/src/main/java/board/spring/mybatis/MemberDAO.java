@@ -47,4 +47,6 @@ public class MemberDAO {
 		System.out.println(session.selectList("searchmember",dto));
 		return session.selectList("searchmember",dto);
 	}
+	
+
 }

@@ -33,6 +33,24 @@ public class BoardServiceImpl implements BoardService {
 		dao.updateViewcount(seq);
 		return dao.getOneBoard(seq);
 	}
+
+	@Override
+	public int deleteBoard(int seq) {
+		return dao.deleteBoard(seq);
+	}
+
+	@Override
+	public BoardDTO updateBoard(int seq) {
+		return dao.getOneBoard(seq);
+	}
+
+	@Override
+	public void updateProcess(BoardDTO dto) {
+		int result = dao.updateBoard(dto);
+		System.out.println(result);
+	}
+	
+	
 	
 	
 

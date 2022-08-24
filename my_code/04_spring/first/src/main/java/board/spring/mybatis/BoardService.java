@@ -7,4 +7,7 @@ public interface BoardService {
 	public int getBoardCount();
 	public List<BoardDTO> getBoards(int[] page);
 	public BoardDTO getOneBoard(int seq);
+	public int deleteBoard(int seq);
+	public BoardDTO updateBoard(int seq);
+	public void updateProcess(BoardDTO dto);
 }

@@ -24,9 +24,14 @@
 	<!-- <context:component-scan base-package="a.b.test" /> -->
 	<!-- <context:component-scan base-package="annotation.springmvc" /> -->
 	<!-- <context:component-scan base-package="spring.mybatis"/> -->
-	<context:component-scan base-package="board.spring.mybatis"/>
+	<!-- <context:component-scan base-package="board.spring.mybatis"/> 게시판예제-->
+	<context:component-scan base-package="upload"/>
 	<!-- url 겹치면 안됨!!  -->
 	<!-- <context:component-scan base-package="jdbc" /> -->
+	
+	
+	<!--파일 업로드 해석자클래스 bean등록 -->
+	<beans:bean id= "multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
 <!-- 	<beans:bean id="hello" class="springmvc.HelloController"/>
 	<beans:bean id="list" class="springmvc.ListController"/>

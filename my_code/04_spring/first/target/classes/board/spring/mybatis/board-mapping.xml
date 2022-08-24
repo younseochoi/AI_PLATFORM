@@ -21,4 +21,10 @@
 	<update id="updateviewcount" parameterType="int">
 		update board set viewcount = viewcount+1 where seq=#{seq}
 	</update>
+	<delete id="deleteboard" parameterType="int">
+		delete from board where seq= ${seq}
+	</delete>
+	<update id="updateboard" parameterType="boardDTO">
+		update board set title=#{title}, contents=#{contents} where seq = #{seq}
+	</update>
 </mapper>

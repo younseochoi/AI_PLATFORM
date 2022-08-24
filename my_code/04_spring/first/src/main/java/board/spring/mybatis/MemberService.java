@@ -14,4 +14,5 @@ public interface MemberService {
 	public int getTotalMember();
 	
 	public List<MemberDTO> searchMember(MemberDTO dto);
+	
 }

@@ -65,7 +65,8 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDTO> searchMember(MemberDTO dto) {
 		return dao.searchMember(dto);
 	}
-
+	
+	
 	
 	
 	
