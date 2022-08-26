@@ -52,11 +52,43 @@ public class BoardController {
 		return mv;
 		//전체 게시물 갯수 리턴
 		// 페이지번호 따른 3개씩 리턴
-		
-		
+	}
+	
+	@RequestMapping("/boarddetail")
+	public ModelAndView getDetail(int seq) {
+		BoardDTO dto = service.updateAndGetDetail(seq);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("detail", dto);
+		mv.setViewName("board/detail");
+		return mv;
+	}
+	
+	@RequestMapping("/boarddelete")
+	String deleteBoard(int seq){
+	   service.deleteBoard(seq);
+	   return "redirect:/boardlist";
+	   // boardlist 매핑 컨트롤러 메소드 실행 - model - view
+	   //return "board/list";  //뷰응답(list.jsp만 호출 파라미터 전달못해서오류)
+	}
+	
+	@GetMapping("/boardupdate")
+	ModelAndView updateBoard(int seq) {
+		//seq 글 조회 BoardDTO -모델 - 뷰 폼 미리 보여주자
+		BoardDTO dto = service.getDetail(seq);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("updateform", dto);
+		mv.setViewName("board/updateform");
+		return mv;
+
 	}
 
+	@PostMapping("/boardupdate")
+	String updateBoard(BoardDTO dto) {
+		service.updateBoard(dto);
+		return "redirect:/boardlist";
 
+	}
+	
 }
 
 

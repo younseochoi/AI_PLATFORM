@@ -2,6 +2,7 @@ INDEX VERSION 1.4+/Users/choiyoonseo/Desktop/AI_PLATFORM/my_code/03_web/.metadat
 340940035.index
 4016699585.index
 2337179911.index
+1759425437.index
 3163449393.index
 3535385721.index
 2588834660.index

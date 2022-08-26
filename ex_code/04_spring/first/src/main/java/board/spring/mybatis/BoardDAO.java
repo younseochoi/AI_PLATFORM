@@ -22,4 +22,26 @@ public class BoardDAO {
 	public List<BoardDTO> getBoardList(int limit) {
 		return session.selectList("getBoardList", limit);
 	}
+	
+	public void updateViewcount(int seq) {
+		session.update("updateViewcount", seq);
+	}
+	
+	public BoardDTO getDetail(int seq) {
+		return session.selectOne("getDetail", seq);
+	}
+	
+	public void deleteBoard(int seq) {
+		session.delete("deleteBoard", seq);
+	}
+	
+	public void updateBoard(BoardDTO dto) {
+		session.update("updateBoard", dto);
+	}
 }
+
+
+
+
+
+

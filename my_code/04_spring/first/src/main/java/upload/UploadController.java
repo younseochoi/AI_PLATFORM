@@ -41,7 +41,7 @@ public class UploadController {
 			File servefile2= new File(savePath+newname2);
 			file2.transferTo(servefile2);
 		}
-		
+
 		//file1, file2 파일이름과 내용 서버에 저장 
 		System.out.println("작성자 : "+dto.getName()+ " 설명 :"+dto.getDescription());
 		
