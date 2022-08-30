@@ -1,0 +1,454 @@
+@charset "UTF-8";
+   @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+     body{
+        margin: 0;
+        /*font-family : 'gulim', 'gothic';*/
+        position: relative;
+     }
+   .main{
+        position: relative;
+        top: 0px;
+        align-items: center;
+        width: 100%;
+        min-width: 1280px;
+        min-height: 180vh;
+        /*height: 180%;*/
+        background-color: rgb(240, 240, 240);
+    }
+    .main .section1{
+        position: relative;
+        display :flex;
+        flex-direction : row;
+       /*  align-items: center; */
+        justify-content:center;
+        top: 20px;
+        width: 72%;
+        min-height: 140vh;
+        padding: 20px 10px 20px 10px;
+        margin: 0 auto;
+        border: 1px solid black;
+        border-top:none;
+        background-color: white;
+    }
+     .main .section2{
+        position: relative;
+        align-items: center;
+        top: 50px;
+        width: 72%;
+        min-height: 440px;
+        padding: 20px 10px 20px 10px;
+        margin: 0px auto;
+        border: 1px solid black;
+        border-bottom:none;
+        border-radius : 5px;
+        background-color: white;
+    }
+    /* .main .section1 .title{
+        position: relative;
+        width: 100%;
+        font-size: xx-large;
+        font-weight: 700;
+        padding: 0 0 0 20px;
+        margin: 0px auto;
+        margin-bottom: 20px;
+    } */
+     .main .section2 .title{
+        position: relative;
+        width: 100%;
+       
+        font-size: xx-large;
+        font-weight: 700;
+        padding: 0 0 0 20px;
+        margin: 0px auto;
+        /*border: 1px solid black; */
+        margin-bottom: 20px;
+        color:#405b7c;
+    }
+ 
+    .main .section2 .category{
+         position:relative;
+         /*display: block;*/
+         width: 95%;
+         flex-direction: column;
+         flex-wrap: wrap;
+         justify-content: space-evenly;
+         margin: 0px auto;
+         min-height: 300px;
+         align-items: center;
+         align-content: center;
+         border-radius :5px;
+         padding: 20px 0px 20px 0px;
+          background-color: rgba(204,220,215,0.3); 
+        /*  border: 1px solid black; */
+    }
+  /* 
+    
+   
+    .main .section1 .category .img5{
+        position:relative;
+        text-align: center;
+        margin: 10px 10px 10px 20px;
+        float: left;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vertex_2_Solid_State_Drive_by_OCZ-top_oblique_PNr%C2%B00307.jpg/600px-Vertex_2_Solid_State_Drive_by_OCZ-top_oblique_PNr%C2%B00307.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+    } */
+    
+    
+    .main .section1 .left{
+    	/* position :absolute; */
+    	border: 1px solid black;
+    	border-radius : 5px 0 0 5px;
+    	border-right:none;
+    	width: 20%;
+    	height: 100%;
+    }
+    .main .section1 .right{
+    	border: 1px solid black;
+    	/* border-left:none; */
+    	border-radius : 0 5px 5px 0;;
+    	width: 75%;
+    	height: 100%;
+    }
+    .main .section1 .left .category_list{
+    	/* position:relative; */
+    	/* border:1px solid black;  */
+    	width: 100%;
+    	height: 40%
+    	padding : 20px 20px 20px 20px;
+    }
+    .main .section1 .left .category_list a{
+    	text-decoration : none;
+    	color: black; 
+    }
+    .main .section1 .left .category_list a:hover{
+    	color: royalblue;
+    }
+    .main .section1 .left .category_list .list1{
+    	height: 30px;
+    	padding:3px 10px 0px 10px;
+    }
+    .main .section1 .left .category_list hr{
+    	margin :0;
+    }
+     .main .section1 .left .category_list .text1{
+     	margin-top:5px;
+        color: #405b7c;
+        font-size: large;
+        font-weight: 700;
+        /* background-color: #405b7c; */
+    }
+    /* .main .section1 .category .text1:hover{
+        color: green;
+    } */
+    .main .section1 .right .menu1{
+    	border: 1px solid black;
+    	border-radius :5px;
+    	margin: 20px 25px 20px 25px;
+    	padding:  20px 25px 20px 25px;
+    }
+    .main .section1 .right .menu1 .top{
+    	position:relative;
+    	display : flex;
+    	flex-flow:row;
+    	font-size: 20px;
+    	font-weight: 700;
+    	align-items:center;
+    	justify-content:space-between;
+    	color :  #405b7c;
+    	/* border: 1px solid black; */
+    }
+    .main .section1 .right .menu1 .top .btn{
+    	/* border: 1px solid black; */
+    	text-align:center;
+    	width: 60px;
+    }
+    /* bottom1 bottom2 영역은똑같음 */
+    .main .section1 .right .menu1 .bottom1, .bottom2{
+    	position :relative;
+    	display:flex;
+    	flex-flow:row;
+    	justify-content:space-around;
+    	/* border: 1px solid black; */
+    	margin-top: 10px;
+    }
+    .main .section1 .right .menu1 .item{
+    	width: 200px;
+    	min-height:220px;
+    	flex-flow : wrap;
+		text-align:center;
+    	/* border: 1px solid black; */
+    	
+    }
+    .main .section1 .right .menu1 .item img{
+    	width : 100px;
+    	height: 150px;
+    	margin:12px 0 5px 0; 
+    }
+    .main .section1 .right .menu1 .item .description{
+    	width: 100%;
+    /* 	border: 1px solid black; */
+    }
+    .main .section1 .right .menu1 .item .description .book_name{
+   		margin-top:3px;
+    	font-weight: 600;
+    }
+    .main .section1 .right .menu1 .item .description .writer{
+    	margin-top:3px;
+    	font-size: 14px;
+    }
+    .main .section2 .title{
+    	position: relative;
+    	display: flex;
+    	flex-flow: row;
+    	align-items: center;
+    	justify-content: space-between;
+    	width : 92%;
+    	/* border: 1px solid black; */
+    }
+    main .section2 .title .btn{
+    	/* border: 1px solid black; */
+    	text-align:center;
+    	width: 60px;
+    }
+    .main .section2 .category .product_box{
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        min-height: 300px;
+        align-content: center;
+       /*  background-color: rgba(255,253,228,0.4);  */
+        /*border: 1px solid black;*/
+    }
+    .main .section2 .category .product_box .product1{
+        position: relative;
+        float: left;
+        text-align: center;
+        min-height: 100%;
+        width: 22%;
+        /* border: 1px solid black; */
+       /*  background-color: rgba(255,253,228,0.8);  */
+    }
+    .main .section2 .category .product_box .product1 img{
+    	width : 180px;
+    	height: 230px;
+    	margin:12px 0 5px 0; 
+    }
+    .main .section2 .category .product_box .product1 .description .book_name{
+    	font-size: 18px;
+    	font-weight: 700;
+    }
+    .main .section2 .category .paging{
+        position: relative;
+        height: 30px;
+        align-items: center;
+        text-align: center;
+        /*border: 1px solid black;*/
+        padding: 5px 0 0px 300px;
+    }
+	.description a{
+		text-decoration: none;
+		color: black;
+	}   
+   .description a:hover{
+   		color:royalblue;
+   }
+    .footer {
+            position: relative;
+            top: 0px;
+            width: 100%;
+            min-width: 1280px;
+            height: 5vh;
+            background-color: #405b7c;
+        }
+ /* @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+        body {
+            margin: 0;
+            font-family : 'gulim', 'gothic';
+            position: relative;
+        }
+        .header {
+            position: relative;
+            top: 0px;
+            width: 100%;
+            height: 6vh;
+            background-color: white;
+            border: 1px solid black;
+        }
+        .header2 {
+            position: relative;
+            display: flex;
+         
+            flex-wrap: nowrap;
+            top: 0px;
+            width: 100%;
+            height: 12vh;
+            background-color: white;
+            border-bottom : 2px solid #405b7c; 
+            border: 1px solid black;
+        }
+        .header .nav {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            top: 0px;
+            margin: 0px auto;
+            width: 70%;
+            background-color:white;
+            height: 100%;
+            border: 1px solid black;
+        }
+        .header2 .nav2 {
+            position: relative;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+           	justify-content: center; 
+           	
+            top: 0px;
+            margin: 0px auto;
+            width: 750px;
+            padding-bottom: 10px;
+            background-color:white;
+         	height: 100%;
+            border: 1px solid black;
+        }
+        .header .nav .logo {
+            position: relative;
+            align-items: center;
+            float: left;
+            font-weight: 500;
+            background-color: white;
+            width: 180px;
+            justify-content: space-between;
+            height: 100%;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .header .nav .logo a {
+            text-decoration: none;
+            color: black;
+            font-size: 14pt;
+        }
+        .header .nav .logo a:hover {
+            text-decoration: none;
+            color: royalblue;
+            font-size: 14pt;
+        }
+        .header .nav .menu {
+            position: relative;
+            align-items: center;
+            text-align: right;
+            display: flex;
+            justify-content: right;
+            background-color: white;
+            width: 50%;
+            height: 100%;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .header .nav .menu .menu1 {
+            position: relative;
+            align-items: center;
+            float: left;
+            background-color: white;
+            width: 200px;
+            height: 100%;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .a1 {
+            text-decoration: none;
+            color: black;
+        }
+        .a1:hover {
+            color: royalblue;
+        }
+        .header2 .nav2  .logo{
+       
+        	width: 30%;
+        }
+        .header2 .nav2  .logo img{
+        	width: 200px;
+        	height: 60px;
+        }
+        .header2 .nav2 .menu{
+        	width:600px;
+        	height:100%;
+        	height: 40px;
+        	position:relative;
+        	display:flex;
+        	flex-wrap: nowrap;
+       		border : 1px solid red;
+        	 margin:0;
+        	 padding:0 0 0 40px;
+        	align-items: stretch;
+        	text-align: center;
+        }
+       
+         .header2 .nav2 .menu input[type=text]{
+         	position : relative;
+         	flex-wrap: nowrap;
+         	width:250px;
+         	height: 36px;
+         	border: 2px solid #405b7c;
+         	padding: 0 3px 0 3px;
+         	margin: 0 0 0 0;
+         	
+         }
+          .header2 .nav2 .menu #search_select{
+          flex-wrap: nowrap;
+          	position : relative;
+          	border: 2px solid #405b7c;
+          	border-right-style:none;
+          	border-radius: 5px 0 0 5px;
+          	width: 55px;
+           	height: 40px;
+			left:4px;
+			top: 0.3px;
+          	cursor: pointer;
+          }
+         .header2 .nav2 .menu button[type=submit] {
+         flex-wrap: nowrap;
+            position: relative;
+            width: 55px;
+            height: 40px;
+   			border: 2px solid #405b7c;
+         	margin: 0;
+         	border-radius:  0 5px 5px 0;
+         	right:5px;
+         	bottom:0.3px;
+      		 align-items: center;
+            justify-content: center; 
+         	background: #405b7c;
+            color:white;
+            cursor: pointer;
+        }
+        .header2 .nav2 .menu #search_detail_btn {
+         	flex-wrap: nowrap;
+            position: relative;
+            width: 65px;
+            height: 40px;
+   			border: 2px solid #405b7c;
+         	margin-left: 25px;
+         	border-radius:  5px;
+         	right:5px;
+         	bottom:0.3px;
+      		 align-items: center;
+            justify-content: center; 
+         	background: #405b7c;
+            color:white;
+            cursor: pointer;
+        }
+        .header2 .nav2 .menu button[type=submit]:hover{
+        	border-color : #667b96;
+        	background: #667b96;
+        }
+        .header2 .nav2 .menu #search_detail_btn:hover{
+        	border-color : #667b96;
+        	background: #667b96;
+        } */

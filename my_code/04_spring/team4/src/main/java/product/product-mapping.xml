@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="product">
+	<select id="getAllProducts" resultType="productDTO">
+		select * from books
+	</select>
+	<select id="getTotalBestseller" resultType="productDTO" parameterType="int">
+		select b.book_id, sum(count) total , title, writer, image from books b join order_details od on b.book_id = od.book_id group by book_id order by total desc limit #{page},4
+	</select>
+	<select id="getMonthBestseller" resultType="productDTO" parameterType="int">
+		select b.book_id, sum(count) total, title, writer, image from orders o join order_details od on o.order_id = od.order_id join books b on od.book_id=b.book_id where orderdate
+ between date_format(now(), '%Y-%m-01 00:00:00') and date_format(now(), '%Y-%m-%d %H:%i:%s') group by book_id order by total desc limit #{page}, 4
+	</select>
+	<select id="getCategoryBestseller" resultType="productDTO" parameterType="product.parameter.ParameterDTO">
+		select b.book_id, sum(count) total, title, writer, image from orders o join order_details od on o.order_id = od.order_id join books b on od.book_id=b.book_id 
+	    join categories c on b.category_id=c.category_id where category_name = #{category}
+	    group by book_id order by total desc limit #{page},4
+	</select>
+	<select id="searchSimple" resultType="productDTO" parameterType="productDTO">
+		select * from books where
+		<choose>
+			<when test="title != null">
+				title like concat('%',#{title},'%')
+			</when>
+			<when test="writer!= null">
+				writer like concat('%',#{writer},'%')
+			</when>
+			<when test="publisher != null">
+				publisher like concat('%',#{publisher},'%')
+			</when>
+		</choose>
+		<!-- order by regdate -->
+	</select>
+	
+	
+	
+	
+</mapper>  

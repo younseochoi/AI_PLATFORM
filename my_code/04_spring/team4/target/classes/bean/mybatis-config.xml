@@ -2,9 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!-- mybatis.MemberDTO   -->
-<!-- <typeAliases>
-	<typeAlias type="spring.mybatis.MemberDTO" alias="memberDTO"/>
-</typeAliases> -->
+<!-- product.ProductDTO   -->
+<!-- product.parameter.ParameterDTO  -->
+<typeAliases>
+	<typeAlias type="product.ProductDTO" alias="productDTO"/>
+	<!-- <typeAlias type="product.parameter.ParameterDTO" alias="paramterDTO"/> -->
+</typeAliases>
 
 </configuration>
