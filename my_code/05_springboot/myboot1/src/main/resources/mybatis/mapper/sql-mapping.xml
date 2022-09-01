@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board.spring.mybatis.MemberDAO">
+	
+	<select id="getList" resultType="memberDTO">
+		select*from member	
+	</select>
+	<select id="getCount" resultType="int">
+		select count(*) from member	
+	</select>
+	<select id="oneMember" resultType="memberDTO" parameterType="String">
+		select * from member where id = #{id}	
+	</select>
+	<select id="paginglist" resultType="memberDTO" >
+		select * from member order by regdate limit
+		<foreach collection="array" item="num" separator=",">
+		#{num}
+		</foreach>
+	</select>
+	<insert id="insertMember" parameterType="memberDTO">
+		<!-- insert into member values(#{id},#{password},#{name},#{phone},#{email},now()) -->
+		insert into member values(#{id},#{password},#{name},#{phone},#{email},#{regdate})
+	</insert>
+	<update id="updateMember" parameterType="memberDTO">
+		update member set name=#{name} , phone=#{phone}, email=#{email} where id=#{id}
+	</update>
+	<delete id="deleteMember" parameterType="String">
+		delete from member where id=#{id}
+	</delete>
+	<!-- <select id="searchmember" resultType="memberDTO" parameterType="String">
+		select * from member where 
+		 <choose>
+                        <when test="type == 'id'.toString()">
+                            title like '%'||#{searchword}||'%' 
+                        </when>
+                        <when test="type == 'name'.toString()">
+                            content like '%'||#{searchword}||'%' 
+                        </when>
+                        <when test="type == 'email'.toString()">
+                            writer like '%'||#{searchword}||'%' 
+                        </when>
+                        <when test="type == 'phone'.toString()">
+                            writer like '%'||#{searchword}||'%' 
+                        </when>
+                    </choose>
+	</select> -->
+	<!-- <select id="searchmember">
+	SELECT * FROM TBL_BOARD
+    <trim prefix="where (" suffix=")" prefixOverrides="OR">
+이 전달받은 MAP(맵)의 index="key"(인덱스)는 어떤 값이며, 이 값을 어떤 변수(item)에 담을 것인가.
+    <foreach item="val" index="key" collection="map">
+      <trim prefix="OR">
+          <if test="key == 'name'.toString()">
+            name like '%'|| #{val}||'%'
+        </if>
+        <if test="key == 'id'.toString()">
+            id like '%'|| #{val}||'%'
+        </if>
+        <if test = "key == 'email'.toString()">
+            email like '%'|| #{val}||'%'
+        </if>
+        <if test = "key == 'phone'.toString()">
+            phone like '%'|| #{val}||'%'
+        </if>
+      </trim>
+
+        </foreach>
+    </trim>
+	</select> -->
+	<select id="searchMember" resultType="memberDTO" parameterType="memberDTO">
+		select * from member where
+		<choose>
+			<when test="name != null">
+				name like concat('%',#{name},'%')
+			</when>
+			<when test="id!= null">
+				id like concat('%',#{id},'%')
+			</when>
+			<when test="email != null">
+				email like concat('%',#{email},'%')
+			</when>
+			<when test="phone != null">
+				phone like concat('%',#{phone},'%')
+			</when>
+		</choose>
+		order by regdate
+	</select>
+</mapper>

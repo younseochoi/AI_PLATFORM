@@ -6,6 +6,9 @@
 <!-- product.parameter.ParameterDTO  -->
 <typeAliases>
 	<typeAlias type="product.ProductDTO" alias="productDTO"/>
+	<typeAlias type="member.MemberDTO" alias="memberdto"/>
+	<typeAlias type="review.ReviewDTO" alias="reviewdto"/>
+	<typeAlias type="review.ReviewDTO" alias="cartDTO"/>
 	<!-- <typeAlias type="product.parameter.ParameterDTO" alias="paramterDTO"/> -->
 </typeAliases>
 

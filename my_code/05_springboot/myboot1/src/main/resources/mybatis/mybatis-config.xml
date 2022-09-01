@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- mybatis db 연결정보 세팅 파일 -->
+<configuration>
+<!-- mybatis.MemberDTO   -->
+<typeAliases>
+	<typeAlias type="board.spring.mybatis.MemberDTO" alias="memberDTO"/>
+	<typeAlias type="board.spring.mybatis.BoardDTO" alias="boardDTO"/>
+	<typeAlias type="upload.UploadDTO" alias="uploadDTO"/>
+	
+</typeAliases>
+<!-- db연결정보 ==> spring-mybatis.xml로 이동-->
+
+<!-- sql 파일 정의명  ==> spring-mybatis.xml로 이동-->
+
+</configuration>

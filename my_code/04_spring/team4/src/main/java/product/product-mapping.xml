@@ -33,6 +33,34 @@
 		</choose>
 		<!-- order by regdate -->
 	</select>
+	<select id="searchlist" resultType="productdto" parameterType="productdto">
+		select * from books where
+	<choose>
+		<when test="title != null">
+		 title like concat('%',#{title},'%') and category_id=#{category_id}; 
+		</when>
+		<when test="writer != null">
+		 writer like concat('%',#{writer},'%') and category_id=#{category_id};
+		</when>
+		<when test="publisher != null">
+		 publisher like concat('%',#{publisher},'%') and category_id=#{category_id};
+		</when>
+		<when test="price != null">
+		 price=#{price} and category_id=#{category_id};
+		</when>
+	</choose>
+	</select>
+	<select id="getProductCategory" resultType="productDTO" parameterType="int">
+	 	<!--카테고리 아이디 검색 -->
+	 	select * from books where category_id=#{category_id} 
+		<!-- select * from books b join categories c on b.category_id=c.category_id where b.category_id=#{category_id} -->
+	</select>
+	<select id="getBook" resultType="productDTO" parameterType="int">
+	 	<!--book 아이디 검색 -->
+	 	select * from books where book_id=#{book_id} 
+		<!-- select * from books b join categories c on b.category_id=c.category_id where b.category_id=#{category_id} -->
+	</select>
+	
 	
 	
 	

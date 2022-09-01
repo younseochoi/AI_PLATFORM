@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product" >
+	<!--  books테이블의 모든 데이터 불러오기-->
+	<select id="bookList" resultType="productdto" >
+		select * from books  
+	</select>
+
+ 
+	<select id="bookcount" resultType="int">
+		select count(*) from books   
+	</select>
+ 
+<!-- member 테이블에서 id 'id_spring1' 1개 있다 
+sessesion.selectOne("onemember" , "id_spring1");
+
+member 테이블에서 id 'id_spring1' 1~n개 있다 
+sessesion.selectList("onemember" , "id_spring1");
+-->
+<select id="onetitle" resultType="productdto" parameterType="String" >
+    select * from books where title=#{title}
+</select>
+
+<!--  int[] a = {0, 5} 한페이지당 5개씩 보이기-->
+<select id="bookpaginglist" resultType="productdto"  >
+	select * from books order by category_id limit 
+	<foreach collection="array" item="num" separator=",">
+	#{num}
+	</foreach>
+</select>
+
+<!-- 
+MemberMain 
+1>MemberDTO dto = new MemberDTO();
+dto.setId("");
+dto.setPassword(숫자);
+dto.setName("");
+dto.setPhone("");
+dto.setEmail("");
+2>service.registerMember(dto) 전달 호출
+
+3>service.registerMember(MemberDTO dto){  정의
+   List<MemberDTO> list = dao.oneMember(dto.getId());
+   if( linst == null || list.size() == 0) {
+   dao.insertMember(dto);
+   }
+   
+4> dao.insertMember(MemberDTO dto){ 정의
+  session.insert("insertmember", dto)
+  }  
+}
+-->
+<!-- 
+<insert id="insertbook" parameterType="productdto" >
+ insert into books values(#{book_id},#{title},#{summary},#{writer},#{publisher},#{image}, #{price}, #{category_id}) 
+</insert>
+ -->
+<!-- 
+MemberDTO dto = new MemberDTO();
+dto.setId("")
+dto.setName("")
+dto.setPhone("")
+dto.setEmail("")
+session.update("updatemember", dto); -->
+<!-- 
+<update id="updatemember" parameterType="productdto" >
+	update books set name=#{name}, phone=#{phone}, email=#{email} where id=#{id}
+</update>
+
+
+<delete id="deletemember" parameterType="String">
+delete from books where id=#{i}
+</delete>
+ -->
+<!--
+<delete id="deletemember" parameterType="memberdto">
+delete from member id=#{} and password=#{}
+</delete>
+-->
+
+<select id="searchlist" resultType="productdto" parameterType="productdto">
+select * from books where
+	<choose>
+	<when test="title != null">
+	 title like concat('%',#{title},'%')        
+	</when>
+	<when test="writer != null">
+	 writer like concat('%',#{writer},'%')
+	</when>
+	<when test="publisher != null">
+	 publisher like concat('%',#{publisher},'%')
+	</when>
+</choose>
+order by title
+</select>
+
+</mapper>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="upload.UploadDAO">
+  
+  	<resultMap type="java.util.HashMap" id="outputname">
+  		<id column="name" property="name"/>
+  		<id column="description" property="description"/>
+  		<id column="file1" property="filename1"/>
+  		<id column="file2" property="filename2"/>
+  	</resultMap>
+  	
+  	<!-- <insert id="uploadFile" parameterType="uploadDTO">
+  		insert into upload values (#{name}, #{description}, #{filename1}, #{filename2}, now())
+  	</insert> -->
+  	<insert id="uploadFile" parameterType="java.util.HashMap">
+  		insert into upload values (#{name}, #{description}, #{file1}, #{file2}, now())
+  	</insert>
+  	
+  	<select id="outputName" parameterType="String" resultMap="outputname">
+  		select * from upload where name =#{name}
+  	</select>
+  </mapper>

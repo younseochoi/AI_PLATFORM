@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="cart">
+	<select id="getCart" resultType="cartDTO" parameterType="int">
+		select * from carts ct join books b on ct.book_id = b.book_id where member_id = ${member_id}
+	</select>
+	<select id="getCount" resultType="cartDTO" parameterType="int">
+		SELECT sum(count) as totalcount FROM carts ct join books b on ct.book_id = b.book_id where member_id = ${member_id}
+	</select>
+	
+
+	<select id="getTotal" resultType="cartDTO" parameterType="int">	
+		SELECT sum(count*price) as sumproduct FROM carts ct join books b on ct.book_id = b.book_id where member_id = ${member_id}
+	</select>
+	
+	<select id="insertIntoCart" parameterType="cartDTO">
+		insert into carts(count, book_id, member_id) value(#{count}, #{book_id}, #{member_id})
+	</select>
+	
+	<select id="search" parameterType="cartDTO">
+		select * from books where book_id=${book_id_sub}
+	</select>
+</mapper>  

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('form').on('submit',function(e){
+	
+		var id = $('#id').val();
+		
+		if(id == null || id==""){
+			alert("아이디를 입력해주세요.");
+			e.preventDefault();
+		}
+	});
+	
+	$('#cancelbtn').on('click',function(e){
+		$('#id').val("");
+		$('#password').val("");
+		
+	});
+	
+}); 
+</script>
+<style>
+#loginform{
+	text-align:center;
+}
+#loginform table{
+	margin: 0 auto;
+}
+#loginform tr td{
+	padding: 10px 10px 10px  10px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="loginform">
+<h1>로그인</h1>
+<hr>
+<form action="/login">
+<table>
+	<tr><td>아이디</td><td><input type=text name="id" id="id"></td></tr>
+	<tr><td>비밀번호</td><td><input type=password name="password" id="password"></td></tr>
+	<tr><td></td><td><input id="loginbtn" type=submit value="로그인">&nbsp;&nbsp; <input type=button  id="cancelbtn" value="취소"></td></tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>

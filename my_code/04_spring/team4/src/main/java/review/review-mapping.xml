@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="review">
+	<!-- 리뷰 등록 -->
+	<insert id="registerReview" parameterType="reviewdto">
+		insert into reviews (book_id, member_id, rating, title, contents, writingtime)
+		values (#{book_id}, #{member_id}, #{rating}, #{title}, #{contents}, now());
+	</insert>
+  </mapper>

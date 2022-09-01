@@ -1,7 +1,8 @@
 -- create database bookstore;
 -- use bookstore;
 
-
+create database team4;
+use team4;
 drop table order_details;
 drop table orders;
 drop table reviews;
@@ -49,13 +50,22 @@ CREATE TABLE `members` (
   
   
   
-  CREATE TABLE `cart` (
-  `cart_id` INT NOT NULL,
-  `count` INT NOT NULL DEFAULT '1',
+  CREATE TABLE `team4`.`carts` (
+  `cart_id` INT NOT NULL AUTO_INCREMENT,
+  `count` INT NULL DEFAULT 1,
+  `book_id` INT NULL,
+  `member_id` INT NULL,
   PRIMARY KEY (`cart_id`),
+  INDEX `book_id_idx` (`book_id` ASC) VISIBLE,
+  INDEX `member_id_idx` (`member_id` ASC) VISIBLE,
   CONSTRAINT `book_id`
-    FOREIGN KEY (`cart_id`)
-    REFERENCES `books` (`book_id`)
+    FOREIGN KEY (`book_id`)
+    REFERENCES `team4`.`books` (`book_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `member_id`
+    FOREIGN KEY (`member_id`)
+    REFERENCES `team4`.`members` (`member_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
     
@@ -92,7 +102,6 @@ CREATE TABLE `orders` (
   `member_id` INT NULL,
   `orderdate` DATETIME NULL,
   PRIMARY KEY (`order_id`),
-  INDEX `book_id_idx` (`book_id` ASC) VISIBLE,
   INDEX `member_id_idx` (`member_id` ASC) VISIBLE,
   CONSTRAINT `member_id_orders_members`
     FOREIGN KEY (`member_id`)
@@ -107,6 +116,7 @@ CREATE TABLE `order_details` (
   `detail_id` INT NOT NULL AUTO_INCREMENT,
   `count` INT NULL,
   PRIMARY KEY (`detail_id`),
+   INDEX `book_id_idx` (`book_id` ASC) VISIBLE,
   INDEX `order_id_idx` (`order_id` ASC) VISIBLE,
    CONSTRAINT `book_id_orderdetails_books`
     FOREIGN KEY (`book_id`)
