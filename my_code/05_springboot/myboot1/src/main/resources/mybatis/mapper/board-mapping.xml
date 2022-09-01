@@ -9,7 +9,7 @@
 	<select id="getBoardCount" resultType="int">
 		select count(*) from board
 	</select>
-	<select id="getTotalBoards" resultType="boardDTO">
+	<select id="getBoards" resultType="boardDTO">
 		select * from board order by writingtime desc limit
 			<foreach collection="array" item="num" separator=",">
 				#{num}
