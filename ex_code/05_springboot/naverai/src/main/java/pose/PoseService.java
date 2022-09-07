@@ -1,22 +1,34 @@
-package com.example.naverai;
+package pose;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-// Pose Estimation API 예제
-public class APIExamPose {
+import org.springframework.stereotype.Service;
 
-    public static void main(String[] args) {
+import com.example.naverai.NaverInform;
+import com.example.naverai.NaverService;
 
+@Service("poseservice")
+public class PoseService implements NaverService {
+
+	@Override
+	public String test(String image) {
+		String result = "";
         StringBuffer reqStr = new StringBuffer();
         String clientId = NaverInform.id;//애플리케이션 클라이언트 아이디값";
         String clientSecret = NaverInform.key;//애플리케이션 클라이언트 시크릿값";
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = NaverInform.path + "1620863403997.jpg";
+            String imgFile = NaverInform.path + image;
             File uploadFile = new File(imgFile);
             String apiURL = "https://naveropenapi.apigw.ntruss.com/vision-pose/v1/estimate"; // 사람 인식
             URL url = new URL(apiURL);
@@ -66,12 +78,14 @@ public class APIExamPose {
                 }
                 br.close();
                 System.out.println(response.toString());
+                result  = response.toString();
             } else {
                 System.out.println("error !!!");
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-    }//main end
-}//class end
+		return result;
+	}
 
+}

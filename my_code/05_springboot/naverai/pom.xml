@@ -50,6 +50,12 @@
 	         <artifactId>spring-boot-devtools</artifactId>
 	         <optional>true</optional>
 	     </dependency>
+	     <!-- naver ocr을 위한 ocr json -->
+	     <dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20220320</version>
+		</dependency>
 	</dependencies>
 
 	<build>

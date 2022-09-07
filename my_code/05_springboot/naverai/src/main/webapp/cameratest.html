@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--1. navigator.mediaDevices.getUserMedia() 객체 사용  
+	2. 1번렌즈가 보여주는 내용 화면 출력 태그 -> 비디오 태그 사용
+	셔텨 역할 버튼 -> input button
+	찍힌 사진 <canvas>
+	찍힌 사진 파일 저장 <a href >
+<a href="" download="브라우저다운로드폴더/b.html"></a>
+-->
+<video src="" id="camera-view" autoplay playsinline ></video>
+<button id="camera-button">사진촬영</button>
+<canvas id="camera-output"></canvas>
+<a id="camera-save"></a>
+<script type="text/javascript">
+	var cameraView = document.getElementById("camera-view");
+	var cameraBtn = document.getElementById("camera-button");
+	var cameraOutput = document.getElementById("camera-output");
+	var cameraSave = document.getElementById("camera-save");
+	
+	var constraint = {video: {facingMode:"user"}, audio:false};
+	
+	window.onload= function(){
+		navigator.mediaDevices.getUserMedia(constraint)
+		.then(function(stream){cameraView.srcObject = stream;})
+		.catch(function(error){
+			consol.log("카메라가 손상되었습니다.",error);
+		}) //오류
+		
+	}
+	
+	cameraBtn.onclick = function(){
+		cameraOutput.width = cameraView.videoWidth;
+		cameraOutput.height = cameraView.videoHeight;
+		
+ 		//var mycanvas = document.getElementById("mycanvas");
+ 		var cameraContext = cameraOutput.getContext("2d");
+		cameraContext.drawImage(cameraView,0,0); // 비디오 태그에 보이던 카메라내용을 캔버스태그로 복사
+		
+		//파일로 저장 (이미지 = 바이너리스트림형태 ==> blob -> url -> 파일로 다운로드 저장)
+		cameraOutput.toBlob(function(blob){
+			var imageurl = URL.createObjectURL(blob);
+			cameraSave.href= imageurl;
+			cameraSave.download = "사진.png";
+			cameraSave.innerHTML = "파일 다운로드";
+		});// toblob
+		
+	}
+</script>
+</body>
+</html>

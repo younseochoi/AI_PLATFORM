@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+	//ar a = $("#mycanvas");
+	var mycanvas = document.getElementById("mycanvas");
+	var mycontext = mycanvas.getContext("2d");
+	
+	var myimage = new Image();
+	myimage.src = "http://localhost:8082/naverai/song.jpg";
+	myimage.onload = function(){ //이미지로딩중 대기
+		mycontext.drawImage(myimage, 0, 0, myimage.width, myimage.height );
+		mycontext.lineWidth = 3;
+		mycontext.strokeStyle = "red";
+		mycontext.strokeRect(10 , 50, 100, 200);
+		
+		mycontext.font = "20px serif";
+		mycontext.fillStyle= "blue";
+		mycontext.fillText("이미지테스트", 10 , 50, 50, 50);
+		mycontext.fillRect(10 , 50, 100, 200);
+		
+	}//onload 
+	
+
+});//ready
+</script>
+</head>
+<body>
+<canvas id="mycanvas" width=500 height=500 style="border:2px solid pink">
+</canvas>
+</body>
+</html>
+

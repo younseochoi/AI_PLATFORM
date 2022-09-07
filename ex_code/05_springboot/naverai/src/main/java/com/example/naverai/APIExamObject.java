@@ -5,8 +5,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-// Pose Estimation API 예제
-public class APIExamPose {
+// Object Detection API 예제
+public class APIExamObject {
 
     public static void main(String[] args) {
 
@@ -16,9 +16,9 @@ public class APIExamPose {
 
         try {
             String paramName = "image"; // 파라미터명은 image로 지정
-            String imgFile = NaverInform.path + "1620863403997.jpg";
+            String imgFile = NaverInform.path + "land2.jpg";
             File uploadFile = new File(imgFile);
-            String apiURL = "https://naveropenapi.apigw.ntruss.com/vision-pose/v1/estimate"; // 사람 인식
+            String apiURL = "https://naveropenapi.apigw.ntruss.com/vision-obj/v1/detect"; // 객체 인식
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setUseCaches(false);
@@ -72,6 +72,5 @@ public class APIExamPose {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }//main end
-}//class end
-
+    }
+}
