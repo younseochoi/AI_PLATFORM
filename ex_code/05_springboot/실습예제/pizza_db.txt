@@ -1,0 +1,30 @@
+피자 주문 결과 테이블 저장 
+1. naverai/pom.xml
+   mysql jdbc driver 
+   mybatis framework jar
+   spring-mybatis 연동 jar
+
+2. src/main/resources/application.properties
+   -jdbc driver name
+   - url
+   - id
+   - password
+   -mybatis-config.xml파일명
+   -sql매핑파일명
+
+3. mysql 
+create table pizza
+telnum varchar
+size varchar
+kind varchar 
+price int
+ordertime datetime
+
+
+4. pizza-mapping.xml
+<mapper namespace="5번매퍼패키지명.인터페이스명"
+피자 주문 정보를 저장 sql 정의
+
+5. PizzaDAO - 인터페이스 - @Mapper 
+
+6. SPRING BOOT MAIN 클래스 - @MapperScan(5번패키지)
