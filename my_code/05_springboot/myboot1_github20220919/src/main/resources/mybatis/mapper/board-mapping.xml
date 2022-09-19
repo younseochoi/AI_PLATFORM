@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board.spring.mybatis.BoardDAO">
+	<insert id="insertBoard" parameterType="boardDTO">
+		insert into board(title, contents, writer, pw, viewcount, writingtime) values(#{title},#{contents},#{writer},#{pw},#{viewcount},now())
+	</insert>
+	<select id="getBoardCount" resultType="int">
+		select count(*) from board
+	</select>
+	<select id="getBoards" resultType="boardDTO">
+		select * from board order by writingtime desc limit
+			<foreach collection="array" item="num" separator=",">
+				#{num}
+		</foreach>
+	</select>
+	<select id="getOneBoard" parameterType="int" resultType="boardDTO">
+		select * from board where seq = #{seq}
+	</select>
+	<update id="updateViewcount" parameterType="int">
+		update board set viewcount = viewcount+1 where seq=#{seq}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where seq= ${seq}
+	</delete>
+	<update id="updateBoard" parameterType="boardDTO">
+		update board set title=#{title}, contents=#{contents} where seq = #{seq}
+	</update>
+</mapper>
